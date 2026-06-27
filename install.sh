@@ -28,7 +28,7 @@ print_warning() {
 
 print_header() {
     echo -e "${GREEN}"
-    echo "🪢 Spore - Monorepo Package Manager"
+    echo "🍄 Spore - Monorepo Package Manager"
     echo "=================================="
     echo -e "${NC}"
 }

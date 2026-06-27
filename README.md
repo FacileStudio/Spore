@@ -1,4 +1,4 @@
-# Spore 🪢
+# Spore 🍄
 
 A modern monorepo package manager for any programming language that simplifies dependency management and builds across multiple apps and packages.
 
