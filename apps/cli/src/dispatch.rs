@@ -259,7 +259,7 @@ pub async fn handle_matches(matches: ArgMatches) -> Result<()> {
 fn print_root_help() -> Result<()> {
     println!(
         "{}",
-        console::style("🪢 Spore - Monorepo package manager")
+        console::style("🍄 Spore - Monorepo package manager")
             .bold()
             .cyan()
     );
