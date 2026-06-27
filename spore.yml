@@ -1,0 +1,31 @@
+name: Spore
+description: A modern monorepo package manager for TypeScript/JavaScript projects
+
+scripts:
+  setup: "echo 'Setting up Spore development environment...' && echo 'Run cargo build in each app directory to build'"
+  test-all: "echo 'Running all tests...' && cd apps/cli && cargo test && cd ../web && cargo test"
+  build-all: "echo 'Building all apps...' && cd apps/cli && cargo build --release && cd ../web && cargo build --release"
+  clean: "echo 'Cleaning build artifacts...' && find . -name target -type d -exec rm -rf {} + 2>/dev/null || true"
+  dev-space: "cd apps/web && cargo run"
+  dev-ui: "cd apps/backend && npm run dev"
+  dev-full: "echo 'Starting Spore Space backend and frontend...' && (cd apps/web && cargo run &) && (cd apps/backend && npm run dev)"
+  install-cli: "cd apps/cli && cargo build --release && sudo cp target/release/spore /usr/local/bin/"
+  setup-ui: "cd apps/backend && npm install"
+
+apps:
+  cli:
+    description: "The Spore CLI tool for monorepo package management"
+  web:
+    description: "Backend API server for Spore packages"
+    tsAlias: "#"
+    packages: [types]
+  backend:
+    description: "Frontend UI for Spore Space package registry"
+    tsAlias: true
+    packages: [types, utils]
+
+packages:
+  types:
+    description: "Shared TypeScript types for all Spore applications"
+  utils:
+    description: "Shared utility functions for Spore applications"

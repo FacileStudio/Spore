@@ -1,0 +1,43 @@
+# Build stage
+FROM oven/bun AS builder
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package.json bun.lock ./
+
+# Install dependencies
+RUN bun install --frozen-lockfile
+
+# Copy app source code (spore_packages already included via pre-commit hook)
+COPY . ./
+
+# Set build-time environment variables for SvelteKit
+ARG PUBLIC_BACKEND_URL
+ENV PUBLIC_BACKEND_URL=${PUBLIC_BACKEND_URL}
+
+# Build application
+RUN bun run build
+
+# Runtime stage
+FROM oven/bun
+
+# Set working directory
+WORKDIR /app
+
+# Copy built application
+COPY --from=builder /app/build ./build
+COPY --from=builder /app/spore_packages ./spore_packages
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
+
+# Expose port
+EXPOSE 3000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD wget --no-verbose --tries=1 --spider http://localhost:3000 || exit 1
+
+# Start application
+CMD ["node", "build/index.js"]

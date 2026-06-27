@@ -1,0 +1,77 @@
+# Docker Compose for Spore development environment
+version: '3.8'
+
+services:
+  # Spore development environment
+  spore-dev:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: spore-dev
+    volumes:
+      - .:/workspace/spore:ro
+      - spore-projects:/workspace/projects
+    working_dir: /workspace/projects
+    environment:
+      - SPORE_REPO_URL=https://github.com/saravenpi/spore.git
+    command: info
+    profiles:
+      - dev
+
+  # Spore build environment
+  spore-build:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    container_name: spore-build
+    volumes:
+      - .:/usr/src/spore
+      - cargo-cache:/usr/local/cargo/registry
+      - target-cache:/usr/src/spore/target
+    working_dir: /usr/src/spore
+    command: cargo build --release
+    profiles:
+      - build
+
+  # Test runner
+  spore-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    container_name: spore-test
+    volumes:
+      - .:/usr/src/spore
+      - cargo-cache:/usr/local/cargo/registry
+      - target-cache:/usr/src/spore/target
+    working_dir: /usr/src/spore
+    command: cargo test
+    profiles:
+      - test
+
+  # Documentation server
+  docs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    container_name: spore-docs
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/usr/src/spore
+      - cargo-cache:/usr/local/cargo/registry
+      - target-cache:/usr/src/spore/target
+    working_dir: /usr/src/spore
+    command: bash -c "cargo doc --no-deps && python3 -m http.server 8000 -d target/doc"
+    profiles:
+      - docs
+
+volumes:
+  spore-projects:
+    driver: local
+  cargo-cache:
+    driver: local
+  target-cache:
+    driver: local
