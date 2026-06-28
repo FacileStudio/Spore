@@ -1,5 +1,28 @@
 /* Facile UI theme — tokens mirror muse CHARTE.md (--color-fc-*). */
 
+/* Goga — Facile Studio brand display font (headings). Body stays Helvetica. */
+@font-face {
+  font-family: "Goga";
+  src: url("/fonts/Goga-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Goga";
+  src: url("/fonts/Goga-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Goga";
+  src: url("/fonts/Goga-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -65,6 +88,14 @@
       BlinkMacSystemFont,
       "Segoe UI",
       sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Goga", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 }
 

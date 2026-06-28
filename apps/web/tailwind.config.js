@@ -56,6 +56,7 @@ const config = {
       },
       fontFamily: {
         sans: ["Helvetica Neue", "Helvetica", "Arial", ...fontFamily.sans],
+        display: ["Goga", "Helvetica Neue", "Helvetica", "Arial", ...fontFamily.sans],
       },
     },
   },
