@@ -22,7 +22,7 @@ services:
       NODE_ENV: production
       PORT: "3001"
       DATABASE_URL: postgresql://spore:${POSTGRES_PASSWORD}@postgres:5432/spore_space
-      JWT_SECRET: ${JWT_SECRET}
+      AUTH_SECRET: ${AUTH_SECRET}
       API_URL: ${PUBLIC_BACKEND_URL}
     depends_on:
       postgres:
