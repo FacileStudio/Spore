@@ -204,7 +204,7 @@
 			</p>
 		</section>
 
-		<section class="mb-12 bg-gray-50 rounded-lg p-6">
+		<section class="mb-12 bg-muted rounded-lg p-6">
 			<h2 class="text-2xl font-semibold mb-4">Contact Information</h2>
 			
 			<p class="mb-4">

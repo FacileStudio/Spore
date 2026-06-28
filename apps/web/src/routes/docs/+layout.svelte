@@ -162,7 +162,7 @@
 
 <svelte:window on:keydown={handleKeydown} />
 
-<div class="min-h-screen bg-white">
+<div class="min-h-screen bg-card">
 	<!-- Mobile sidebar overlay -->
 	{#if sidebarOpen}
 		<div class="fixed inset-0 z-40 lg:hidden">
@@ -178,28 +178,28 @@
 	{/if}
 
 	<!-- Sidebar -->
-	<div class="fixed inset-y-0 left-0 z-50 w-80 bg-white border-r border-gray-200 transform {sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-200 ease-out lg:translate-x-0">
+	<div class="fixed inset-y-0 left-0 z-50 w-80 bg-card border-r border-border transform {sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-200 ease-out lg:translate-x-0">
 		<div class="flex h-full flex-col">
 			<!-- Header -->
-			<div class="flex h-20 items-center justify-between px-8 border-b border-gray-200">
+			<div class="flex h-20 items-center justify-between px-8 border-b border-border">
 				<div class="flex items-center space-x-4">
 					<a href="/docs" class="flex items-center space-x-3 group">
-						<div class="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-gray-200 transition-colors duration-200">
-							<Icon icon="lucide:book-open" class="w-4 h-4 text-gray-700" />
+						<div class="w-8 h-8 bg-muted rounded-lg flex items-center justify-center group-hover:bg-gray-200 transition-colors duration-200">
+							<Icon icon="lucide:book-open" class="w-4 h-4 text-muted-foreground" />
 						</div>
-						<h1 class="text-xl font-semibold text-gray-900 group-hover:text-black transition-colors duration-200" style="font-family: 'Gambarino', 'Satoshi', sans-serif;">
+						<h1 class="text-xl font-semibold text-foreground group-hover:text-foreground transition-colors duration-200" style="font-family: 'Gambarino', 'Satoshi', sans-serif;">
 							Spore Docs
 						</h1>
 					</a>
 				</div>
 				<div class="flex items-center space-x-3">
-					<a href="/" class="flex items-center text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200 px-3 py-1.5 rounded-md hover:bg-gray-100">
+					<a href="/" class="flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 px-3 py-1.5 rounded-md hover:bg-muted">
 						<Icon icon="lucide:arrow-left" class="w-3 h-3 mr-1.5" />
 						Back to Spore Space
 					</a>
 					<button
 						on:click={() => sidebarOpen = false}
-						class="lg:hidden p-2 rounded-lg hover:bg-gray-100 text-gray-600 hover:text-gray-900 transition-colors duration-200"
+						class="lg:hidden p-2 rounded-lg hover:bg-muted text-muted-foreground hover:text-foreground transition-colors duration-200"
 					>
 						<Icon icon="lucide:x" class="w-5 h-5" />
 					</button>
@@ -212,8 +212,8 @@
 					{#each sections as section}
 						<div>
 							<div class="flex items-center space-x-2 mb-3 px-2">
-								<Icon icon={section.icon} class="w-4 h-4 text-gray-500" />
-								<h3 class="text-xs font-semibold text-gray-600 uppercase tracking-wide">
+								<Icon icon={section.icon} class="w-4 h-4 text-muted-foreground" />
+								<h3 class="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
 									{section.title}
 								</h3>
 							</div>
@@ -224,7 +224,7 @@
 											href={item.href}
 											class="block px-3 py-2 text-sm rounded-md transition-colors {isActive(item.href, item.exact)
 												? 'bg-blue-50 text-blue-700 font-medium'
-												: 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'}"
+												: 'text-muted-foreground hover:text-foreground hover:bg-muted'}"
 											on:click={() => sidebarOpen = false}
 										>
 											<div class="flex items-center">
@@ -241,13 +241,13 @@
 			</nav>
 
 			<!-- Footer -->
-			<div class="border-t border-gray-200 p-6 bg-gray-50">
+			<div class="border-t border-border p-6 bg-muted">
 				<div class="flex items-center justify-between text-xs">
 					<div class="flex items-center space-x-2">
 						<div class="w-2 h-2 bg-green-500 rounded-full"></div>
-						<span class="text-gray-600 font-medium">Spore v1.0.0</span>
+						<span class="text-muted-foreground font-medium">Spore v1.0.0</span>
 					</div>
-					<a href="https://github.com/saravenpi/spore" class="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors duration-200 px-3 py-1.5 rounded-md hover:bg-gray-100 group">
+					<a href="https://github.com/saravenpi/spore" class="flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors duration-200 px-3 py-1.5 rounded-md hover:bg-muted group">
 						<Icon icon="lucide:github" class="w-4 h-4" />
 						<span class="font-medium">GitHub</span>
 					</a>
@@ -259,25 +259,25 @@
 	<!-- Main content -->
 	<div class="lg:pl-80">
 		<!-- Top bar for mobile -->
-		<div class="sticky top-0 z-30 lg:hidden bg-white border-b border-gray-200">
+		<div class="sticky top-0 z-30 lg:hidden bg-card border-b border-border">
 			<div class="h-16 flex items-center justify-between px-4">
 				<button
 					on:click={() => sidebarOpen = true}
-					class="p-2.5 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+					class="p-2.5 rounded-lg hover:bg-muted transition-colors duration-200"
 					aria-label="Open navigation menu"
 				>
-					<Icon icon="lucide:menu" class="w-5 h-5 text-gray-700" />
+					<Icon icon="lucide:menu" class="w-5 h-5 text-muted-foreground" />
 				</button>
 				<div class="flex items-center space-x-2">
-					<div class="w-6 h-6 bg-gray-100 rounded-md flex items-center justify-center">
-						<Icon icon="lucide:book-open" class="w-3 h-3 text-gray-700" />
+					<div class="w-6 h-6 bg-muted rounded-md flex items-center justify-center">
+						<Icon icon="lucide:book-open" class="w-3 h-3 text-muted-foreground" />
 					</div>
 					<div class="flex flex-col items-center">
-						<h1 class="text-lg font-semibold text-gray-900" style="font-family: 'Gambarino', 'Satoshi', sans-serif;">
+						<h1 class="text-lg font-semibold text-foreground" style="font-family: 'Gambarino', 'Satoshi', sans-serif;">
 							Spore Docs
 						</h1>
 						{#if currentPageInfo.section && $page.url.pathname !== '/docs'}
-							<div class="text-xs text-gray-600 font-medium">
+							<div class="text-xs text-muted-foreground font-medium">
 								{currentPageInfo.section}
 							</div>
 						{/if}
@@ -287,18 +287,18 @@
 			</div>
 			
 			{#if currentPageInfo.page && $page.url.pathname !== '/docs'}
-				<div class="px-4 pb-3 border-t border-gray-100">
+				<div class="px-4 pb-3 border-t border-border">
 					<div class="flex items-center space-x-1 text-sm mt-2">
-						<a href="/docs" class="text-gray-600 hover:text-gray-900 transition-colors font-medium">Docs</a>
+						<a href="/docs" class="text-muted-foreground hover:text-foreground transition-colors font-medium">Docs</a>
 						<Icon icon="lucide:chevron-right" class="w-3 h-3 text-gray-400" />
-						<span class="text-gray-900 font-semibold">{currentPageInfo.page}</span>
+						<span class="text-foreground font-semibold">{currentPageInfo.page}</span>
 					</div>
 				</div>
 			{/if}
 		</div>
 
 		<!-- Page content -->
-		<main class="min-h-screen bg-white">
+		<main class="min-h-screen bg-card">
 			<slot />
 		</main>
 	</div>

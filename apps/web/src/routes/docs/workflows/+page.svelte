@@ -76,12 +76,12 @@
 	<!-- Next Steps -->
 	<section class="mb-12">
 		<h2 class="text-2xl font-bold mb-6">Next Steps</h2>
-		<div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+		<div class="bg-muted border border-border rounded-lg p-6">
 			<div class="flex items-start space-x-3">
-				<Icon icon="lucide:check-circle" class="w-6 h-6 text-gray-600 mt-1 flex-shrink-0" />
+				<Icon icon="lucide:check-circle" class="w-6 h-6 text-muted-foreground mt-1 flex-shrink-0" />
 				<div>
-					<h3 class="font-semibold text-gray-900 mb-2">Ready to optimize your workflow?</h3>
-					<p class="text-sm text-gray-700 mb-4">
+					<h3 class="font-semibold text-foreground mb-2">Ready to optimize your workflow?</h3>
+					<p class="text-sm text-muted-foreground mb-4">
 						Now that you know the best practices, let's dive into more advanced topics.
 					</p>
 					<div class="flex flex-wrap gap-3">
@@ -89,7 +89,7 @@
 							<Icon icon="lucide:box-bold" class="w-4 h-4 mr-2" />
 							Package Development
 						</a>
-						<a href="/docs/project-management" class="inline-flex items-center px-4 py-2 border border-gray-600 text-gray-600 text-sm font-medium rounded-md hover:bg-gray-50 transition-colors">
+						<a href="/docs/project-management" class="inline-flex items-center px-4 py-2 border border-gray-600 text-muted-foreground text-sm font-medium rounded-md hover:bg-muted transition-colors">
 							<Icon icon="lucide:folder-with-files-bold" class="w-4 h-4 mr-2" />
 							Project Management
 						</a>

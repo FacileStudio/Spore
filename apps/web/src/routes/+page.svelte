@@ -133,7 +133,7 @@
 	</div>
 	<div class="relative z-10">
 	<h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6" style="font-family: 'Gambarino', 'Satoshi', sans-serif;">
-		Welcome to <span class="text-black">Spore Space</span>
+		Welcome to <span class="text-foreground">Spore Space</span>
 	</h1>
 	<p class="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
 		The modern package registry for Spore monorepo packages. Publish, share, and manage packages for any programming language with teams.
@@ -141,7 +141,7 @@
 	<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
 		<a
 			href="/packages"
-			class="bg-black text-white hover:bg-black/90 px-8 py-3 rounded-lg font-medium transition-colors flex items-center space-x-2"
+			class="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 rounded-lg font-medium transition-colors flex items-center space-x-2"
 		>
 			<Icon icon="solar:box-bold" class="w-5 h-5" />
 			<span>Browse Packages</span>
@@ -161,31 +161,31 @@
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 py-12 border-t border-b">
 	<div class="text-center">
 		{#if statsLoading}
-			<div class="text-3xl font-bold text-black mb-2">
+			<div class="text-3xl font-bold text-foreground mb-2">
 				<div class="animate-pulse bg-muted rounded w-16 h-8 mx-auto"></div>
 			</div>
 		{:else}
-			<div class="text-3xl font-bold text-black mb-2">{formatLargeNumber(stats.totalPackages)}</div>
+			<div class="text-3xl font-bold text-foreground mb-2">{formatLargeNumber(stats.totalPackages)}</div>
 		{/if}
 		<div class="text-muted-foreground">Total Packages</div>
 	</div>
 	<div class="text-center">
 		{#if statsLoading}
-			<div class="text-3xl font-bold text-black mb-2">
+			<div class="text-3xl font-bold text-foreground mb-2">
 				<div class="animate-pulse bg-muted rounded w-16 h-8 mx-auto"></div>
 			</div>
 		{:else}
-			<div class="text-3xl font-bold text-black mb-2">{formatLargeNumber(stats.totalDownloads)}</div>
+			<div class="text-3xl font-bold text-foreground mb-2">{formatLargeNumber(stats.totalDownloads)}</div>
 		{/if}
 		<div class="text-muted-foreground">Total Downloads</div>
 	</div>
 	<div class="text-center">
 		{#if statsLoading}
-			<div class="text-3xl font-bold text-black mb-2">
+			<div class="text-3xl font-bold text-foreground mb-2">
 				<div class="animate-pulse bg-muted rounded w-16 h-8 mx-auto"></div>
 			</div>
 		{:else}
-			<div class="text-3xl font-bold text-black mb-2">{formatLargeNumber(stats.totalUsers)}</div>
+			<div class="text-3xl font-bold text-foreground mb-2">{formatLargeNumber(stats.totalUsers)}</div>
 		{/if}
 		<div class="text-muted-foreground">Total Users</div>
 	</div>
@@ -197,7 +197,7 @@
 		<h2 class="text-3xl font-bold">Recent Packages</h2>
 		<a
 			href="/packages"
-			class="text-black hover:text-black/80 font-medium"
+			class="text-foreground hover:text-foreground/80 font-medium"
 		>
 			View All →
 		</a>
@@ -222,7 +222,7 @@
 			<p class="text-muted-foreground mb-4">Be the first to publish a package to Spore Space!</p>
 			<a
 				href="/login"
-				class="bg-black text-white hover:bg-black/90 px-6 py-2 rounded-md font-medium transition-colors inline-flex items-center space-x-2"
+				class="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-2 rounded-md font-medium transition-colors inline-flex items-center space-x-2"
 			>
 				<Icon icon="solar:rocket-2-bold" class="w-4 h-4" />
 				<span>Get Started</span>
@@ -299,7 +299,7 @@
 				</a>
 				<a
 					href="/register"
-					class="bg-black text-white hover:bg-black/90 px-6 py-3 rounded-lg font-medium transition-colors flex items-center justify-center space-x-2"
+					class="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 rounded-lg font-medium transition-colors flex items-center justify-center space-x-2"
 				>
 					<Icon icon="solar:rocket-2-bold" class="w-4 h-4" />
 					<span>Get Started</span>
@@ -320,7 +320,7 @@
 			<div class="space-y-4">
 				<div class="flex items-center space-x-3 mb-4">
 					<div class="w-8 h-8 bg-black/10 rounded-lg flex items-center justify-center">
-						<Icon icon="solar:settings-bold" class="w-5 h-5 text-black" />
+						<Icon icon="solar:settings-bold" class="w-5 h-5 text-foreground" />
 					</div>
 					<h3 class="text-xl font-semibold">1. Initialize Your Project</h3>
 				</div>
@@ -349,7 +349,7 @@
 			<div class="space-y-4">
 				<div class="flex items-center space-x-3 mb-4">
 					<div class="w-8 h-8 bg-black/10 rounded-lg flex items-center justify-center">
-						<Icon icon="solar:box-bold" class="w-5 h-5 text-black" />
+						<Icon icon="solar:box-bold" class="w-5 h-5 text-foreground" />
 					</div>
 					<h3 class="text-xl font-semibold">2. Create Packages</h3>
 				</div>
@@ -377,14 +377,14 @@
 	<div class="max-w-4xl mx-auto mb-16">
 		<div class="flex items-center justify-center space-x-3 mb-8">
 			<div class="w-8 h-8 bg-black/10 rounded-lg flex items-center justify-center">
-				<Icon icon="solar:code-square-bold" class="w-5 h-5 text-black" />
+				<Icon icon="solar:code-square-bold" class="w-5 h-5 text-foreground" />
 			</div>
 			<h3 class="text-2xl font-semibold">Essential Commands</h3>
 		</div>
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 			<div class="bg-muted/30 rounded-lg p-6">
 				<div class="flex items-center space-x-2 mb-3">
-					<Icon icon="solar:link-bold" class="w-4 h-4 text-black" />
+					<Icon icon="solar:link-bold" class="w-4 h-4 text-foreground" />
 					<span class="font-semibold">Link Packages</span>
 				</div>
 				<pre class="text-sm font-mono bg-black/90 text-green-400 p-3 rounded overflow-x-auto"><code>$ spore link
@@ -393,7 +393,7 @@
 			</div>
 			<div class="bg-muted/30 rounded-lg p-6">
 				<div class="flex items-center space-x-2 mb-3">
-					<Icon icon="solar:rocket-2-bold" class="w-4 h-4 text-black" />
+					<Icon icon="solar:rocket-2-bold" class="w-4 h-4 text-foreground" />
 					<span class="font-semibold">Publish Package</span>
 				</div>
 				<pre class="text-sm font-mono bg-black/90 text-green-400 p-3 rounded overflow-x-auto"><code>$ spore publish --team myteam
@@ -402,7 +402,7 @@
 			</div>
 			<div class="bg-muted/30 rounded-lg p-6">
 				<div class="flex items-center space-x-2 mb-3">
-					<Icon icon="solar:play-bold" class="w-4 h-4 text-black" />
+					<Icon icon="solar:play-bold" class="w-4 h-4 text-foreground" />
 					<span class="font-semibold">Run Scripts</span>
 				</div>
 				<pre class="text-sm font-mono bg-black/90 text-green-400 p-3 rounded overflow-x-auto"><code>$ spore run dev
@@ -411,7 +411,7 @@
 			</div>
 			<div class="bg-muted/30 rounded-lg p-6">
 				<div class="flex items-center space-x-2 mb-3">
-					<Icon icon="solar:hammer-bold" class="w-4 h-4 text-black" />
+					<Icon icon="solar:hammer-bold" class="w-4 h-4 text-foreground" />
 					<span class="font-semibold">Build Apps</span>
 				</div>
 				<pre class="text-sm font-mono bg-black/90 text-green-400 p-3 rounded overflow-x-auto"><code>$ spore build
@@ -429,7 +429,7 @@
 	<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 		<div class="text-center">
 			<div class="w-12 h-12 bg-black/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-				<Icon icon="solar:rocket-2-bold" class="w-6 h-6 text-black" />
+				<Icon icon="solar:rocket-2-bold" class="w-6 h-6 text-foreground" />
 			</div>
 			<h3 class="font-semibold text-lg mb-2">Fast Publishing</h3>
 			<p class="text-muted-foreground">
@@ -438,7 +438,7 @@
 		</div>
 		<div class="text-center">
 			<div class="w-12 h-12 bg-black/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-				<Icon icon="solar:users-group-two-rounded-bold" class="w-6 h-6 text-black" />
+				<Icon icon="solar:users-group-two-rounded-bold" class="w-6 h-6 text-foreground" />
 			</div>
 			<h3 class="font-semibold text-lg mb-2">Team Collaboration</h3>
 			<p class="text-muted-foreground">
@@ -447,7 +447,7 @@
 		</div>
 		<div class="text-center">
 			<div class="w-12 h-12 bg-black/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-				<Icon icon="solar:shield-check-bold" class="w-6 h-6 text-black" />
+				<Icon icon="solar:shield-check-bold" class="w-6 h-6 text-foreground" />
 			</div>
 			<h3 class="font-semibold text-lg mb-2">Secure & Reliable</h3>
 			<p class="text-muted-foreground">

@@ -264,7 +264,7 @@
   {:else if files.length === 0}
     <div class="empty-state">
       <File class="w-8 h-8 text-gray-400" />
-      <p class="text-gray-500">No files found in this package</p>
+      <p class="text-muted-foreground">No files found in this package</p>
     </div>
   {:else}
     <div class="file-explorer {desktopSidebarCollapsed ? 'sidebar-collapsed' : ''}">
@@ -339,7 +339,7 @@
                         class="file-button {selectedFile === child.path ? 'selected' : ''}"
                         on:click={() => { loadFileContent(child.path); closeSidebar(); }}
                       >
-                        <File class="w-4 h-4 text-gray-500" />
+                        <File class="w-4 h-4 text-muted-foreground" />
                         <span class="file-name">{child.name}</span>
                         {#if child.size}
                           <span class="file-size">{formatFileSize(child.size)}</span>
@@ -353,7 +353,7 @@
                   class="file-button {selectedFile === file.path ? 'selected' : ''}"
                   on:click={() => { loadFileContent(file.path); closeSidebar(); }}
                 >
-                  <File class="w-4 h-4 text-gray-500" />
+                  <File class="w-4 h-4 text-muted-foreground" />
                   <span class="file-name">{file.name}</span>
                   {#if file.size}
                     <span class="file-size">{formatFileSize(file.size)}</span>
@@ -374,7 +374,7 @@
             </div>
             <div class="content-actions">
               <button
-                class="inline-flex items-center px-3 py-1 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition-colors"
+                class="inline-flex items-center px-3 py-1 border border-border text-sm font-medium rounded-md text-muted-foreground bg-card hover:bg-muted transition-colors"
                 on:click={viewFile}
                 title="Open file in new tab"
               >
@@ -382,7 +382,7 @@
                 View
               </button>
               <button
-                class="inline-flex items-center px-3 py-1 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition-colors"
+                class="inline-flex items-center px-3 py-1 border border-border text-sm font-medium rounded-md text-muted-foreground bg-card hover:bg-muted transition-colors"
                 on:click={downloadFile}
                 title="Download this file"
               >
@@ -406,7 +406,7 @@
                 <div class="binary-info">
                   <File class="w-8 h-8 text-gray-400" />
                   <p>Binary file ({fileContent.mimeType})</p>
-                  <p class="text-sm text-gray-500">Cannot display binary content</p>
+                  <p class="text-sm text-muted-foreground">Cannot display binary content</p>
                 </div>
               </div>
             {:else if fileContent.mimeType.startsWith('image/')}
@@ -429,7 +429,7 @@
         {:else}
           <div class="no-selection">
             <Eye class="w-8 h-8 text-gray-400" />
-            <p class="text-gray-500">Select a file to view its content</p>
+            <p class="text-muted-foreground">Select a file to view its content</p>
           </div>
         {/if}
       </div>

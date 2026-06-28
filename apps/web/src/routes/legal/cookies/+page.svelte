@@ -140,7 +140,7 @@
 			
 			<p class="mb-4">We may use third-party services that set their own cookies:</p>
 			
-			<div class="bg-gray-50 rounded-lg p-6">
+			<div class="bg-muted rounded-lg p-6">
 				<h3 class="text-lg font-medium mb-3">Analytics Services</h3>
 				<p class="text-sm text-muted-foreground mb-4">
 					We may use analytics services to understand how our service is used and to improve performance.
@@ -191,29 +191,29 @@
 			<h2 class="text-2xl font-semibold mb-4">Cookie Retention</h2>
 			
 			<div class="overflow-x-auto">
-				<table class="w-full border-collapse border border-gray-300">
+				<table class="w-full border-collapse border border-border">
 					<thead>
-						<tr class="bg-gray-50">
-							<th class="border border-gray-300 px-4 py-2 text-left">Cookie Type</th>
-							<th class="border border-gray-300 px-4 py-2 text-left">Duration</th>
-							<th class="border border-gray-300 px-4 py-2 text-left">Purpose</th>
+						<tr class="bg-muted">
+							<th class="border border-border px-4 py-2 text-left">Cookie Type</th>
+							<th class="border border-border px-4 py-2 text-left">Duration</th>
+							<th class="border border-border px-4 py-2 text-left">Purpose</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td class="border border-gray-300 px-4 py-2">Session</td>
-							<td class="border border-gray-300 px-4 py-2">Until browser closes</td>
-							<td class="border border-gray-300 px-4 py-2">Authentication and security</td>
+							<td class="border border-border px-4 py-2">Session</td>
+							<td class="border border-border px-4 py-2">Until browser closes</td>
+							<td class="border border-border px-4 py-2">Authentication and security</td>
 						</tr>
 						<tr>
-							<td class="border border-gray-300 px-4 py-2">Persistent</td>
-							<td class="border border-gray-300 px-4 py-2">30 days</td>
-							<td class="border border-gray-300 px-4 py-2">User preferences and settings</td>
+							<td class="border border-border px-4 py-2">Persistent</td>
+							<td class="border border-border px-4 py-2">30 days</td>
+							<td class="border border-border px-4 py-2">User preferences and settings</td>
 						</tr>
 						<tr>
-							<td class="border border-gray-300 px-4 py-2">Analytics</td>
-							<td class="border border-gray-300 px-4 py-2">2 years</td>
-							<td class="border border-gray-300 px-4 py-2">Usage statistics and improvements</td>
+							<td class="border border-border px-4 py-2">Analytics</td>
+							<td class="border border-border px-4 py-2">2 years</td>
+							<td class="border border-border px-4 py-2">Usage statistics and improvements</td>
 						</tr>
 					</tbody>
 				</table>
@@ -228,7 +228,7 @@
 			</p>
 		</section>
 
-		<section class="mb-12 bg-gray-50 rounded-lg p-6">
+		<section class="mb-12 bg-muted rounded-lg p-6">
 			<h2 class="text-2xl font-semibold mb-4">Contact Us</h2>
 			
 			<p class="mb-4">

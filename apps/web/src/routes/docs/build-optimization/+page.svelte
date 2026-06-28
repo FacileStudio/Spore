@@ -39,7 +39,7 @@ spore build @org/package-* --parallel`}</code></pre>
 			<div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
 				<h3 class="font-semibold text-blue-900 mb-2">Build Cache</h3>
 				<p class="text-sm text-blue-700 mb-3">Spore automatically caches build outputs to speed up subsequent builds</p>
-				<pre class="bg-white rounded p-3"><code class="text-sm">{`# View cache status
+				<pre class="bg-card rounded p-3"><code class="text-sm">{`# View cache status
 spore cache status
 
 # Clear cache
@@ -52,7 +52,7 @@ spore build --no-cache`}</code></pre>
 			<div class="bg-green-50 border border-green-200 rounded-lg p-4">
 				<h3 class="font-semibold text-green-900 mb-2">Dependency Cache</h3>
 				<p class="text-sm text-green-700 mb-3">Cache dependencies for faster installs</p>
-				<pre class="bg-white rounded p-3"><code class="text-sm">{`# Cache location
+				<pre class="bg-card rounded p-3"><code class="text-sm">{`# Cache location
 ~/.spore/cache/
 
 # Prune unused cached packages

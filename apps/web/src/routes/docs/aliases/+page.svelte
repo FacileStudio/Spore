@@ -101,7 +101,7 @@
         <span class="text-blue-400">as:</span> <span class="text-yellow-400">users</span>
       - <span class="text-blue-400">name:</span> <span class="text-green-400">"@company/shared-components@^2.0.0"</span>
         <span class="text-blue-400">as:</span> <span class="text-yellow-400">ui</span>
-      - <span class="text-green-400">simple-package</span>  <span class="text-gray-500"># No alias</span></code></pre>
+      - <span class="text-green-400">simple-package</span>  <span class="text-muted-foreground"># No alias</span></code></pre>
 						</div>
 					</div>
 
@@ -252,7 +252,7 @@
 						<h4 class="font-medium mb-2">In spore.yml</h4>
 						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
 							<pre><code><span class="text-blue-400">name:</span> my-project
-<span class="text-blue-400">ts_alias:</span> <span class="text-green-400">"@"</span>  <span class="text-gray-500"># Default alias prefix</span>
+<span class="text-blue-400">ts_alias:</span> <span class="text-green-400">"@"</span>  <span class="text-muted-foreground"># Default alias prefix</span>
 
 <span class="text-blue-400">apps:</span>
   <span class="text-blue-400">frontend:</span>
@@ -290,7 +290,7 @@
 						<h4 class="font-medium mb-2">In app.yml</h4>
 						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
 							<pre><code><span class="text-blue-400">name:</span> frontend
-<span class="text-blue-400">ts_alias:</span> <span class="text-green-400">"#"</span>  <span class="text-gray-500"># Override project default</span>
+<span class="text-blue-400">ts_alias:</span> <span class="text-green-400">"#"</span>  <span class="text-muted-foreground"># Override project default</span>
 <span class="text-blue-400">packages:</span>
   - <span class="text-green-400">types</span>
   - <span class="text-green-400">utils</span>
@@ -302,7 +302,7 @@
 						<h4 class="font-medium mb-2">Disable Aliases</h4>
 						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
 							<pre><code><span class="text-blue-400">name:</span> legacy-app
-<span class="text-blue-400">ts_alias:</span> <span class="text-red-400">false</span>  <span class="text-gray-500"># Disable aliases for this app</span>
+<span class="text-blue-400">ts_alias:</span> <span class="text-red-400">false</span>  <span class="text-muted-foreground"># Disable aliases for this app</span>
 <span class="text-blue-400">packages:</span>
   - <span class="text-green-400">types</span></code></pre>
 						</div>
@@ -484,7 +484,7 @@
 					React and Next.js automatically respect TypeScript path mappings from <code>tsconfig.json</code>.
 				</p>
 				<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-					<pre><code><span class="text-gray-500">// Works out of the box</span>
+					<pre><code><span class="text-muted-foreground">// Works out of the box</span>
 <span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">UserCard</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">&apos;@/ui-components&apos;</span>;
 <span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">api</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">&apos;@/utils&apos;</span>;</code></pre>
 				</div>

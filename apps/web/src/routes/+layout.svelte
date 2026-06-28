@@ -56,8 +56,8 @@
     <div class="p-6">
       <!-- Logo -->
       <a href="/" class="flex items-center space-x-2 mb-8 hover:opacity-80 transition-opacity">
-        <div class="w-8 h-8 bg-black rounded-md flex items-center justify-center">
-          <span class="text-white font-bold text-sm">K</span>
+        <div class="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
+          <span class="text-primary-foreground font-bold text-sm">S</span>
         </div>
         <span class="font-semibold text-xl">Spore Space</span>
       </a>
@@ -129,7 +129,7 @@
   <!-- Mobile Floating Docs Button -->
   <a 
     href="/docs"
-    class="lg:hidden fixed bottom-20 right-4 z-40 bg-white text-gray-700 p-3 rounded-full shadow-lg hover:bg-gray-50 transition-all duration-200 border border-gray-200 {currentPath.startsWith('/docs') ? 'ring-2 ring-gray-300 ring-offset-2' : ''}"
+    class="lg:hidden fixed bottom-20 right-4 z-40 bg-card text-muted-foreground p-3 rounded-full shadow-lg hover:bg-muted transition-all duration-200 border border-border {currentPath.startsWith('/docs') ? 'ring-2 ring-gray-300 ring-offset-2' : ''}"
     title="Documentation"
   >
     <Icon icon="solar:book-2-bold" class="w-5 h-5" />
@@ -184,8 +184,8 @@
 					<div class="flex justify-between h-16">
 						<div class="flex items-center">
 							<a href="/" class="flex items-center space-x-2">
-								<div class="w-8 h-8 bg-black rounded-md flex items-center justify-center">
-									<span class="text-white font-bold text-sm">K</span>
+								<div class="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
+									<span class="text-white font-bold text-sm">S</span>
 								</div>
 								<span class="font-semibold text-xl">Spore Space</span>
 							</a>
@@ -243,8 +243,8 @@
 						<!-- Brand Section -->
 						<div class="space-y-4">
 							<div class="flex items-center space-x-2">
-								<div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-									<span class="text-black font-bold text-sm">K</span>
+								<div class="w-8 h-8 bg-card rounded-lg flex items-center justify-center">
+									<span class="text-foreground font-bold text-sm">S</span>
 								</div>
 								<span class="text-xl font-bold">Spore Space</span>
 							</div>

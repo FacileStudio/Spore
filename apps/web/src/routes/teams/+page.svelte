@@ -89,9 +89,9 @@
 			case 'admin':
 				return 'text-blue-500';
 			case 'member':
-				return 'text-gray-500';
+				return 'text-muted-foreground';
 			default:
-				return 'text-gray-500';
+				return 'text-muted-foreground';
 		}
 	}
 
@@ -285,7 +285,7 @@
 			<p class="text-muted-foreground mb-6">Create your first team to start collaborating with others.</p>
 			<button
 				on:click={() => showCreateForm = true}
-				class="bg-black text-white hover:bg-black/90 px-4 py-2 rounded-md text-sm font-medium transition-colors flex items-center justify-center space-x-2 mx-auto w-full sm:w-auto max-w-xs"
+				class="bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-md text-sm font-medium transition-colors flex items-center justify-center space-x-2 mx-auto w-full sm:w-auto max-w-xs"
 			>
 				<Icon icon="solar:add-circle-bold" class="w-4 h-4" />
 				<span>Create Your First Team</span>
@@ -393,7 +393,7 @@
 							<span>Created {formatDate(team.createdAt || new Date())}</span>
 							<button 
 								on:click={() => openManageTeam(team.id)}
-								class="text-black hover:underline font-medium text-left sm:text-right"
+								class="text-foreground hover:underline font-medium text-left sm:text-right"
 							>
 								Manage Team
 							</button>

@@ -367,8 +367,8 @@
 						<h4 class="font-medium mb-2">In spore.yml or app.yml</h4>
 						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
 							<pre><code><span class="text-blue-400">packages:</span>
-  - <span class="text-green-400">types</span>            <span class="text-gray-500"># Local package</span>
-  - <span class="text-green-400">@myteam/shared-utils</span> <span class="text-gray-500"># Team package</span></code></pre>
+  - <span class="text-green-400">types</span>            <span class="text-muted-foreground"># Local package</span>
+  - <span class="text-green-400">@myteam/shared-utils</span> <span class="text-muted-foreground"># Team package</span></code></pre>
 						</div>
 					</div>
 
