@@ -104,10 +104,6 @@
 				opacity: 0.12;"
 		></div>
 		<div class="relative z-10 mx-auto max-w-3xl text-center">
-			<span class="inline-flex items-center gap-2 rounded-full border border-border bg-background/70 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur">
-				<span class="h-1.5 w-1.5 rounded-full bg-foreground"></span>
-				Monorepo package manager for any language
-			</span>
 			<h1 class="mt-6 text-4xl font-bold tracking-tight md:text-6xl" style="font-family: 'Goga', sans-serif;">
 				Ship packages<br />without the friction.
 			</h1>
@@ -133,7 +129,7 @@
 			</div>
 			<div class="mx-auto mt-10 max-w-2xl text-left">
 				<CodeBlock label="bash" copy={installCmd}>
-<span class="text-zinc-600">$ </span><span class="text-zinc-100">curl -fsSL https://raw.githubusercontent.com/FacileStudio/Spore/main/install.sh | bash</span></CodeBlock>
+<span class="text-zinc-100">curl -fsSL https://raw.githubusercontent.com/FacileStudio/Spore/main/install.sh | bash</span></CodeBlock>
 			</div>
 		</div>
 	</section>
@@ -235,7 +231,7 @@
 					<h3 class="text-lg font-semibold">Initialize your project</h3>
 				</div>
 				<CodeBlock label="Terminal">
-<span class="text-zinc-600">$ </span><span class="text-zinc-100">spore init MyProject</span>
+<span class="text-zinc-100">spore init MyProject</span>
 <span class="text-zinc-400">✅ Initialized new Spore project: MyProject</span>
 <span class="text-zinc-400">📁 Created directories: packages/, apps/</span>
 <span class="text-zinc-500">💡 Use 'spore init:package &lt;name&gt;' to create packages</span></CodeBlock>
@@ -258,7 +254,7 @@
 					<h3 class="text-lg font-semibold">Create packages</h3>
 				</div>
 				<CodeBlock label="Terminal">
-<span class="text-zinc-600">$ </span><span class="text-zinc-100">spore init:package utils --team myteam</span>
+<span class="text-zinc-100">spore init:package utils --team myteam</span>
 <span class="text-zinc-400">📦 Initialized new package: utils</span></CodeBlock>
 				<CodeBlock label="packages/utils/package.yml">
 <span class="text-zinc-400">name:</span> <span class="text-zinc-100">utils</span>
@@ -293,7 +289,7 @@
 						<span class="font-semibold">{c.name}</span>
 					</div>
 					<CodeBlock label="Terminal">
-<span class="text-zinc-600">$ </span><span class="text-zinc-100">{c.cmd}</span>
+<span class="text-zinc-100">{c.cmd}</span>
 {#each c.out as line}<span class="text-zinc-400">{line}</span>
 {/each}</CodeBlock>
 				</div>
@@ -332,7 +328,7 @@
 			</p>
 			<div class="mx-auto mt-6 max-w-xl text-left">
 				<CodeBlock label="bash" copy={installCmd}>
-<span class="text-zinc-600">$ </span><span class="text-zinc-100">curl -fsSL https://raw.githubusercontent.com/FacileStudio/Spore/main/install.sh | bash</span></CodeBlock>
+<span class="text-zinc-100">curl -fsSL https://raw.githubusercontent.com/FacileStudio/Spore/main/install.sh | bash</span></CodeBlock>
 			</div>
 			<div class="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
 				<a
