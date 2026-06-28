@@ -11,7 +11,7 @@
 	<div class="mb-8">
 		<div class="flex items-center gap-3 mb-4">
 			<Icon icon="solar:shield-check-bold" class="w-8 h-8 text-primary" />
-			<h1 class="text-4xl font-bold" style="font-family: 'Gambarino', 'Satoshi', sans-serif;">Security</h1>
+			<h1 class="text-4xl font-bold" style="font-family: 'Goga', 'Satoshi', sans-serif;">Security</h1>
 		</div>
 		<p class="text-muted-foreground text-lg">
 			Last updated: January 19, 2025

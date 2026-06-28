@@ -18,7 +18,7 @@
 		<div class="inline-flex items-center justify-center w-16 h-16 bg-card border border-border rounded-2xl shadow-sm mb-6">
 			<Icon icon="lucide:wand-2" class="w-8 h-8 text-muted-foreground" />
 		</div>
-		<h1 class="text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-foreground" style="font-family: 'Gambarino', 'Satoshi', sans-serif;">
+		<h1 class="text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-foreground" style="font-family: 'Goga', 'Satoshi', sans-serif;">
 			Introduction to Spore
 		</h1>
 		<p class="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">

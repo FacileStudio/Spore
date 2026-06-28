@@ -120,7 +120,7 @@
 				
 				<!-- User Info -->
 				<div class="flex-1 min-w-0">
-					<h1 class="text-3xl sm:text-4xl font-bold text-foreground mb-2 truncate" style="font-family: 'Gambarino', 'Satoshi', sans-serif;">
+					<h1 class="text-3xl sm:text-4xl font-bold text-foreground mb-2 truncate" style="font-family: 'Goga', 'Satoshi', sans-serif;">
 						{userProfile.username}
 					</h1>
 					<div class="flex flex-wrap gap-4 text-muted-foreground mb-4">

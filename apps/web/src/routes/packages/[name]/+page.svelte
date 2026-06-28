@@ -234,7 +234,7 @@
 			<div class="flex-1 min-w-0">
 				<div class="space-y-2 mb-2">
 					<div class="flex items-center justify-between gap-4">
-						<h1 class="text-2xl sm:text-3xl font-bold leading-tight" style="font-family: 'Gambarino', 'Satoshi', sans-serif;">{selectedPackage.name}</h1>
+						<h1 class="text-2xl sm:text-3xl font-bold leading-tight" style="font-family: 'Goga', 'Satoshi', sans-serif;">{selectedPackage.name}</h1>
 						{#if isOwner}
 							<div class="flex-shrink-0 relative" data-options-menu>
 								<button

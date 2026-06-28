@@ -195,7 +195,7 @@
 <div class="space-y-6">
 	<div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
 		<div>
-			<h1 class="text-3xl font-bold tracking-tight" style="font-family: 'Gambarino', 'Satoshi', sans-serif;">Teams</h1>
+			<h1 class="text-3xl font-bold tracking-tight" style="font-family: 'Goga', 'Satoshi', sans-serif;">Teams</h1>
 			<p class="text-muted-foreground mt-2">Manage your teams and collaborations</p>
 		</div>
 		

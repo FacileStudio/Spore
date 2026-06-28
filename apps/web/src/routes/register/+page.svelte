@@ -19,7 +19,7 @@
 		if (!$authStore.initialized) {
 			await authStore.initialize();
 		}
-		
+
 		// Redirect if already logged in
 		if ($authStore.isAuthenticated) {
 			goto('/packages');
@@ -77,110 +77,131 @@
 	<title>Sign Up - Spore</title>
 </svelte:head>
 
-<div class="max-w-md mx-auto">
-	<div class="text-center mb-8">
-		<h1 class="text-3xl font-bold mb-2" style="font-family: 'Gambarino', 'Satoshi', sans-serif;">Create Account</h1>
-		<p class="text-muted-foreground">Join Spore and start publishing packages</p>
-	</div>
-
-	<div class="border rounded-lg p-6">
-		{#if error}
-			<div class="bg-destructive/10 text-destructive border border-destructive/20 rounded-md p-3 mb-4">
-				{error}
-			</div>
-		{/if}
-
-		<form on:submit|preventDefault={handleRegister}>
-			<div class="space-y-4">
-				<div>
-					<label for="username" class="block text-sm font-medium mb-2">
-						Username
-					</label>
-					<Input
-						id="username"
-						type="text"
-						bind:value={username}
-						on:keypress={handleKeyPress}
-						placeholder="Choose a username"
-						disabled={loading}
-						required
-					/>
-					<p class="text-xs text-muted-foreground mt-1">
-						Letters, numbers, hyphens, and underscores only
-					</p>
-				</div>
-
-				<div>
-					<label for="email" class="block text-sm font-medium mb-2">
-						Email
-					</label>
-					<Input
-						id="email"
-						type="email"
-						bind:value={email}
-						on:keypress={handleKeyPress}
-						placeholder="Enter your email"
-						disabled={loading}
-						required
-					/>
-				</div>
-
-				<div>
-					<label for="password" class="block text-sm font-medium mb-2">
-						Password
-					</label>
-					<Input
-						id="password"
-						type="password"
-						bind:value={password}
-						on:keypress={handleKeyPress}
-						placeholder="Create a password"
-						disabled={loading}
-						required
-					/>
-					<p class="text-xs text-muted-foreground mt-1">
-						At least 6 characters
-					</p>
-				</div>
-
-				<div>
-					<label for="confirmPassword" class="block text-sm font-medium mb-2">
-						Confirm Password
-					</label>
-					<Input
-						id="confirmPassword"
-						type="password"
-						bind:value={confirmPassword}
-						on:keypress={handleKeyPress}
-						placeholder="Confirm your password"
-						disabled={loading}
-						required
-					/>
-				</div>
-
-				<Button
-					type="submit"
-					disabled={loading}
-					class="w-full"
-				>
-					{#if loading}
-						<Icon icon="solar:refresh-bold" class="animate-spin mr-2 h-4 w-4" />
-						Creating Account...
-					{:else}
-						<Icon icon="solar:user-plus-bold" class="mr-2 h-4 w-4" />
-						Create Account
-					{/if}
-				</Button>
-			</div>
-		</form>
-	</div>
-
-	<div class="text-center mt-6">
-		<p class="text-muted-foreground">
-			Already have an account?
-			<a href="/login" class="text-primary hover:text-primary/80 font-medium">
-				Sign in
+<div class="mx-auto max-w-5xl">
+	<div class="grid overflow-hidden rounded-xl border border-border bg-card lg:min-h-[560px] lg:grid-cols-2">
+		<!-- Brand panel -->
+		<div class="hidden flex-col bg-primary px-12 py-10 text-primary-foreground lg:flex">
+			<a href="/" class="mb-auto flex items-center gap-3">
+				<Icon icon="solar:box-bold-duotone" class="h-7 w-7 text-primary-foreground" />
+				<span class="font-['Goga'] text-xl font-bold tracking-tight">Spore</span>
 			</a>
-		</p>
+
+			<div class="mb-auto">
+				<h2 class="text-4xl font-bold leading-tight tracking-tight text-primary-foreground">
+					Publish.<br />Share.<br />Reuse.
+				</h2>
+				<p class="mt-4 max-w-xs text-sm leading-relaxed text-primary-foreground/60">
+					The modern package registry for your monorepo packages.
+				</p>
+			</div>
+
+			<p class="text-xs text-primary-foreground/40">
+				&copy; {new Date().getFullYear()} Spore by Facile.
+			</p>
+		</div>
+
+		<!-- Form panel -->
+		<div class="flex w-full flex-col items-center justify-center bg-background px-8 py-12">
+			<div class="w-full max-w-sm">
+				<div class="mb-8 flex items-center justify-center gap-3 lg:hidden">
+					<Icon icon="solar:box-bold-duotone" class="h-8 w-8 text-foreground" />
+					<span class="font-['Goga'] text-xl font-bold">Spore</span>
+				</div>
+
+				<div class="mb-8">
+					<h1 class="text-2xl font-bold tracking-tight text-foreground">Create account</h1>
+					<p class="mt-1.5 text-sm text-muted-foreground">Sign up to start publishing packages.</p>
+				</div>
+
+				<div class="mb-6 flex gap-1 rounded-lg border border-border bg-muted p-1">
+					<a
+						href="/login"
+						class="flex-1 rounded-md py-1.5 text-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+					>
+						Log in
+					</a>
+					<a
+						href="/register"
+						class="flex-1 rounded-md bg-background py-1.5 text-center text-sm font-medium text-foreground shadow-sm"
+					>
+						Register
+					</a>
+				</div>
+
+				{#if error}
+					<div class="mb-4 rounded-md border border-destructive/20 bg-destructive/10 p-3 text-sm text-destructive">
+						{error}
+					</div>
+				{/if}
+
+				<form on:submit|preventDefault={handleRegister} class="space-y-4">
+					<div class="space-y-1.5">
+						<label for="username" class="text-sm font-medium leading-none">Username</label>
+						<Input
+							id="username"
+							type="text"
+							bind:value={username}
+							on:keypress={handleKeyPress}
+							placeholder="Choose a username"
+							disabled={loading}
+							required
+						/>
+						<p class="text-xs text-muted-foreground">
+							Letters, numbers, hyphens, and underscores only
+						</p>
+					</div>
+
+					<div class="space-y-1.5">
+						<label for="email" class="text-sm font-medium leading-none">Email</label>
+						<Input
+							id="email"
+							type="email"
+							bind:value={email}
+							on:keypress={handleKeyPress}
+							placeholder="Enter your email"
+							disabled={loading}
+							required
+						/>
+					</div>
+
+					<div class="space-y-1.5">
+						<label for="password" class="text-sm font-medium leading-none">Password</label>
+						<Input
+							id="password"
+							type="password"
+							bind:value={password}
+							on:keypress={handleKeyPress}
+							placeholder="Create a password"
+							disabled={loading}
+							required
+						/>
+						<p class="text-xs text-muted-foreground">At least 6 characters</p>
+					</div>
+
+					<div class="space-y-1.5">
+						<label for="confirmPassword" class="text-sm font-medium leading-none">Confirm Password</label>
+						<Input
+							id="confirmPassword"
+							type="password"
+							bind:value={confirmPassword}
+							on:keypress={handleKeyPress}
+							placeholder="Confirm your password"
+							disabled={loading}
+							required
+						/>
+					</div>
+
+					<Button type="submit" disabled={loading} class="w-full">
+						{#if loading}
+							<Icon icon="solar:refresh-bold" class="mr-2 h-4 w-4 animate-spin" />
+							Creating Account...
+						{:else}
+							<Icon icon="solar:user-plus-bold" class="mr-2 h-4 w-4" />
+							Create Account
+						{/if}
+					</Button>
+				</form>
+			</div>
+		</div>
 	</div>
 </div>

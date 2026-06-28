@@ -187,7 +187,7 @@
 						<div class="w-8 h-8 bg-muted rounded-lg flex items-center justify-center group-hover:bg-gray-200 transition-colors duration-200">
 							<Icon icon="lucide:book-open" class="w-4 h-4 text-muted-foreground" />
 						</div>
-						<h1 class="text-xl font-semibold text-foreground group-hover:text-foreground transition-colors duration-200" style="font-family: 'Gambarino', 'Satoshi', sans-serif;">
+						<h1 class="text-xl font-semibold text-foreground group-hover:text-foreground transition-colors duration-200" style="font-family: 'Goga', 'Satoshi', sans-serif;">
 							Spore Docs
 						</h1>
 					</a>
@@ -273,7 +273,7 @@
 						<Icon icon="lucide:book-open" class="w-3 h-3 text-muted-foreground" />
 					</div>
 					<div class="flex flex-col items-center">
-						<h1 class="text-lg font-semibold text-foreground" style="font-family: 'Gambarino', 'Satoshi', sans-serif;">
+						<h1 class="text-lg font-semibold text-foreground" style="font-family: 'Goga', 'Satoshi', sans-serif;">
 							Spore Docs
 						</h1>
 						{#if currentPageInfo.section && $page.url.pathname !== '/docs'}

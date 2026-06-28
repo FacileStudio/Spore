@@ -55,7 +55,7 @@
 <div class="space-y-6">
 	<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
 		<div>
-			<h1 class="text-3xl font-bold" style="font-family: 'Gambarino', 'Satoshi', sans-serif;">Users</h1>
+			<h1 class="text-3xl font-bold" style="font-family: 'Goga', 'Satoshi', sans-serif;">Users</h1>
 			<p class="text-muted-foreground">Discover and explore users in the community</p>
 		</div>
 		
