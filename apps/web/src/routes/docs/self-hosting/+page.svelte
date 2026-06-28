@@ -21,13 +21,13 @@
 
 <svelte:head>
 	<title>Self-Hosting - Spore CLI Documentation</title>
-	<meta name="description" content="Learn how to self-host your own Spore Space instance for complete control over your package registry." />
+	<meta name="description" content="Learn how to self-host your own Spore instance for complete control over your package registry." />
 	<meta property="og:title" content="Self-Hosting - Spore CLI" />
-	<meta property="og:description" content="Learn how to self-host your own Spore Space instance for complete control over your package registry." />
+	<meta property="og:description" content="Learn how to self-host your own Spore instance for complete control over your package registry." />
 	<meta property="og:image" content="/images/og/self-hosting.png" />
 	<meta property="og:url" content="https://spore.klysium.com/docs/self-hosting" />
 	<meta name="twitter:title" content="Self-Hosting - Spore CLI" />
-	<meta name="twitter:description" content="Learn how to self-host your own Spore Space instance for complete control over your package registry." />
+	<meta name="twitter:description" content="Learn how to self-host your own Spore instance for complete control over your package registry." />
 	<meta name="twitter:image" content="/images/og/self-hosting.png" />
 	<link rel="canonical" href="https://spore.klysium.com/docs/self-hosting" />
 </svelte:head>
@@ -38,7 +38,7 @@
 			Self-Hosting
 		</h1>
 		<p class="text-lg text-muted-foreground">
-			Host your own private Spore Space instance
+			Host your own private Spore instance
 		</p>
 	</div>
 
@@ -166,9 +166,9 @@
 			<div class="flex items-start space-x-3">
 				<Icon icon="lucide:check-circle" class="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
 				<div>
-					<h3 class="font-semibold text-green-900 mb-2">Your Spore Space is ready!</h3>
+					<h3 class="font-semibold text-green-900 mb-2">Your Spore is ready!</h3>
 					<p class="text-sm text-green-700 mb-4">
-						You can now access your private Spore Space instance at your domain.
+						You can now access your private Spore instance at your domain.
 					</p>
 					<div class="flex flex-wrap gap-3">
 						<a href="/docs/production" class="inline-flex items-center px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-md hover:bg-green-700 transition-colors">

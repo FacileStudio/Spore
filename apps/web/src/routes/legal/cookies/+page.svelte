@@ -3,8 +3,8 @@
 </script>
 
 <svelte:head>
-	<title>Cookie Policy - Spore Space</title>
-	<meta name="description" content="Spore Space Cookie Policy - How we use cookies and similar technologies" />
+	<title>Cookie Policy - Spore</title>
+	<meta name="description" content="Spore Cookie Policy - How we use cookies and similar technologies" />
 </svelte:head>
 
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -26,7 +26,7 @@
 				</div>
 				<div class="ml-3">
 					<p class="text-sm text-blue-700">
-						This Cookie Policy explains how Spore Space uses cookies and similar technologies to provide and improve our service.
+						This Cookie Policy explains how Spore uses cookies and similar technologies to provide and improve our service.
 					</p>
 				</div>
 			</div>

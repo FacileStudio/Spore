@@ -54,7 +54,7 @@
 │   │   ├── <span class="text-purple-400">spore_packages/</span>       # Linked packages
 │   │   ├── <span class="text-green-400">src/</span>                 # Rust source code
 │   │   └── <span class="text-gray-400">target/</span>              # Build artifacts
-│   ├── <span class="text-green-400">web/</span>                    # Spore Space UI (SvelteKit)
+│   ├── <span class="text-green-400">web/</span>                    # Spore UI (SvelteKit)
 │   │   ├── <span class="text-blue-400">app.yml</span>              # App configuration
 │   │   ├── <span class="text-gray-400">package.json</span>          # NPM dependencies
 │   │   ├── <span class="text-gray-400">tsconfig.json</span>         # TypeScript config
@@ -101,7 +101,7 @@
     <span class="text-blue-400">packages:</span>                          <span class="text-gray-400"># Local packages to link</span>
       - <span class="text-yellow-400">types</span>
   <span class="text-blue-400">backend:</span>
-    <span class="text-blue-400">description:</span> <span class="text-green-400">"Frontend UI for Spore Space package registry"</span>
+    <span class="text-blue-400">description:</span> <span class="text-green-400">"Frontend UI for Spore package registry"</span>
     <span class="text-blue-400">tsAlias:</span> <span class="text-green-400">true</span>
     <span class="text-blue-400">packages:</span>
       - <span class="text-yellow-400">types</span>
@@ -213,7 +213,7 @@
 							<h4 class="font-semibold">Web UI (SvelteKit)</h4>
 						</div>
 						<p class="text-sm text-muted-foreground mb-3">
-							Modern web interface for Spore Space package registry built with SvelteKit.
+							Modern web interface for Spore package registry built with SvelteKit.
 						</p>
 						<div class="text-xs font-mono bg-muted p-2 rounded">
 							apps/web/
@@ -238,8 +238,8 @@
 			<div>
 				<h3 class="text-lg font-semibold mb-3">App Configuration (app.yml)</h3>
 				<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-					<pre><code>{@html `<span class="text-blue-400">name:</span> <span class="text-green-400">spore-space-ui</span>
-<span class="text-blue-400">description:</span> <span class="text-green-400">Frontend UI for Spore Space package registry</span>
+					<pre><code>{@html `<span class="text-blue-400">name:</span> <span class="text-green-400">spore</span>
+<span class="text-blue-400">description:</span> <span class="text-green-400">Frontend UI for Spore package registry</span>
 
 <span class="text-gray-400"># Build configuration</span>
 <span class="text-blue-400">build:</span> <span class="text-green-400">"npm run build"</span>

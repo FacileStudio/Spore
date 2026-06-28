@@ -120,7 +120,7 @@
 					<ul class="space-y-1 ml-4">
 						<li>• Connect your Git repository to Vercel.</li>
 						<li>• Configure the build command to be `spore build`.</li>
-						<li>• Set the output directory to `apps/spore-space-ui/build`.</li>
+						<li>• Set the output directory to `apps/spore/build`.</li>
 					</ul>
 				</div>
 			</div>

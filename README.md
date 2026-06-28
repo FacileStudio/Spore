@@ -36,7 +36,7 @@ spore status                                # Show project status
 spore init:package <name> [--team <team>] [--template <@package>]  # Create a new package
 spore init:app <name> [--template <@package>]                      # Create a new app
 
-# Examples with templates from Spore Space:
+# Examples with templates from Spore:
 spore init:app my-app --template @svelte-starter
 spore init:package my-lib --template @typescript-lib
 ```

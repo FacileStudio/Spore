@@ -72,7 +72,7 @@
 				<div class="flex-1 min-w-0">
 					<h3 class="font-semibold text-purple-900 mb-2">Team Management</h3>
 					<p class="text-sm text-purple-700 mb-4">
-						You can manage your team members and their roles from the Spore Space dashboard.
+						You can manage your team members and their roles from the Spore dashboard.
 					</p>
 					<div class="space-y-3">
 						<div>

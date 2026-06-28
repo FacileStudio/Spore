@@ -189,7 +189,7 @@
 </script>
 
 <svelte:head>
-	<title>Teams - Spore Space</title>
+	<title>Teams - Spore</title>
 </svelte:head>
 
 <div class="space-y-6">

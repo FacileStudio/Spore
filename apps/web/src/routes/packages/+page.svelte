@@ -98,27 +98,27 @@
 </script>
 
 <svelte:head>
-	<title>Browse Packages - Spore Space Package Registry</title>
-	<meta name="description" content="Discover and explore packages for any programming language in the Spore Space registry. Find packages by tags, search by name or description, and explore the growing ecosystem of monorepo packages." />
+	<title>Browse Packages - Spore Package Registry</title>
+	<meta name="description" content="Discover and explore packages for any programming language in the Spore registry. Find packages by tags, search by name or description, and explore the growing ecosystem of monorepo packages." />
 	<meta name="keywords" content="package registry, browse packages, monorepo packages, spore packages, multi-language packages, development tools, package manager" />
-	<meta name="author" content="Spore Space" />
+	<meta name="author" content="Spore" />
 	
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://spore.klysium.com/packages" />
-	<meta property="og:title" content="Browse Packages - Spore Space Package Registry" />
-	<meta property="og:description" content="Discover and explore packages for any programming language in the Spore Space registry. Find packages by tags, search by name or description, and explore the growing ecosystem." />
+	<meta property="og:title" content="Browse Packages - Spore Package Registry" />
+	<meta property="og:description" content="Discover and explore packages for any programming language in the Spore registry. Find packages by tags, search by name or description, and explore the growing ecosystem." />
 	<meta property="og:image" content="https://spore.klysium.com/images/og/packages.png" />
-	<meta property="og:image:alt" content="Browse Packages in Spore Space Registry" />
-	<meta property="og:site_name" content="Spore Space" />
+	<meta property="og:image:alt" content="Browse Packages in Spore Registry" />
+	<meta property="og:site_name" content="Spore" />
 
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:url" content="https://spore.klysium.com/packages" />
-	<meta name="twitter:title" content="Browse Packages - Spore Space Package Registry" />
-	<meta name="twitter:description" content="Discover and explore packages for any programming language in the Spore Space registry. Find packages by tags and search functionality." />
+	<meta name="twitter:title" content="Browse Packages - Spore Package Registry" />
+	<meta name="twitter:description" content="Discover and explore packages for any programming language in the Spore registry. Find packages by tags and search functionality." />
 	<meta name="twitter:image" content="https://spore.klysium.com/images/og/packages.png" />
-	<meta name="twitter:image:alt" content="Browse Packages in Spore Space Registry" />
+	<meta name="twitter:image:alt" content="Browse Packages in Spore Registry" />
 	<meta name="twitter:creator" content="@sporespace" />
 	<meta name="twitter:site" content="@sporespace" />
 
@@ -131,8 +131,8 @@
 	{
 		"@context": "https://schema.org",
 		"@type": "CollectionPage",
-		"name": "Packages - Spore Space",
-		"description": "Discover and explore packages for any programming language in the Spore Space registry",
+		"name": "Packages - Spore",
+		"description": "Discover and explore packages for any programming language in the Spore registry",
 		"url": "https://spore.klysium.com/packages",
 		"mainEntity": {
 			"@type": "ItemList",
@@ -158,7 +158,7 @@
 		},
 		"publisher": {
 			"@type": "Organization",
-			"name": "Spore Space",
+			"name": "Spore",
 			"url": "https://spore.klysium.com"
 		}
 	}
@@ -329,7 +329,7 @@
 			<p class="text-muted-foreground mb-4">
 				{searchTerm || selectedTags.length > 0
 					? `No packages match your current filters. Try adjusting your search or selected tags.`
-					: 'Be the first to publish a package to Spore Space!'
+					: 'Be the first to publish a package to Spore!'
 				}
 			</p>
 			{#if searchTerm || selectedTags.length > 0}

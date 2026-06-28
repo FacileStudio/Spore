@@ -3,8 +3,8 @@
 </script>
 
 <svelte:head>
-	<title>Privacy Policy - Spore Space</title>
-	<meta name="description" content="Spore Space Privacy Policy - How we collect, use, and protect your data" />
+	<title>Privacy Policy - Spore</title>
+	<meta name="description" content="Spore Privacy Policy - How we collect, use, and protect your data" />
 </svelte:head>
 
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -26,7 +26,7 @@
 				</div>
 				<div class="ml-3">
 					<p class="text-sm text-blue-700">
-						At Spore Space, your privacy is important to us. This policy explains how we collect, use, and protect your personal information when you use our package registry service.
+						At Spore, your privacy is important to us. This policy explains how we collect, use, and protect your personal information when you use our package registry service.
 					</p>
 				</div>
 			</div>

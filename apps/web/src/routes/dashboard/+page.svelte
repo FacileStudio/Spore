@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-	<title>Redirecting - Spore Space</title>
+	<title>Redirecting - Spore</title>
 </svelte:head>
 
 <div class="flex items-center justify-center min-h-screen">

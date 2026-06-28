@@ -417,7 +417,7 @@
 					<h3 class="font-semibold">Package Publishing</h3>
 				</div>
 				<p class="text-sm text-muted-foreground mb-4">
-					Share your packages with the world by publishing them to Spore Space registry.
+					Share your packages with the world by publishing them to Spore registry.
 				</p>
 				<a href="/docs/publishing" class="text-sm text-primary hover:underline">
 					Publishing Guide →
@@ -430,7 +430,7 @@
 					<h3 class="font-semibold">Self-Hosting</h3>
 				</div>
 				<p class="text-sm text-muted-foreground mb-4">
-					Host your own private Spore Space instance for complete control over your package registry.
+					Host your own private Spore instance for complete control over your package registry.
 				</p>
 				<a href="/docs/self-hosting" class="text-sm text-primary hover:underline">
 					Self-Hosting Guide →

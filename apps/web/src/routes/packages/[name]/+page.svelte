@@ -113,19 +113,19 @@
 
 <svelte:head>
 	{#if selectedPackage}
-		<title>{selectedPackage.name} v{selectedPackage.version} - Spore Space Package</title>
-		<meta name="description" content="{selectedPackage.description || `${selectedPackage.name} - A package in the Spore Space registry`}. Version {selectedPackage.version} by {selectedPackage.owner.username}{selectedPackage.team ? ` (${selectedPackage.team.name} team)` : ''}. {formatDownloadCount(selectedPackage.totalDownloadsCount || selectedPackage.downloadsCount)} downloads." />
+		<title>{selectedPackage.name} v{selectedPackage.version} - Spore Package</title>
+		<meta name="description" content="{selectedPackage.description || `${selectedPackage.name} - A package in the Spore registry`}. Version {selectedPackage.version} by {selectedPackage.owner.username}{selectedPackage.team ? ` (${selectedPackage.team.name} team)` : ''}. {formatDownloadCount(selectedPackage.totalDownloadsCount || selectedPackage.downloadsCount)} downloads." />
 		<meta name="keywords" content="package, {selectedPackage.name}, spore space, monorepo, programming, development, {selectedPackage.tags ? selectedPackage.tags.join(', ') : ''}" />
 		<meta name="author" content="{selectedPackage.owner.username}" />
 		
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="article" />
 		<meta property="og:url" content="https://spore.klysium.com/packages/{encodeURIComponent(selectedPackage.name)}" />
-		<meta property="og:title" content="{selectedPackage.name} v{selectedPackage.version} - Spore Space Package" />
-		<meta property="og:description" content="{selectedPackage.description || `${selectedPackage.name} package in the Spore Space registry`}. Version {selectedPackage.version} by {selectedPackage.owner.username}." />
+		<meta property="og:title" content="{selectedPackage.name} v{selectedPackage.version} - Spore Package" />
+		<meta property="og:description" content="{selectedPackage.description || `${selectedPackage.name} package in the Spore registry`}. Version {selectedPackage.version} by {selectedPackage.owner.username}." />
 		<meta property="og:image" content="https://spore.klysium.com/images/og/package.png" />
 		<meta property="og:image:alt" content="{selectedPackage.name} Package" />
-		<meta property="og:site_name" content="Spore Space" />
+		<meta property="og:site_name" content="Spore" />
 		<meta property="article:author" content="{selectedPackage.owner.username}" />
 		<meta property="article:published_time" content="{selectedPackage.createdAt}" />
 		{#if selectedPackage.tags}
@@ -137,7 +137,7 @@
 		<!-- Twitter -->
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:url" content="https://spore.klysium.com/packages/{encodeURIComponent(selectedPackage.name)}" />
-		<meta name="twitter:title" content="{selectedPackage.name} v{selectedPackage.version} - Spore Space Package" />
+		<meta name="twitter:title" content="{selectedPackage.name} v{selectedPackage.version} - Spore Package" />
 		<meta name="twitter:description" content="{selectedPackage.description || `${selectedPackage.name} package`}. By {selectedPackage.owner.username} • {formatDownloadCount(selectedPackage.totalDownloadsCount || selectedPackage.downloadsCount)} downloads" />
 		<meta name="twitter:image" content="https://spore.klysium.com/images/og/package.png" />
 		<meta name="twitter:image:alt" content="{selectedPackage.name} Package" />
@@ -163,7 +163,7 @@
 			},
 			"publisher": {
 				"@type": "Organization",
-				"name": "Spore Space",
+				"name": "Spore",
 				"url": "https://spore.klysium.com"
 			},
 			"datePublished": "{selectedPackage.createdAt}",
@@ -200,8 +200,8 @@
 		}
 		</script>
 	{:else}
-		<title>{packageName ? `${packageName} - Package` : 'Package'} - Spore Space</title>
-		<meta name="description" content="View package details in the Spore Space registry" />
+		<title>{packageName ? `${packageName} - Package` : 'Package'} - Spore</title>
+		<meta name="description" content="View package details in the Spore registry" />
 		<meta name="robots" content="noindex, follow" />
 	{/if}
 </svelte:head>

@@ -3,8 +3,8 @@
 </script>
 
 <svelte:head>
-	<title>Terms of Service - Spore Space</title>
-	<meta name="description" content="Spore Space Terms of Service - Terms and conditions for using our package registry service" />
+	<title>Terms of Service - Spore</title>
+	<meta name="description" content="Spore Terms of Service - Terms and conditions for using our package registry service" />
 </svelte:head>
 
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -26,7 +26,7 @@
 				</div>
 				<div class="ml-3">
 					<p class="text-sm text-blue-700">
-						These Terms of Service govern your use of Spore Space. By using our service, you agree to these terms.
+						These Terms of Service govern your use of Spore. By using our service, you agree to these terms.
 					</p>
 				</div>
 			</div>
@@ -35,7 +35,7 @@
 		<section class="mb-12">
 			<h2 class="text-2xl font-semibold mb-4">Acceptance of Terms</h2>
 			<p class="mb-4">
-				By accessing or using Spore Space, you agree to be bound by these Terms of Service and our Privacy Policy. 
+				By accessing or using Spore, you agree to be bound by these Terms of Service and our Privacy Policy. 
 				If you disagree with any part of these terms, you may not access the service.
 			</p>
 		</section>
@@ -43,7 +43,7 @@
 		<section class="mb-12">
 			<h2 class="text-2xl font-semibold mb-4">Description of Service</h2>
 			<p class="mb-4">
-				Spore Space is a package registry service for TypeScript and JavaScript packages built with the Spore monorepo manager. 
+				Spore is a package registry service for TypeScript and JavaScript packages built with the Spore monorepo manager. 
 				We provide:
 			</p>
 			<ul class="list-disc list-inside mb-6 space-y-2">
@@ -89,7 +89,7 @@
 
 			<h3 class="text-xl font-medium mb-3">Content Ownership</h3>
 			<p class="mb-6">
-				You retain ownership of the packages you publish. However, by publishing to Spore Space, you grant us 
+				You retain ownership of the packages you publish. However, by publishing to Spore, you grant us 
 				a license to store, distribute, and display your content as necessary to provide the service.
 			</p>
 		</section>
@@ -110,7 +110,7 @@
 
 				<div class="border rounded-lg p-6">
 					<h3 class="text-lg font-medium mb-3">Our Service</h3>
-					<p class="text-sm mb-3">Spore Space and its features are protected by intellectual property laws.</p>
+					<p class="text-sm mb-3">Spore and its features are protected by intellectual property laws.</p>
 					<ul class="text-sm space-y-1">
 						<li>• Service design and functionality</li>
 						<li>• Trademarks and branding</li>
@@ -143,7 +143,7 @@
 			
 			<h3 class="text-xl font-medium mb-3">Free Tier</h3>
 			<p class="mb-4">
-				Basic use of Spore Space is currently free. This includes package publishing, downloading, and basic team features.
+				Basic use of Spore is currently free. This includes package publishing, downloading, and basic team features.
 			</p>
 
 			<h3 class="text-xl font-medium mb-3">Future Premium Features</h3>

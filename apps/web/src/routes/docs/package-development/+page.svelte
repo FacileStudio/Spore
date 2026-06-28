@@ -698,7 +698,7 @@
 					<h3 class="font-semibold">Publishing Guide</h3>
 				</div>
 				<p class="text-sm text-muted-foreground">
-					Detailed guide to publishing packages to Spore Space and other registries.
+					Detailed guide to publishing packages to Spore and other registries.
 				</p>
 			</a>
 

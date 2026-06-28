@@ -81,8 +81,8 @@
 </script>
 
 <svelte:head>
-	<title>{userProfile ? `${userProfile.username} - Spore Space` : 'User Profile - Spore Space'}</title>
-	<meta name="description" content={userProfile ? `${userProfile.username}'s profile on Spore Space` : 'User profile on Spore Space'} />
+	<title>{userProfile ? `${userProfile.username} - Spore` : 'User Profile - Spore'}</title>
+	<meta name="description" content={userProfile ? `${userProfile.username}'s profile on Spore` : 'User profile on Spore'} />
 </svelte:head>
 
 {#if loading}

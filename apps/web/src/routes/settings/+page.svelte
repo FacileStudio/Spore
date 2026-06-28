@@ -158,7 +158,7 @@
 </script>
 
 <svelte:head>
-	<title>Settings - Spore Space</title>
+	<title>Settings - Spore</title>
 </svelte:head>
 
 <div class="max-w-4xl mx-auto">

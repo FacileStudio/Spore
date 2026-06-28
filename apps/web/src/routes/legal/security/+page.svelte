@@ -3,8 +3,8 @@
 </script>
 
 <svelte:head>
-	<title>Security - Spore Space</title>
-	<meta name="description" content="Spore Space Security - How we protect your data and our commitment to security" />
+	<title>Security - Spore</title>
+	<meta name="description" content="Spore Security - How we protect your data and our commitment to security" />
 </svelte:head>
 
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -26,7 +26,7 @@
 				</div>
 				<div class="ml-3">
 					<p class="text-sm text-green-700">
-						Security is at the core of Spore Space. We implement industry-standard practices to protect your packages, data, and privacy.
+						Security is at the core of Spore. We implement industry-standard practices to protect your packages, data, and privacy.
 					</p>
 				</div>
 			</div>

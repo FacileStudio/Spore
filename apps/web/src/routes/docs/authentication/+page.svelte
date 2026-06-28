@@ -34,7 +34,7 @@
 		<div class="space-y-6">
 			<p class="text-muted-foreground leading-relaxed">
 				Spore uses JWT (JSON Web Token) based authentication for secure package publishing and management. 
-				You'll need to authenticate with Spore Space to publish packages, manage teams, and access private packages.
+				You'll need to authenticate with Spore to publish packages, manage teams, and access private packages.
 			</p>
 			
 			<div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
@@ -67,7 +67,7 @@
 				</div>
 				<div class="ml-9 space-y-3">
 					<p class="text-muted-foreground">
-						First, you'll need a Spore Space account. You can create one or sign in if you already have an account.
+						First, you'll need a Spore account. You can create one or sign in if you already have an account.
 					</p>
 					<div class="flex flex-wrap gap-3">
 						<a href="/register" class="inline-flex items-center px-4 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-md hover:bg-primary/90 transition-colors">
@@ -287,7 +287,7 @@
 		
 		<div class="space-y-6">
 			<p class="text-muted-foreground">
-				If you're using a self-hosted Spore Space instance, you'll need to configure the CLI 
+				If you're using a self-hosted Spore instance, you'll need to configure the CLI 
 				to point to your instance URL.
 			</p>
 

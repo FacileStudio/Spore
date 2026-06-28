@@ -56,10 +56,8 @@
     <div class="p-6">
       <!-- Logo -->
       <a href="/" class="flex items-center space-x-2 mb-8 hover:opacity-80 transition-opacity">
-        <div class="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
-          <span class="text-primary-foreground font-bold text-sm">S</span>
-        </div>
-        <span class="font-semibold text-xl">Spore Space</span>
+        <Icon icon="solar:box-bold-duotone" class="w-8 h-8 text-foreground" />
+        <span class="font-semibold text-xl">Spore</span>
       </a>
 
       <!-- User info -->
@@ -184,10 +182,8 @@
 					<div class="flex justify-between h-16">
 						<div class="flex items-center">
 							<a href="/" class="flex items-center space-x-2">
-								<div class="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
-									<span class="text-white font-bold text-sm">S</span>
-								</div>
-								<span class="font-semibold text-xl">Spore Space</span>
+								<Icon icon="solar:box-bold-duotone" class="w-8 h-8 text-foreground" />
+								<span class="font-semibold text-xl">Spore</span>
 							</a>
 						</div>
 
@@ -243,10 +239,8 @@
 						<!-- Brand Section -->
 						<div class="space-y-4">
 							<div class="flex items-center space-x-2">
-								<div class="w-8 h-8 bg-card rounded-lg flex items-center justify-center">
-									<span class="text-foreground font-bold text-sm">S</span>
-								</div>
-								<span class="text-xl font-bold">Spore Space</span>
+								<Icon icon="solar:box-bold-duotone" class="w-8 h-8 text-white" />
+								<span class="text-xl font-bold">Spore</span>
 							</div>
 							<p class="text-gray-400 text-sm leading-relaxed">
 								The modern package registry for Spore monorepo packages. Build, publish, and manage packages for any programming language with ease.
@@ -302,7 +296,7 @@
 					<!-- Bottom Bar -->
 					<div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
 						<div class="text-gray-400 text-sm">
-							© 2025 Spore Space. All rights reserved.
+							© 2025 Spore. All rights reserved.
 						</div>
 						<div class="flex items-center space-x-6 text-sm">
 							<a href="/legal/privacy" class="text-gray-400 hover:text-white transition-colors">Privacy</a>

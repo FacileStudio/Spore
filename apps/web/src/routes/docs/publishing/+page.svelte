@@ -37,7 +37,7 @@
 			Publishing Packages
 		</h1>
 		<p class="text-lg text-muted-foreground">
-			Share your packages with the world through Spore Space registry and team collaboration
+			Share your packages with the world through Spore registry and team collaboration
 		</p>
 	</div>
 
@@ -45,7 +45,7 @@
 	<section class="mb-12">
 		<h2 class="text-2xl font-bold mb-6">Overview</h2>
 		<p class="text-muted-foreground leading-relaxed mb-6">
-			Spore Space registry allows you to publish and share packages with your team or the public. 
+			Spore registry allows you to publish and share packages with your team or the public. 
 			Whether you're building internal company libraries or contributing to open source, 
 			Spore provides a seamless publishing experience with version management and access controls.
 		</p>
@@ -89,12 +89,12 @@
 			<div>
 				<h3 class="text-lg font-semibold mb-4">Getting Started</h3>
 				<p class="text-muted-foreground mb-4">
-					Before publishing packages, you need to authenticate with Spore Space registry.
+					Before publishing packages, you need to authenticate with Spore registry.
 				</p>
 
 				<div class="space-y-4">
 					<div>
-						<h4 class="font-medium mb-2">Login to Spore Space</h4>
+						<h4 class="font-medium mb-2">Login to Spore</h4>
 						<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
 							<code>spore auth</code>
 							<button 
@@ -200,7 +200,7 @@
 							</button>
 						</div>
 						<p class="text-sm text-muted-foreground mt-2">
-							Publishes the package in the current directory to Spore Space registry.
+							Publishes the package in the current directory to Spore registry.
 						</p>
 					</div>
 
@@ -232,7 +232,7 @@
 <span class="text-green-400">✓ TypeScript compilation successful</span>
 <span class="text-green-400">✓ All tests pass</span>
 
-<span class="text-blue-400">📦 Publishing to Spore Space...</span>
+<span class="text-blue-400">📦 Publishing to Spore...</span>
 <span class="text-green-400">✓ Package uploaded successfully</span>
 <span class="text-green-400">✓ Registry updated</span>
 
@@ -556,7 +556,7 @@ git tag v1.3.0 && git push --tags`)}
   - <span class="text-yellow-400">design-system</span></code></pre>
 						</div>
 						<p class="text-sm text-muted-foreground mt-2">
-							Tags help users discover your package in the Spore Space web interface.
+							Tags help users discover your package in the Spore web interface.
 						</p>
 					</div>
 
@@ -652,7 +652,7 @@ git tag v1.3.0 && git push --tags`)}
 					<h3 class="font-semibold">Self-Hosting</h3>
 				</div>
 				<p class="text-sm text-muted-foreground">
-					Set up your own private Spore Space registry for internal package management.
+					Set up your own private Spore registry for internal package management.
 				</p>
 			</a>
 		</div>

@@ -48,8 +48,8 @@
 </script>
 
 <svelte:head>
-	<title>Users - Spore Space</title>
-	<meta name="description" content="Browse all users in the Spore Space community" />
+	<title>Users - Spore</title>
+	<meta name="description" content="Browse all users in the Spore community" />
 </svelte:head>
 
 <div class="space-y-6">
@@ -114,7 +114,7 @@
 			<p class="text-muted-foreground mb-4">
 				{searchTerm 
 					? `No users match "${searchTerm}". Try a different search term.`
-					: 'Be the first to join the Spore Space community!'
+					: 'Be the first to join the Spore community!'
 				}
 			</p>
 			{#if searchTerm}

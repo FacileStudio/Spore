@@ -92,12 +92,12 @@
 </script>
 
 <svelte:head>
-	<title>Documentation - Spore Space</title>
+	<title>Documentation - Spore</title>
 	<meta name="description" content="Complete guide to using Spore CLI for monorepo package management, TypeScript integration, and team collaboration." />
 
 	<!-- Essential Meta Tags -->
 	<meta name="keywords" content="spore cli, monorepo, package manager, typescript, javascript, package registry, team collaboration, build tools" />
-	<meta name="author" content="Spore Space" />
+	<meta name="author" content="Spore" />
 	<meta name="robots" content="index, follow" />
 	<meta name="language" content="en" />
 	<meta name="theme-color" content="#ffffff" />
@@ -111,7 +111,7 @@
 	<meta property="og:image:height" content="630" />
 	<meta property="og:image:alt" content="Spore CLI Documentation - Modern Monorepo Package Manager" />
 	<meta property="og:url" content="https://spore.klysium.com/docs" />
-	<meta property="og:site_name" content="Spore Space" />
+	<meta property="og:site_name" content="Spore" />
 	<meta property="og:locale" content="en_US" />
 
 	<!-- Twitter Card Meta Tags -->
@@ -137,11 +137,11 @@
 		"description": "Complete guide to using Spore CLI for monorepo package management, TypeScript integration, and team collaboration.",
 		"author": {
 			"@type": "Organization",
-			"name": "Spore Space"
+			"name": "Spore"
 		},
 		"publisher": {
 			"@type": "Organization",
-			"name": "Spore Space",
+			"name": "Spore",
 			"logo": {
 				"@type": "ImageObject",
 				"url": "https://spore.klysium.com/images/logo.png"
@@ -195,7 +195,7 @@
 				<div class="flex items-center space-x-3">
 					<a href="/" class="flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 px-3 py-1.5 rounded-md hover:bg-muted">
 						<Icon icon="lucide:arrow-left" class="w-3 h-3 mr-1.5" />
-						Back to Spore Space
+						Back to Spore
 					</a>
 					<button
 						on:click={() => sidebarOpen = false}

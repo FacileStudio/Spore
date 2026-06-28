@@ -4,7 +4,7 @@ export class HealthController {
   static async getRoot(c: Context) {
     return c.json({
       success: true,
-      message: 'Spore Space - Online Package Repository Server',
+      message: 'Spore - Online Package Repository Server',
       version: '0.1.0',
       timestamp: new Date().toISOString(),
     });

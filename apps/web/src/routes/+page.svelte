@@ -57,29 +57,29 @@
 </script>
 
 <svelte:head>
-	<title>Spore Space - Modern Package Registry for Monorepo Development</title>
+	<title>Spore - Modern Package Registry for Monorepo Development</title>
 	<meta name="description" content="The modern package registry for Spore monorepo packages. Publish, share, and manage packages for any programming language with teams. Fast publishing, team collaboration, and secure infrastructure." />
 	<meta name="keywords" content="package registry, monorepo, package manager, team collaboration, private packages, multi-language, development tools, spore" />
-	<meta name="author" content="Spore Space" />
+	<meta name="author" content="Spore" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://spore.klysium.com/" />
-	<meta property="og:title" content="Spore Space - Modern Package Registry for Monorepo Development" />
+	<meta property="og:title" content="Spore - Modern Package Registry for Monorepo Development" />
 	<meta property="og:description" content="The modern package registry for Spore monorepo packages. Publish, share, and manage packages for any programming language with teams. Fast publishing, team collaboration, and secure infrastructure." />
 	<meta property="og:image" content="https://spore.klysium.com/images/og/home.png" />
-	<meta property="og:image:alt" content="Spore Space - Modern Package Registry for Multi-Language Development" />
-	<meta property="og:site_name" content="Spore Space" />
+	<meta property="og:image:alt" content="Spore - Modern Package Registry for Multi-Language Development" />
+	<meta property="og:site_name" content="Spore" />
 	<meta property="og:locale" content="en_US" />
 
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:url" content="https://spore.klysium.com/" />
-	<meta name="twitter:title" content="Spore Space - Modern Package Registry for Monorepo Development" />
+	<meta name="twitter:title" content="Spore - Modern Package Registry for Monorepo Development" />
 	<meta name="twitter:description" content="The modern package registry for Spore monorepo packages. Publish, share, and manage packages for any programming language with teams." />
 	<meta name="twitter:image" content="https://spore.klysium.com/images/og/home.png" />
-	<meta name="twitter:image:alt" content="Spore Space - Modern Package Registry" />
+	<meta name="twitter:image:alt" content="Spore - Modern Package Registry" />
 	<meta name="twitter:creator" content="@sporespace" />
 	<meta name="twitter:site" content="@sporespace" />
 
@@ -93,7 +93,7 @@
 	{
 		"@context": "https://schema.org",
 		"@type": "WebSite",
-		"name": "Spore Space",
+		"name": "Spore",
 		"description": "The modern package registry for Spore monorepo packages. Publish, share, and manage packages for any programming language with teams.",
 		"url": "https://spore.klysium.com",
 		"potentialAction": {
@@ -103,7 +103,7 @@
 		},
 		"publisher": {
 			"@type": "Organization",
-			"name": "Spore Space",
+			"name": "Spore",
 			"url": "https://spore.klysium.com"
 		}
 	}
@@ -133,7 +133,7 @@
 	</div>
 	<div class="relative z-10">
 	<h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6" style="font-family: 'Gambarino', 'Satoshi', sans-serif;">
-		Welcome to <span class="text-foreground">Spore Space</span>
+		Welcome to <span class="text-foreground">Spore</span>
 	</h1>
 	<p class="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
 		The modern package registry for Spore monorepo packages. Publish, share, and manage packages for any programming language with teams.
@@ -219,7 +219,7 @@
 				<Icon icon="solar:box-bold" class="w-16 h-16 text-muted-foreground mx-auto" />
 			</div>
 			<h3 class="text-xl font-semibold mb-2">No packages yet</h3>
-			<p class="text-muted-foreground mb-4">Be the first to publish a package to Spore Space!</p>
+			<p class="text-muted-foreground mb-4">Be the first to publish a package to Spore!</p>
 			<a
 				href="/login"
 				class="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-2 rounded-md font-medium transition-colors inline-flex items-center space-x-2"
@@ -425,7 +425,7 @@
 
 <!-- Features -->
 <div class="py-12 border-t">
-	<h2 class="text-3xl font-bold text-center mb-12">Why Spore Space?</h2>
+	<h2 class="text-3xl font-bold text-center mb-12">Why Spore?</h2>
 	<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 		<div class="text-center">
 			<div class="w-12 h-12 bg-black/10 rounded-lg flex items-center justify-center mx-auto mb-4">

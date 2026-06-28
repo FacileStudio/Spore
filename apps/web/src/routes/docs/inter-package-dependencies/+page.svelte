@@ -66,7 +66,7 @@
 				</div>
 				<h3 class="font-semibold mb-2">Remote Dependencies</h3>
 				<p class="text-sm text-muted-foreground">
-					Published packages from Spore Space or other registries.
+					Published packages from Spore or other registries.
 				</p>
 			</div>
 			<div class="border rounded-lg p-6">
@@ -300,13 +300,13 @@ scripts:
 
 		<div class="space-y-8">
 			<p class="text-muted-foreground">
-				Remote dependencies are packages published to registries like Spore Space, npm, or private registries.
+				Remote dependencies are packages published to registries like Spore, npm, or private registries.
 			</p>
 
 			<div>
-				<h3 class="text-lg font-semibold mb-3">Spore Space packages</h3>
+				<h3 class="text-lg font-semibold mb-3">Spore packages</h3>
 				<p class="text-muted-foreground mb-4">
-					Packages published to Spore Space use team namespaces and are prefixed with <code>@</code>:
+					Packages published to Spore use team namespaces and are prefixed with <code>@</code>:
 				</p>
 				
 				<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg relative group">
@@ -315,7 +315,7 @@ scripts:
 <span class="text-blue-400">version:</span> <span class="text-green-400">1.0.0</span>
 
 <span class="text-blue-400">dependencies:</span>
-  <span class="text-gray-400"># Team packages from Spore Space</span>
+  <span class="text-gray-400"># Team packages from Spore</span>
   - <span class="text-yellow-400">"@acme/design-system@^2.1.0"</span>
   - <span class="text-yellow-400">"@acme/theme-tokens@latest"</span>
   - <span class="text-yellow-400">"@team/common-utils@~1.5.0"</span>
@@ -479,7 +479,7 @@ peerDependencies:
 					</div>
 					<div class="flex items-center space-x-3">
 						<div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-xs font-bold text-green-600">2</div>
-						<span>Remote Spore packages (from Spore Space)</span>
+						<span>Remote Spore packages (from Spore)</span>
 					</div>
 					<div class="flex items-center space-x-3">
 						<div class="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center text-xs font-bold text-purple-600">3</div>
