@@ -3,7 +3,7 @@
 
 	export let data: Array<{ date: string; downloads: number }> = [];
 	export let title = '';
-	export let color = '#2563eb';
+	export let color = '#0b0b0c';
 	export let height = 300;
 
 	let canvas: HTMLCanvasElement;
