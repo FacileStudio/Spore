@@ -1,21 +1,6 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	
-	let copyText = '';
-	let showCopied = false;
-
-	async function copyToClipboard(text: string) {
-		try {
-			await navigator.clipboard.writeText(text);
-			copyText = text;
-			showCopied = true;
-			setTimeout(() => {
-				showCopied = false;
-			}, 2000);
-		} catch (err) {
-			console.error('Failed to copy text: ', err);
-		}
-	}
+	import CodeBlock from '$lib/components/CodeBlock.svelte';
 </script>
 
 <svelte:head>
@@ -24,11 +9,11 @@
 	<meta property="og:title" content="Package Aliases - Spore CLI" />
 	<meta property="og:description" content="Learn how to configure and use package aliases with Spore CLI for cleaner imports and better developer experience." />
 	<meta property="og:image" content="/images/og/typescript.png" />
-	<meta property="og:url" content="https://spore.klysium.com/docs/aliases" />
+	<meta property="og:url" content="https://spore.facile.studio/docs/aliases" />
 	<meta name="twitter:title" content="Package Aliases - Spore CLI" />
 	<meta name="twitter:description" content="Learn how to configure and use package aliases with Spore CLI for cleaner imports and better developer experience." />
 	<meta name="twitter:image" content="/images/og/typescript.png" />
-	<link rel="canonical" href="https://spore.klysium.com/docs/aliases" />
+	<link rel="canonical" href="https://spore.facile.studio/docs/aliases" />
 </svelte:head>
 
 <div class="max-w-4xl mx-auto py-8 px-4 sm:px-6">
@@ -44,29 +29,29 @@
 	<!-- Overview -->
 	<section class="mb-12">
 		<h2 class="text-2xl font-bold mb-6">Overview</h2>
-		<div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+		<div class="bg-muted border border-border rounded-lg p-6">
 			<div class="flex items-start space-x-3">
-				<Icon icon="lucide:code" class="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
+				<Icon icon="lucide:code" class="w-6 h-6 text-foreground mt-1 flex-shrink-0" />
 				<div>
-					<h3 class="font-semibold text-blue-900 mb-2">What are Package Aliases?</h3>
-					<p class="text-sm text-blue-700 mb-4">
-						Package aliases allow you to create custom names for your packages, making imports cleaner and more semantic. Instead of using long package names like <code>user-management-service</code>, you can use a simple alias like <code>users</code>. Spore automatically configures TypeScript path mappings for your aliased packages.
+					<h3 class="font-semibold text-foreground mb-2">What are Package Aliases?</h3>
+					<p class="text-sm text-muted-foreground mb-4">
+						Package aliases allow you to create custom names for your packages, making imports cleaner and more semantic. Instead of using long package names like <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">user-management-service</code>, you can use a simple alias like <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">users</code>. Spore automatically configures TypeScript path mappings for your aliased packages.
 					</p>
-					<div class="space-y-2 text-sm text-blue-700">
+					<div class="space-y-2 text-sm text-muted-foreground">
 						<div class="flex items-center space-x-2">
-							<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-600" />
+							<Icon icon="lucide:check-circle" class="w-4 h-4 text-muted-foreground" />
 							<span>Custom package names for imports</span>
 						</div>
 						<div class="flex items-center space-x-2">
-							<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-600" />
+							<Icon icon="lucide:check-circle" class="w-4 h-4 text-muted-foreground" />
 							<span>Semantic and readable import paths</span>
 						</div>
 						<div class="flex items-center space-x-2">
-							<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-600" />
+							<Icon icon="lucide:check-circle" class="w-4 h-4 text-muted-foreground" />
 							<span>Automatic TypeScript configuration</span>
 						</div>
 						<div class="flex items-center space-x-2">
-							<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-600" />
+							<Icon icon="lucide:check-circle" class="w-4 h-4 text-muted-foreground" />
 							<span>IDE auto-completion and navigation</span>
 						</div>
 					</div>
@@ -93,28 +78,28 @@
 				<div class="space-y-4">
 					<div>
 						<h4 class="font-medium mb-2">In spore.yml</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-blue-400">apps:</span>
-  <span class="text-blue-400">my-app:</span>
-    <span class="text-blue-400">packages:</span>
-      - <span class="text-blue-400">name:</span> <span class="text-green-400">user-management-service</span>
-        <span class="text-blue-400">as:</span> <span class="text-yellow-400">users</span>
-      - <span class="text-blue-400">name:</span> <span class="text-green-400">"@company/shared-components@^2.0.0"</span>
-        <span class="text-blue-400">as:</span> <span class="text-yellow-400">ui</span>
-      - <span class="text-green-400">simple-package</span>  <span class="text-muted-foreground"># No alias</span></code></pre>
-						</div>
+						<CodeBlock label="spore.yml">
+							<pre><code><span class="text-zinc-400">apps:</span>
+  <span class="text-zinc-400">my-app:</span>
+    <span class="text-zinc-400">packages:</span>
+      - <span class="text-zinc-400">name:</span> <span class="text-zinc-100">user-management-service</span>
+        <span class="text-zinc-400">as:</span> <span class="text-zinc-100">users</span>
+      - <span class="text-zinc-400">name:</span> <span class="text-zinc-100">"@company/shared-components@^2.0.0"</span>
+        <span class="text-zinc-400">as:</span> <span class="text-zinc-100">ui</span>
+      - <span class="text-zinc-100">simple-package</span>  <span class="text-zinc-600"># No alias</span></code></pre>
+						</CodeBlock>
 					</div>
 
 					<div>
 						<h4 class="font-medium mb-2">In app.yml</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-blue-400">name:</span> frontend
-<span class="text-blue-400">packages:</span>
-  - <span class="text-blue-400">name:</span> <span class="text-green-400">database-models</span>
-    <span class="text-blue-400">as:</span> <span class="text-yellow-400">models</span>
-  - <span class="text-blue-400">name:</span> <span class="text-green-400">ui-component-library</span>
-    <span class="text-blue-400">as:</span> <span class="text-yellow-400">components</span></code></pre>
-						</div>
+						<CodeBlock label="app.yml">
+							<pre><code><span class="text-zinc-400">name:</span> frontend
+<span class="text-zinc-400">packages:</span>
+  - <span class="text-zinc-400">name:</span> <span class="text-zinc-100">database-models</span>
+    <span class="text-zinc-400">as:</span> <span class="text-zinc-100">models</span>
+  - <span class="text-zinc-400">name:</span> <span class="text-zinc-100">ui-component-library</span>
+    <span class="text-zinc-400">as:</span> <span class="text-zinc-100">components</span></code></pre>
+						</CodeBlock>
 					</div>
 				</div>
 			</div>
@@ -129,26 +114,26 @@
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 					<div>
 						<h4 class="font-medium mb-2 flex items-center">
-							<Icon icon="lucide:x-circle" class="w-4 h-4 mr-2 text-red-500" />
+							<Icon icon="lucide:x-circle" class="w-4 h-4 mr-2 text-muted-foreground" />
 							Without Aliases
 						</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">User</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'#/user-management-service'</span>;
-<span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">Button</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'#/shared-components'</span>;
-<span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">ProductModel</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'#/database-models'</span>;</code></pre>
-						</div>
+						<CodeBlock label="typescript">
+							<pre><code><span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">User</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'#/user-management-service'</span>;
+<span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">Button</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'#/shared-components'</span>;
+<span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">ProductModel</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'#/database-models'</span>;</code></pre>
+						</CodeBlock>
 					</div>
 
 					<div>
 						<h4 class="font-medium mb-2 flex items-center">
-							<Icon icon="lucide:check-circle" class="w-4 h-4 mr-2 text-green-500" />
+							<Icon icon="lucide:check-circle" class="w-4 h-4 mr-2 text-muted-foreground" />
 							With Aliases
 						</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">User</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'#users'</span>;
-<span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">Button</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'#ui'</span>;
-<span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">ProductModel</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'#models'</span>;</code></pre>
-						</div>
+						<CodeBlock label="typescript">
+							<pre><code><span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">User</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'#users'</span>;
+<span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">Button</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'#ui'</span>;
+<span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">ProductModel</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'#models'</span>;</code></pre>
+						</CodeBlock>
 					</div>
 				</div>
 			</div>
@@ -163,18 +148,18 @@
 				<div class="space-y-4">
 					<div>
 						<h4 class="font-medium mb-2">Generated tsconfig.json</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code>{"{"}<br/>  <span class="text-blue-400">"compilerOptions"</span>: {"{"}<br/>    <span class="text-blue-400">"paths"</span>: {"{"}<br/>      <span class="text-green-400">"#users/*"</span>: [<span class="text-green-400">"./spore_packages/users/*"</span>],<br/>      <span class="text-green-400">"#ui/*"</span>: [<span class="text-green-400">"./spore_packages/ui/*"</span>],<br/>      <span class="text-green-400">"#models/*"</span>: [<span class="text-green-400">"./spore_packages/models/*"</span>]<br/>    {"}"}<br/>  {"}"}<br/>{"}"}</code></pre>
-						</div>
+						<CodeBlock label="tsconfig.json">
+							<pre><code>{"{"}<br/>  <span class="text-zinc-400">"compilerOptions"</span>: {"{"}<br/>    <span class="text-zinc-400">"paths"</span>: {"{"}<br/>      <span class="text-zinc-100">"#users/*"</span>: [<span class="text-zinc-100">"./spore_packages/users/*"</span>],<br/>      <span class="text-zinc-100">"#ui/*"</span>: [<span class="text-zinc-100">"./spore_packages/ui/*"</span>],<br/>      <span class="text-zinc-100">"#models/*"</span>: [<span class="text-zinc-100">"./spore_packages/models/*"</span>]<br/>    {"}"}<br/>  {"}"}<br/>{"}"}</code></pre>
+						</CodeBlock>
 					</div>
 
-					<div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+					<div class="bg-muted border border-border rounded-lg p-4">
 						<div class="flex items-start space-x-3">
-							<Icon icon="lucide:lightbulb" class="w-5 h-5 text-yellow-600 mt-0.5 flex-shrink-0" />
+							<Icon icon="lucide:lightbulb" class="w-5 h-5 text-foreground mt-0.5 flex-shrink-0" />
 							<div class="text-sm">
-								<p class="font-medium text-yellow-800 mb-1">Directory Structure</p>
-								<p class="text-yellow-700">
-									Packages are linked using their alias names in the <code>spore_packages/</code> directory, so <code>user-management-service</code> becomes <code>spore_packages/users/</code>.
+								<p class="font-medium text-foreground mb-1">Directory Structure</p>
+								<p class="text-muted-foreground">
+									Packages are linked using their alias names in the <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">spore_packages/</code> directory, so <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">user-management-service</code> becomes <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">spore_packages/users/</code>.
 								</p>
 							</div>
 						</div>
@@ -194,41 +179,41 @@
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 			<div class="border rounded-lg p-6">
 				<h3 class="font-semibold mb-3 flex items-center">
-					<Icon icon="lucide:hash" class="w-5 h-5 mr-2 text-blue-600" />
+					<Icon icon="lucide:hash" class="w-5 h-5 mr-2 text-foreground" />
 					TypeScript Path Aliases
 				</h3>
 				<p class="text-sm text-muted-foreground mb-3">
-					Set a global prefix for all packages (e.g., <code>@</code>, <code>#</code>, <code>~</code>).
+					Set a global prefix for all packages (e.g., <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">@</code>, <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">#</code>, <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">~</code>).
 				</p>
-				<div class="bg-black/90 text-white font-mono text-sm p-3 rounded">
-					<pre><code><span class="text-blue-400">ts_alias:</span> <span class="text-green-400">"@"</span>
-<span class="text-gray-400"># Results in: @/package-name</span></code></pre>
-				</div>
+				<CodeBlock label="yaml">
+					<pre><code><span class="text-zinc-400">ts_alias:</span> <span class="text-zinc-100">"@"</span>
+<span class="text-zinc-600"># Results in: @/package-name</span></code></pre>
+				</CodeBlock>
 			</div>
 
 			<div class="border rounded-lg p-6">
 				<h3 class="font-semibold mb-3 flex items-center">
-					<Icon icon="lucide:tag" class="w-5 h-5 mr-2 text-purple-600" />
+					<Icon icon="lucide:tag" class="w-5 h-5 mr-2 text-foreground" />
 					Package-Specific Aliases
 				</h3>
 				<p class="text-sm text-muted-foreground mb-3">
 					Assign custom names to individual packages for semantic imports.
 				</p>
-				<div class="bg-black/90 text-white font-mono text-sm p-3 rounded">
-					<pre><code><span class="text-blue-400">name:</span> <span class="text-green-400">long-package-name</span>
-<span class="text-blue-400">as:</span> <span class="text-yellow-400">short</span>
-<span class="text-gray-400"># Results in: @/short</span></code></pre>
-				</div>
+				<CodeBlock label="yaml">
+					<pre><code><span class="text-zinc-400">name:</span> <span class="text-zinc-100">long-package-name</span>
+<span class="text-zinc-400">as:</span> <span class="text-zinc-100">short</span>
+<span class="text-zinc-600"># Results in: @/short</span></code></pre>
+				</CodeBlock>
 			</div>
 		</div>
 
-		<div class="mt-6 bg-green-50 border border-green-200 rounded-lg p-4">
+		<div class="mt-6 bg-muted border border-border rounded-lg p-4">
 			<div class="flex items-start space-x-3">
-				<Icon icon="lucide:check-circle" class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+				<Icon icon="lucide:check-circle" class="w-5 h-5 text-muted-foreground mt-0.5 flex-shrink-0" />
 				<div class="text-sm">
-					<h4 class="font-medium text-green-900 mb-1">Best of Both Worlds</h4>
-					<p class="text-green-700">
-						You can use both systems together! Set a <code>ts_alias</code> for consistency, then use package-specific aliases for semantic naming: <code>@/users</code>, <code>@/api</code>, <code>@/components</code>.
+					<h4 class="font-medium text-foreground mb-1">Best of Both Worlds</h4>
+					<p class="text-muted-foreground">
+						You can use both systems together! Set a <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">ts_alias</code> for consistency, then use package-specific aliases for semantic naming: <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">@/users</code>, <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">@/api</code>, <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">@/components</code>.
 					</p>
 				</div>
 			</div>
@@ -250,27 +235,27 @@
 				<div class="space-y-4">
 					<div>
 						<h4 class="font-medium mb-2">In spore.yml</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-blue-400">name:</span> my-project
-<span class="text-blue-400">ts_alias:</span> <span class="text-green-400">"@"</span>  <span class="text-muted-foreground"># Default alias prefix</span>
+						<CodeBlock label="spore.yml">
+							<pre><code><span class="text-zinc-400">name:</span> my-project
+<span class="text-zinc-400">ts_alias:</span> <span class="text-zinc-100">"@"</span>  <span class="text-zinc-600"># Default alias prefix</span>
 
-<span class="text-blue-400">apps:</span>
-  <span class="text-blue-400">frontend:</span>
-    <span class="text-blue-400">packages:</span>
-      - <span class="text-green-400">types</span>
-      - <span class="text-green-400">utils</span></code></pre>
-						</div>
+<span class="text-zinc-400">apps:</span>
+  <span class="text-zinc-400">frontend:</span>
+    <span class="text-zinc-400">packages:</span>
+      - <span class="text-zinc-100">types</span>
+      - <span class="text-zinc-100">utils</span></code></pre>
+						</CodeBlock>
 					</div>
 
-					<div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+					<div class="bg-muted border border-border rounded-lg p-4">
 						<div class="flex items-start space-x-3">
-							<Icon icon="lucide:info" class="w-5 h-5 text-yellow-600 mt-0.5 flex-shrink-0" />
+							<Icon icon="lucide:info" class="w-5 h-5 text-foreground mt-0.5 flex-shrink-0" />
 							<div class="text-sm">
-								<p class="font-medium text-yellow-800 mb-1">Supported Alias Prefixes</p>
-								<ul class="text-yellow-700 space-y-1">
-									<li>• <code>@</code> - Most common, widely used (e.g., <code>@/utils</code>)</li>
-									<li>• <code>#</code> - Alternative prefix (e.g., <code>#/types</code>)</li>
-									<li>• <code>~</code> - Legacy support (e.g., <code>~/components</code>)</li>
+								<p class="font-medium text-foreground mb-1">Supported Alias Prefixes</p>
+								<ul class="text-muted-foreground space-y-1">
+									<li>• <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">@</code> - Most common, widely used (e.g., <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">@/utils</code>)</li>
+									<li>• <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">#</code> - Alternative prefix (e.g., <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">#/types</code>)</li>
+									<li>• <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">~</code> - Legacy support (e.g., <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">~/components</code>)</li>
 								</ul>
 							</div>
 						</div>
@@ -288,24 +273,24 @@
 				<div class="space-y-4">
 					<div>
 						<h4 class="font-medium mb-2">In app.yml</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-blue-400">name:</span> frontend
-<span class="text-blue-400">ts_alias:</span> <span class="text-green-400">"#"</span>  <span class="text-muted-foreground"># Override project default</span>
-<span class="text-blue-400">packages:</span>
-  - <span class="text-green-400">types</span>
-  - <span class="text-green-400">utils</span>
-  - <span class="text-green-400">ui-components</span></code></pre>
-						</div>
+						<CodeBlock label="app.yml">
+							<pre><code><span class="text-zinc-400">name:</span> frontend
+<span class="text-zinc-400">ts_alias:</span> <span class="text-zinc-100">"#"</span>  <span class="text-zinc-600"># Override project default</span>
+<span class="text-zinc-400">packages:</span>
+  - <span class="text-zinc-100">types</span>
+  - <span class="text-zinc-100">utils</span>
+  - <span class="text-zinc-100">ui-components</span></code></pre>
+						</CodeBlock>
 					</div>
 
 					<div>
 						<h4 class="font-medium mb-2">Disable Aliases</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-blue-400">name:</span> legacy-app
-<span class="text-blue-400">ts_alias:</span> <span class="text-red-400">false</span>  <span class="text-muted-foreground"># Disable aliases for this app</span>
-<span class="text-blue-400">packages:</span>
-  - <span class="text-green-400">types</span></code></pre>
-						</div>
+						<CodeBlock label="app.yml">
+							<pre><code><span class="text-zinc-400">name:</span> legacy-app
+<span class="text-zinc-400">ts_alias:</span> <span class="text-zinc-100">false</span>  <span class="text-zinc-600"># Disable aliases for this app</span>
+<span class="text-zinc-400">packages:</span>
+  - <span class="text-zinc-100">types</span></code></pre>
+						</CodeBlock>
 					</div>
 				</div>
 			</div>
@@ -327,26 +312,26 @@
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 					<div>
 						<h4 class="font-medium mb-2 flex items-center">
-							<Icon icon="lucide:x-circle" class="w-4 h-4 mr-2 text-red-500" />
+							<Icon icon="lucide:x-circle" class="w-4 h-4 mr-2 text-muted-foreground" />
 							Without Aliases
 						</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-purple-400">import</span> {"{"} <span class="text-yellow-400">User</span> {"}"} <span class="text-purple-400">from</span> <span class="text-green-400">&apos;../../packages/types&apos;</span>;
-<span class="text-purple-400">import</span> {"{"} <span class="text-yellow-400">formatDate</span> {"}"} <span class="text-purple-400">from</span> <span class="text-green-400">&apos;../../packages/utils&apos;</span>;
-<span class="text-purple-400">import</span> {"{"} <span class="text-yellow-400">Button</span> {"}"} <span class="text-purple-400">from</span> <span class="text-green-400">&apos;../../../packages/ui-components&apos;</span>;</code></pre>
-						</div>
+						<CodeBlock label="typescript">
+							<pre><code><span class="text-zinc-300">import</span> {"{"} <span class="text-zinc-100">User</span> {"}"} <span class="text-zinc-300">from</span> <span class="text-zinc-100">&apos;../../packages/types&apos;</span>;
+<span class="text-zinc-300">import</span> {"{"} <span class="text-zinc-100">formatDate</span> {"}"} <span class="text-zinc-300">from</span> <span class="text-zinc-100">&apos;../../packages/utils&apos;</span>;
+<span class="text-zinc-300">import</span> {"{"} <span class="text-zinc-100">Button</span> {"}"} <span class="text-zinc-300">from</span> <span class="text-zinc-100">&apos;../../../packages/ui-components&apos;</span>;</code></pre>
+						</CodeBlock>
 					</div>
 
 					<div>
 						<h4 class="font-medium mb-2 flex items-center">
-							<Icon icon="lucide:check-circle" class="w-4 h-4 mr-2 text-green-500" />
+							<Icon icon="lucide:check-circle" class="w-4 h-4 mr-2 text-muted-foreground" />
 							With Aliases
 						</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-purple-400">import</span> {"{"} <span class="text-yellow-400">User</span> {"}"} <span class="text-purple-400">from</span> <span class="text-green-400">&apos;@/types&apos;</span>;
-<span class="text-purple-400">import</span> {"{"} <span class="text-yellow-400">formatDate</span> {"}"} <span class="text-purple-400">from</span> <span class="text-green-400">&apos;@/utils&apos;</span>;
-<span class="text-purple-400">import</span> {"{"} <span class="text-yellow-400">Button</span> {"}"} <span class="text-purple-400">from</span> <span class="text-green-400">&apos;@/ui-components&apos;</span>;</code></pre>
-						</div>
+						<CodeBlock label="typescript">
+							<pre><code><span class="text-zinc-300">import</span> {"{"} <span class="text-zinc-100">User</span> {"}"} <span class="text-zinc-300">from</span> <span class="text-zinc-100">&apos;@/types&apos;</span>;
+<span class="text-zinc-300">import</span> {"{"} <span class="text-zinc-100">formatDate</span> {"}"} <span class="text-zinc-300">from</span> <span class="text-zinc-100">&apos;@/utils&apos;</span>;
+<span class="text-zinc-300">import</span> {"{"} <span class="text-zinc-100">Button</span> {"}"} <span class="text-zinc-300">from</span> <span class="text-zinc-100">&apos;@/ui-components&apos;</span>;</code></pre>
+						</CodeBlock>
 					</div>
 				</div>
 			</div>
@@ -361,29 +346,29 @@
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 					<div>
 						<h4 class="font-medium mb-2">@ Prefix</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-purple-400">import</span> <span class="text-green-400">&apos;@/types&apos;</span>
-<span class="text-purple-400">import</span> <span class="text-green-400">&apos;@/utils&apos;</span>
-<span class="text-purple-400">import</span> <span class="text-green-400">&apos;@/components&apos;</span></code></pre>
-						</div>
+						<CodeBlock label="typescript">
+							<pre><code><span class="text-zinc-300">import</span> <span class="text-zinc-100">&apos;@/types&apos;</span>
+<span class="text-zinc-300">import</span> <span class="text-zinc-100">&apos;@/utils&apos;</span>
+<span class="text-zinc-300">import</span> <span class="text-zinc-100">&apos;@/components&apos;</span></code></pre>
+						</CodeBlock>
 					</div>
 
 					<div>
 						<h4 class="font-medium mb-2"># Prefix</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-purple-400">import</span> <span class="text-green-400">&apos;#/types&apos;</span>
-<span class="text-purple-400">import</span> <span class="text-green-400">&apos;#/utils&apos;</span>
-<span class="text-purple-400">import</span> <span class="text-green-400">&apos;#/components&apos;</span></code></pre>
-						</div>
+						<CodeBlock label="typescript">
+							<pre><code><span class="text-zinc-300">import</span> <span class="text-zinc-100">&apos;#/types&apos;</span>
+<span class="text-zinc-300">import</span> <span class="text-zinc-100">&apos;#/utils&apos;</span>
+<span class="text-zinc-300">import</span> <span class="text-zinc-100">&apos;#/components&apos;</span></code></pre>
+						</CodeBlock>
 					</div>
 
 					<div>
 						<h4 class="font-medium mb-2">~ Prefix</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-purple-400">import</span> <span class="text-green-400">&apos;~/types&apos;</span>
-<span class="text-purple-400">import</span> <span class="text-green-400">&apos;~/utils&apos;</span>
-<span class="text-purple-400">import</span> <span class="text-green-400">&apos;~/components&apos;</span></code></pre>
-						</div>
+						<CodeBlock label="typescript">
+							<pre><code><span class="text-zinc-300">import</span> <span class="text-zinc-100">&apos;~/types&apos;</span>
+<span class="text-zinc-300">import</span> <span class="text-zinc-100">&apos;~/utils&apos;</span>
+<span class="text-zinc-300">import</span> <span class="text-zinc-100">&apos;~/components&apos;</span></code></pre>
+						</CodeBlock>
 					</div>
 				</div>
 			</div>
@@ -399,32 +384,20 @@
 			<div class="border rounded-lg p-6">
 				<h3 class="text-lg font-semibold mb-3">TypeScript Configuration</h3>
 				<p class="text-muted-foreground mb-4">
-					Spore automatically updates your <code>tsconfig.json</code> with the correct path mappings when you run <code>spore link</code>.
+					Spore automatically updates your <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">tsconfig.json</code> with the correct path mappings when you run <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">spore link</code>.
 				</p>
 
 				<div class="space-y-4">
 					<div>
 						<h4 class="font-medium mb-2">Generated tsconfig.json paths</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code>{"{"}<br/>  <span class="text-blue-400">&quot;compilerOptions&quot;</span>: {"{"}<br/>    <span class="text-blue-400">&quot;baseUrl&quot;</span>: <span class="text-green-400">&quot;.&quot;</span>,<br/>    <span class="text-blue-400">&quot;paths&quot;</span>: {"{"}<br/>      <span class="text-green-400">&quot;@/types&quot;</span>: [<span class="text-green-400">&quot;./spore_packages/types&quot;</span>],<br/>      <span class="text-green-400">&quot;@/utils&quot;</span>: [<span class="text-green-400">&quot;./spore_packages/utils&quot;</span>],<br/>      <span class="text-green-400">&quot;@/ui-components&quot;</span>: [<span class="text-green-400">&quot;./spore_packages/ui-components&quot;</span>]<br/>    {"}"}<br/>  {"}"}<br/>{"}"}</code></pre>
-						</div>
+						<CodeBlock label="tsconfig.json">
+							<pre><code>{"{"}<br/>  <span class="text-zinc-400">&quot;compilerOptions&quot;</span>: {"{"}<br/>    <span class="text-zinc-400">&quot;baseUrl&quot;</span>: <span class="text-zinc-100">&quot;.&quot;</span>,<br/>    <span class="text-zinc-400">&quot;paths&quot;</span>: {"{"}<br/>      <span class="text-zinc-100">&quot;@/types&quot;</span>: [<span class="text-zinc-100">&quot;./spore_packages/types&quot;</span>],<br/>      <span class="text-zinc-100">&quot;@/utils&quot;</span>: [<span class="text-zinc-100">&quot;./spore_packages/utils&quot;</span>],<br/>      <span class="text-zinc-100">&quot;@/ui-components&quot;</span>: [<span class="text-zinc-100">&quot;./spore_packages/ui-components&quot;</span>]<br/>    {"}"}<br/>  {"}"}<br/>{"}"}</code></pre>
+						</CodeBlock>
 					</div>
 
 					<div>
 						<h4 class="font-medium mb-2">Update aliases</h4>
-						<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
-							<code>spore link</code>
-							<button
-								class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
-								on:click={() => copyToClipboard('spore link')}
-							>
-								{#if showCopied && copyText === 'spore link'}
-									<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
-								{:else}
-									<Icon icon="lucide:copy" class="w-4 h-4" />
-								{/if}
-							</button>
-						</div>
+						<CodeBlock label="bash" copy="spore link">spore link</CodeBlock>
 						<div class="mt-2 text-sm text-muted-foreground">
 							Automatically updates TypeScript path mappings
 						</div>
@@ -442,7 +415,7 @@
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 					<div class="space-y-3">
 						<h4 class="font-medium flex items-center">
-							<Icon icon="lucide:check-circle" class="w-4 h-4 mr-2 text-green-500" />
+							<Icon icon="lucide:check-circle" class="w-4 h-4 mr-2 text-muted-foreground" />
 							Supported Features
 						</h4>
 						<ul class="text-sm text-muted-foreground space-y-1">
@@ -456,7 +429,7 @@
 
 					<div class="space-y-3">
 						<h4 class="font-medium flex items-center">
-							<Icon icon="lucide:code" class="w-4 h-4 mr-2 text-blue-500" />
+							<Icon icon="lucide:code" class="w-4 h-4 mr-2 text-foreground" />
 							Tested IDEs
 						</h4>
 						<ul class="text-sm text-muted-foreground space-y-1">
@@ -481,41 +454,41 @@
 			<div class="border rounded-lg p-6">
 				<h3 class="text-lg font-semibold mb-3">React & Next.js</h3>
 				<p class="text-muted-foreground mb-4">
-					React and Next.js automatically respect TypeScript path mappings from <code>tsconfig.json</code>.
+					React and Next.js automatically respect TypeScript path mappings from <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">tsconfig.json</code>.
 				</p>
-				<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-					<pre><code><span class="text-muted-foreground">// Works out of the box</span>
-<span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">UserCard</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">&apos;@/ui-components&apos;</span>;
-<span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">api</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">&apos;@/utils&apos;</span>;</code></pre>
-				</div>
+				<CodeBlock label="typescript">
+					<pre><code><span class="text-zinc-600">// Works out of the box</span>
+<span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">UserCard</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">&apos;@/ui-components&apos;</span>;
+<span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">api</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">&apos;@/utils&apos;</span>;</code></pre>
+				</CodeBlock>
 			</div>
 
 			<!-- Vite -->
 			<div class="border rounded-lg p-6">
 				<h3 class="text-lg font-semibold mb-3">Vite</h3>
 				<p class="text-muted-foreground mb-4">
-					For Vite projects, you may need to add alias configuration to <code>vite.config.js</code>.
+					For Vite projects, you may need to add alias configuration to <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">vite.config.js</code>.
 				</p>
-				<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-					<pre><code><span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">defineConfig</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">&apos;vite&apos;</span>;
-<span class="text-purple-400">import</span> <span class="text-yellow-400">path</span> <span class="text-purple-400">from</span> <span class="text-green-400">&apos;path&apos;</span>;
+				<CodeBlock label="vite.config.js">
+					<pre><code><span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">defineConfig</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">&apos;vite&apos;</span>;
+<span class="text-zinc-300">import</span> <span class="text-zinc-100">path</span> <span class="text-zinc-300">from</span> <span class="text-zinc-100">&apos;path&apos;</span>;
 
-<span class="text-purple-400">export default</span> <span class="text-yellow-400">defineConfig</span>({"{"}<br/>  <span class="text-blue-400">resolve:</span> {"{"}<br/>    <span class="text-blue-400">alias:</span> {"{"}<br/>      <span class="text-green-400">&apos;@&apos;</span>: <span class="text-yellow-400">path.resolve</span>(__dirname, <span class="text-green-400">&apos;./spore_packages&apos;</span>)<br/>    {"}"}<br/>  {"}"}<br/>{"}"});</code></pre>
-				</div>
+<span class="text-zinc-300">export default</span> <span class="text-zinc-100">defineConfig</span>({"{"}<br/>  <span class="text-zinc-400">resolve:</span> {"{"}<br/>    <span class="text-zinc-400">alias:</span> {"{"}<br/>      <span class="text-zinc-100">&apos;@&apos;</span>: <span class="text-zinc-100">path.resolve</span>(__dirname, <span class="text-zinc-100">&apos;./spore_packages&apos;</span>)<br/>    {"}"}<br/>  {"}"}<br/>{"}"});</code></pre>
+				</CodeBlock>
 			</div>
 
 			<!-- SvelteKit -->
 			<div class="border rounded-lg p-6">
 				<h3 class="text-lg font-semibold mb-3">SvelteKit</h3>
 				<p class="text-muted-foreground mb-4">
-					Configure aliases in <code>svelte.config.js</code> for SvelteKit projects.
+					Configure aliases in <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">svelte.config.js</code> for SvelteKit projects.
 				</p>
-				<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-					<pre><code><span class="text-purple-400">import</span> <span class="text-yellow-400">adapter</span> <span class="text-purple-400">from</span> <span class="text-green-400">&apos;@sveltejs/adapter-auto&apos;</span>;
-<span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">vitePreprocess</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">&apos;@sveltejs/kit/vite&apos;</span>;
+				<CodeBlock label="svelte.config.js">
+					<pre><code><span class="text-zinc-300">import</span> <span class="text-zinc-100">adapter</span> <span class="text-zinc-300">from</span> <span class="text-zinc-100">&apos;@sveltejs/adapter-auto&apos;</span>;
+<span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">vitePreprocess</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">&apos;@sveltejs/kit/vite&apos;</span>;
 
-<span class="text-purple-400">export default</span> {"{"}<br/>  <span class="text-blue-400">kit:</span> {"{"}<br/>    <span class="text-blue-400">adapter:</span> <span class="text-yellow-400">adapter</span>(),<br/>    <span class="text-blue-400">alias:</span> {"{"}<br/>      <span class="text-green-400">&apos;@/*&apos;</span>: <span class="text-green-400">&apos;./spore_packages/*&apos;</span><br/>    {"}"}<br/>  {"}"},<br/>  <span class="text-blue-400">preprocess:</span> <span class="text-yellow-400">vitePreprocess</span>()<br/>{"};"};</code></pre>
-				</div>
+<span class="text-zinc-300">export default</span> {"{"}<br/>  <span class="text-zinc-400">kit:</span> {"{"}<br/>    <span class="text-zinc-400">adapter:</span> <span class="text-zinc-100">adapter</span>(),<br/>    <span class="text-zinc-400">alias:</span> {"{"}<br/>      <span class="text-zinc-100">&apos;@/*&apos;</span>: <span class="text-zinc-100">&apos;./spore_packages/*&apos;</span><br/>    {"}"}<br/>  {"}"},<br/>  <span class="text-zinc-400">preprocess:</span> <span class="text-zinc-100">vitePreprocess</span>()<br/>{"};"};</code></pre>
+				</CodeBlock>
 			</div>
 		</div>
 	</section>
@@ -527,12 +500,12 @@
 		<div class="space-y-6">
 			<div class="border rounded-lg p-6">
 				<h3 class="font-semibold mb-3 flex items-center">
-					<Icon icon="lucide:danger-triangle-bold" class="w-5 h-5 mr-2 text-red-500" />
+					<Icon icon="lucide:danger-triangle-bold" class="w-5 h-5 mr-2 text-foreground" />
 					Aliases Not Working
 				</h3>
 				<ul class="text-sm text-muted-foreground space-y-2">
-					<li>• Run <code>spore link</code> to regenerate TypeScript paths</li>
-					<li>• Check that <code>tsconfig.json</code> exists in your app directory</li>
+					<li>• Run <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">spore link</code> to regenerate TypeScript paths</li>
+					<li>• Check that <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">tsconfig.json</code> exists in your app directory</li>
 					<li>• Restart your TypeScript service in your IDE</li>
 					<li>• Verify the alias prefix in your configuration</li>
 				</ul>
@@ -540,22 +513,10 @@
 
 			<div class="border rounded-lg p-6">
 				<h3 class="font-semibold mb-3 flex items-center">
-					<Icon icon="lucide:refresh-bold" class="w-5 h-5 mr-2 text-orange-500" />
+					<Icon icon="lucide:refresh-bold" class="w-5 h-5 mr-2 text-foreground" />
 					Force Update Aliases
 				</h3>
-				<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
-					<code>spore link --force</code>
-					<button
-						class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
-						on:click={() => copyToClipboard('spore link --force')}
-					>
-						{#if showCopied && copyText === 'spore link --force'}
-							<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
-						{:else}
-							<Icon icon="lucide:copy" class="w-4 h-4" />
-						{/if}
-					</button>
-				</div>
+				<CodeBlock label="bash" copy="spore link --force">spore link --force</CodeBlock>
 				<div class="mt-2 text-sm text-muted-foreground">
 					Forces regeneration of all TypeScript path mappings
 				</div>
@@ -563,7 +524,7 @@
 
 			<div class="border rounded-lg p-6">
 				<h3 class="font-semibold mb-3 flex items-center">
-					<Icon icon="lucide:shield-warning-bold" class="w-5 h-5 mr-2 text-yellow-500" />
+					<Icon icon="lucide:shield-warning-bold" class="w-5 h-5 mr-2 text-foreground" />
 					Build Tool Configuration
 				</h3>
 				<ul class="text-sm text-muted-foreground space-y-2">
@@ -579,39 +540,39 @@
 	<!-- Package Types and Aliases -->
 	<section class="mb-12">
 		<h2 class="text-2xl font-bold mb-6">Package Types & Alias Examples</h2>
-		
+
 		<div class="space-y-8">
 			<!-- Local Packages -->
 			<div class="border rounded-lg p-6">
 				<h3 class="text-lg font-semibold mb-4 flex items-center">
-					<Icon icon="lucide:home" class="w-5 h-5 mr-2 text-blue-600" />
+					<Icon icon="lucide:home" class="w-5 h-5 mr-2 text-foreground" />
 					Local Packages
 				</h3>
 				<p class="text-muted-foreground mb-4">
-					Local packages stored in your <code>packages/</code> directory can be easily accessed with aliases.
+					Local packages stored in your <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">packages/</code> directory can be easily accessed with aliases.
 				</p>
-				
+
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 					<div>
 						<h4 class="font-medium mb-2">Configuration</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-blue-400">apps:</span>
-  <span class="text-blue-400">frontend:</span>
-    <span class="text-blue-400">ts_alias:</span> <span class="text-green-400">"@"</span>
-    <span class="text-blue-400">packages:</span>
-      - <span class="text-yellow-400">types</span>
-      - <span class="text-yellow-400">utils</span>
-      - <span class="text-yellow-400">ui-components</span></code></pre>
-						</div>
+						<CodeBlock label="spore.yml">
+							<pre><code><span class="text-zinc-400">apps:</span>
+  <span class="text-zinc-400">frontend:</span>
+    <span class="text-zinc-400">ts_alias:</span> <span class="text-zinc-100">"@"</span>
+    <span class="text-zinc-400">packages:</span>
+      - <span class="text-zinc-100">types</span>
+      - <span class="text-zinc-100">utils</span>
+      - <span class="text-zinc-100">ui-components</span></code></pre>
+						</CodeBlock>
 					</div>
-					
+
 					<div>
 						<h4 class="font-medium mb-2">Usage in TypeScript</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">User</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'@/types'</span>;
-<span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">formatDate</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'@/utils'</span>;
-<span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">Button</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'@/ui-components'</span>;</code></pre>
-						</div>
+						<CodeBlock label="typescript">
+							<pre><code><span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">User</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'@/types'</span>;
+<span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">formatDate</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'@/utils'</span>;
+<span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">Button</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'@/ui-components'</span>;</code></pre>
+						</CodeBlock>
 					</div>
 				</div>
 			</div>
@@ -619,34 +580,34 @@
 			<!-- Team Packages -->
 			<div class="border rounded-lg p-6">
 				<h3 class="text-lg font-semibold mb-4 flex items-center">
-					<Icon icon="lucide:users" class="w-5 h-5 mr-2 text-purple-600" />
+					<Icon icon="lucide:users" class="w-5 h-5 mr-2 text-foreground" />
 					Team Packages
 				</h3>
 				<p class="text-muted-foreground mb-4">
 					Team packages from your organization registry can be aliased for cleaner imports.
 				</p>
-				
+
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 					<div>
 						<h4 class="font-medium mb-2">Configuration</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-blue-400">apps:</span>
-  <span class="text-blue-400">api:</span>
-    <span class="text-blue-400">ts_alias:</span> <span class="text-green-400">"#"</span>
-    <span class="text-blue-400">packages:</span>
-      - <span class="text-yellow-400">"@mycompany/shared-lib"</span>
-      - <span class="text-yellow-400">"@mycompany/database"</span>
-      - <span class="text-yellow-400">"@myteam/validators"</span></code></pre>
-						</div>
+						<CodeBlock label="spore.yml">
+							<pre><code><span class="text-zinc-400">apps:</span>
+  <span class="text-zinc-400">api:</span>
+    <span class="text-zinc-400">ts_alias:</span> <span class="text-zinc-100">"#"</span>
+    <span class="text-zinc-400">packages:</span>
+      - <span class="text-zinc-100">"@mycompany/shared-lib"</span>
+      - <span class="text-zinc-100">"@mycompany/database"</span>
+      - <span class="text-zinc-100">"@myteam/validators"</span></code></pre>
+						</CodeBlock>
 					</div>
-					
+
 					<div>
 						<h4 class="font-medium mb-2">Aliased Imports</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">ApiClient</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'#/shared-lib'</span>;
-<span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">Database</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'#/database'</span>;
-<span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">validate</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'#/validators'</span>;</code></pre>
-						</div>
+						<CodeBlock label="typescript">
+							<pre><code><span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">ApiClient</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'#/shared-lib'</span>;
+<span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">Database</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'#/database'</span>;
+<span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">validate</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'#/validators'</span>;</code></pre>
+						</CodeBlock>
 					</div>
 				</div>
 			</div>
@@ -654,34 +615,34 @@
 			<!-- Online Packages -->
 			<div class="border rounded-lg p-6">
 				<h3 class="text-lg font-semibold mb-4 flex items-center">
-					<Icon icon="lucide:cloud" class="w-5 h-5 mr-2 text-green-600" />
+					<Icon icon="lucide:cloud" class="w-5 h-5 mr-2 text-foreground" />
 					Online Registry Packages
 				</h3>
 				<p class="text-muted-foreground mb-4">
 					Published packages from the Spore registry benefit from aliases for consistent organization.
 				</p>
-				
+
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 					<div>
 						<h4 class="font-medium mb-2">Configuration</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-blue-400">apps:</span>
-  <span class="text-blue-400">webapp:</span>
-    <span class="text-blue-400">ts_alias:</span> <span class="text-green-400">"~"</span>
-    <span class="text-blue-400">packages:</span>
-      - <span class="text-yellow-400">"@community/ui-kit"</span>
-      - <span class="text-yellow-400">"@external/charts"</span>
-      - <span class="text-yellow-400">"@opensource/helpers"</span></code></pre>
-						</div>
+						<CodeBlock label="spore.yml">
+							<pre><code><span class="text-zinc-400">apps:</span>
+  <span class="text-zinc-400">webapp:</span>
+    <span class="text-zinc-400">ts_alias:</span> <span class="text-zinc-100">"~"</span>
+    <span class="text-zinc-400">packages:</span>
+      - <span class="text-zinc-100">"@community/ui-kit"</span>
+      - <span class="text-zinc-100">"@external/charts"</span>
+      - <span class="text-zinc-100">"@opensource/helpers"</span></code></pre>
+						</CodeBlock>
 					</div>
-					
+
 					<div>
 						<h4 class="font-medium mb-2">Clean Imports</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">Theme</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'~/ui-kit'</span>;
-<span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">LineChart</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'~/charts'</span>;
-<span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">debounce</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'~/helpers'</span>;</code></pre>
-						</div>
+						<CodeBlock label="typescript">
+							<pre><code><span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">Theme</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'~/ui-kit'</span>;
+<span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">LineChart</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'~/charts'</span>;
+<span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">debounce</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'~/helpers'</span>;</code></pre>
+						</CodeBlock>
 					</div>
 				</div>
 			</div>
@@ -694,61 +655,61 @@
 		<p class="text-muted-foreground mb-6">
 			Create meaningful aliases that reflect functionality rather than package names for better developer experience.
 		</p>
-		
+
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 			<div class="border rounded-lg p-6">
 				<h3 class="font-semibold mb-3 flex items-center">
-					<Icon icon="lucide:database" class="w-5 h-5 mr-2 text-blue-600" />
+					<Icon icon="lucide:database" class="w-5 h-5 mr-2 text-foreground" />
 					Functional Aliases
 				</h3>
 				<div class="space-y-3">
-					<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-						<pre><code><span class="text-gray-400"># Create semantic mappings</span>
-<span class="text-blue-400">apps:</span>
-  <span class="text-blue-400">backend:</span>
-    <span class="text-blue-400">ts_alias:</span> <span class="text-green-400">"@"</span>
-    <span class="text-blue-400">packages:</span>
-      - <span class="text-gray-400"># Database layer</span>
-      - <span class="text-yellow-400">database-models</span>  <span class="text-gray-400"># becomes @/database-models</span>
-      - <span class="text-gray-400"># API utilities</span>
-      - <span class="text-yellow-400">api-helpers</span>     <span class="text-gray-400"># becomes @/api-helpers</span>
-      - <span class="text-gray-400"># Authentication</span>
-      - <span class="text-yellow-400">auth-utils</span>      <span class="text-gray-400"># becomes @/auth-utils</span></code></pre>
-					</div>
-					
-					<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-						<pre><code><span class="text-gray-400">// Usage reflects purpose</span>
-<span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">User</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'@/database-models'</span>;
-<span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">validateRequest</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'@/api-helpers'</span>;
-<span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">authenticate</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'@/auth-utils'</span>;</code></pre>
-					</div>
+					<CodeBlock label="spore.yml">
+						<pre><code><span class="text-zinc-600"># Create semantic mappings</span>
+<span class="text-zinc-400">apps:</span>
+  <span class="text-zinc-400">backend:</span>
+    <span class="text-zinc-400">ts_alias:</span> <span class="text-zinc-100">"@"</span>
+    <span class="text-zinc-400">packages:</span>
+      - <span class="text-zinc-600"># Database layer</span>
+      - <span class="text-zinc-100">database-models</span>  <span class="text-zinc-600"># becomes @/database-models</span>
+      - <span class="text-zinc-600"># API utilities</span>
+      - <span class="text-zinc-100">api-helpers</span>     <span class="text-zinc-600"># becomes @/api-helpers</span>
+      - <span class="text-zinc-600"># Authentication</span>
+      - <span class="text-zinc-100">auth-utils</span>      <span class="text-zinc-600"># becomes @/auth-utils</span></code></pre>
+					</CodeBlock>
+
+					<CodeBlock label="typescript">
+						<pre><code><span class="text-zinc-600">// Usage reflects purpose</span>
+<span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">User</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'@/database-models'</span>;
+<span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">validateRequest</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'@/api-helpers'</span>;
+<span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">authenticate</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'@/auth-utils'</span>;</code></pre>
+					</CodeBlock>
 				</div>
 			</div>
 
 			<div class="border rounded-lg p-6">
 				<h3 class="font-semibold mb-3 flex items-center">
-					<Icon icon="lucide:layers" class="w-5 h-5 mr-2 text-purple-600" />
+					<Icon icon="lucide:layers" class="w-5 h-5 mr-2 text-foreground" />
 					Architectural Aliases
 				</h3>
 				<div class="space-y-3">
-					<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-						<pre><code><span class="text-gray-400"># Organize by architecture layers</span>
-<span class="text-blue-400">apps:</span>
-  <span class="text-blue-400">frontend:</span>
-    <span class="text-blue-400">ts_alias:</span> <span class="text-green-400">"@"</span>
-    <span class="text-blue-400">packages:</span>
-      - <span class="text-yellow-400">domain-models</span>    <span class="text-gray-400"># Domain layer</span>
-      - <span class="text-yellow-400">ui-components</span>    <span class="text-gray-400"># Presentation layer</span>
-      - <span class="text-yellow-400">data-services</span>    <span class="text-gray-400"># Data access layer</span>
-      - <span class="text-yellow-400">shared-types</span>     <span class="text-gray-400"># Cross-cutting</span></code></pre>
-					</div>
-					
-					<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-						<pre><code><span class="text-gray-400">// Clear architectural boundaries</span>
-<span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">Product</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'@/domain-models'</span>;
-<span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">Card</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'@/ui-components'</span>;
-<span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">productApi</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'@/data-services'</span>;</code></pre>
-					</div>
+					<CodeBlock label="spore.yml">
+						<pre><code><span class="text-zinc-600"># Organize by architecture layers</span>
+<span class="text-zinc-400">apps:</span>
+  <span class="text-zinc-400">frontend:</span>
+    <span class="text-zinc-400">ts_alias:</span> <span class="text-zinc-100">"@"</span>
+    <span class="text-zinc-400">packages:</span>
+      - <span class="text-zinc-100">domain-models</span>    <span class="text-zinc-600"># Domain layer</span>
+      - <span class="text-zinc-100">ui-components</span>    <span class="text-zinc-600"># Presentation layer</span>
+      - <span class="text-zinc-100">data-services</span>    <span class="text-zinc-600"># Data access layer</span>
+      - <span class="text-zinc-100">shared-types</span>     <span class="text-zinc-600"># Cross-cutting</span></code></pre>
+					</CodeBlock>
+
+					<CodeBlock label="typescript">
+						<pre><code><span class="text-zinc-600">// Clear architectural boundaries</span>
+<span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">Product</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'@/domain-models'</span>;
+<span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">Card</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'@/ui-components'</span>;
+<span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">productApi</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'@/data-services'</span>;</code></pre>
+					</CodeBlock>
 				</div>
 			</div>
 		</div>
@@ -760,46 +721,46 @@
 		<p class="text-muted-foreground mb-6">
 			Discover practical scenarios where package aliases provide significant developer experience improvements.
 		</p>
-		
+
 		<div class="space-y-8">
 			<!-- Large Monorepo -->
 			<div class="border rounded-lg p-6">
 				<h3 class="text-lg font-semibold mb-4 flex items-center">
-					<Icon icon="lucide:building-2" class="w-5 h-5 mr-2 text-blue-600" />
+					<Icon icon="lucide:building-2" class="w-5 h-5 mr-2 text-foreground" />
 					Large Enterprise Monorepo
 				</h3>
 				<p class="text-muted-foreground mb-4">
 					In a large monorepo with 50+ packages, aliases become essential for maintainability.
 				</p>
-				
+
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 					<div>
 						<h4 class="font-medium mb-2 flex items-center">
-							<Icon icon="lucide:x-circle" class="w-4 h-4 mr-2 text-red-500" />
+							<Icon icon="lucide:x-circle" class="w-4 h-4 mr-2 text-muted-foreground" />
 							Without Aliases
 						</h4>
-						<div class="bg-red-50 border border-red-200 rounded p-4 text-sm font-mono">
-							<pre><code><span class="text-red-700">// Deeply nested imports</span>
-<span class="text-purple-400">import</span> {"{"} <span class="text-yellow-400">UserService</span> {"}"} <span class="text-purple-400">from</span> 
-  <span class="text-green-400">'../../../packages/backend/user-management'</span>;
-<span class="text-purple-400">import</span> {"{"} <span class="text-yellow-400">PaymentGateway</span> {"}"} <span class="text-purple-400">from</span> 
-  <span class="text-green-400">'../../../../packages/shared/payment-processing'</span>;
-<span class="text-purple-400">import</span> {"{"} <span class="text-yellow-400">NotificationQueue</span> {"}"} <span class="text-purple-400">from</span> 
-  <span class="text-green-400">'../../../packages/infrastructure/messaging'</span>;</code></pre>
-						</div>
+						<CodeBlock label="typescript">
+							<pre><code><span class="text-zinc-400">// Deeply nested imports</span>
+<span class="text-zinc-300">import</span> {"{"} <span class="text-zinc-100">UserService</span> {"}"} <span class="text-zinc-300">from</span>
+  <span class="text-zinc-100">'../../../packages/backend/user-management'</span>;
+<span class="text-zinc-300">import</span> {"{"} <span class="text-zinc-100">PaymentGateway</span> {"}"} <span class="text-zinc-300">from</span>
+  <span class="text-zinc-100">'../../../../packages/shared/payment-processing'</span>;
+<span class="text-zinc-300">import</span> {"{"} <span class="text-zinc-100">NotificationQueue</span> {"}"} <span class="text-zinc-300">from</span>
+  <span class="text-zinc-100">'../../../packages/infrastructure/messaging'</span>;</code></pre>
+						</CodeBlock>
 					</div>
-					
+
 					<div>
 						<h4 class="font-medium mb-2 flex items-center">
-							<Icon icon="lucide:check-circle" class="w-4 h-4 mr-2 text-green-500" />
+							<Icon icon="lucide:check-circle" class="w-4 h-4 mr-2 text-muted-foreground" />
 							With Aliases
 						</h4>
-						<div class="bg-green-50 border border-green-200 rounded p-4 text-sm font-mono">
-							<pre><code><span class="text-green-700">// Clean, semantic imports</span>
-<span class="text-purple-400">import</span> {"{"} <span class="text-yellow-400">UserService</span> {"}"} <span class="text-purple-400">from</span> <span class="text-green-400">'@/user-management'</span>;
-<span class="text-purple-400">import</span> {"{"} <span class="text-yellow-400">PaymentGateway</span> {"}"} <span class="text-purple-400">from</span> <span class="text-green-400">'@/payment-processing'</span>;
-<span class="text-purple-400">import</span> {"{"} <span class="text-yellow-400">NotificationQueue</span> {"}"} <span class="text-purple-400">from</span> <span class="text-green-400">'@/messaging'</span>;</code></pre>
-						</div>
+						<CodeBlock label="typescript">
+							<pre><code><span class="text-zinc-400">// Clean, semantic imports</span>
+<span class="text-zinc-300">import</span> {"{"} <span class="text-zinc-100">UserService</span> {"}"} <span class="text-zinc-300">from</span> <span class="text-zinc-100">'@/user-management'</span>;
+<span class="text-zinc-300">import</span> {"{"} <span class="text-zinc-100">PaymentGateway</span> {"}"} <span class="text-zinc-300">from</span> <span class="text-zinc-100">'@/payment-processing'</span>;
+<span class="text-zinc-300">import</span> {"{"} <span class="text-zinc-100">NotificationQueue</span> {"}"} <span class="text-zinc-300">from</span> <span class="text-zinc-100">'@/messaging'</span>;</code></pre>
+						</CodeBlock>
 					</div>
 				</div>
 			</div>
@@ -807,65 +768,65 @@
 			<!-- Multi-App Consistency -->
 			<div class="border rounded-lg p-6">
 				<h3 class="text-lg font-semibold mb-4 flex items-center">
-					<Icon icon="lucide:git-branch" class="w-5 h-5 mr-2 text-purple-600" />
+					<Icon icon="lucide:git-branch" class="w-5 h-5 mr-2 text-foreground" />
 					Multi-App Consistency
 				</h3>
 				<p class="text-muted-foreground mb-4">
 					Maintain consistent import patterns across different applications in your monorepo.
 				</p>
-				
-				<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-					<pre><code><span class="text-gray-400"># Consistent aliases across apps</span>
-<span class="text-blue-400">apps:</span>
-  <span class="text-blue-400">web-admin:</span>
-    <span class="text-blue-400">ts_alias:</span> <span class="text-green-400">"@"</span>
-    <span class="text-blue-400">packages:</span> [<span class="text-yellow-400">shared-types</span>, <span class="text-yellow-400">ui-kit</span>, <span class="text-yellow-400">api-client</span>]
-  
-  <span class="text-blue-400">mobile-app:</span>
-    <span class="text-blue-400">ts_alias:</span> <span class="text-green-400">"@"</span>
-    <span class="text-blue-400">packages:</span> [<span class="text-yellow-400">shared-types</span>, <span class="text-yellow-400">mobile-components</span>, <span class="text-yellow-400">api-client</span>]
-  
-  <span class="text-blue-400">backend-api:</span>
-    <span class="text-blue-400">ts_alias:</span> <span class="text-green-400">"@"</span>
-    <span class="text-blue-400">packages:</span> [<span class="text-yellow-400">shared-types</span>, <span class="text-yellow-400">database-models</span>, <span class="text-yellow-400">validators</span>]
 
-<span class="text-gray-400"># Same import pattern everywhere:</span>
-<span class="text-gray-400"># import { User } from '@/shared-types';</span></code></pre>
-				</div>
+				<CodeBlock label="spore.yml">
+					<pre><code><span class="text-zinc-600"># Consistent aliases across apps</span>
+<span class="text-zinc-400">apps:</span>
+  <span class="text-zinc-400">web-admin:</span>
+    <span class="text-zinc-400">ts_alias:</span> <span class="text-zinc-100">"@"</span>
+    <span class="text-zinc-400">packages:</span> [<span class="text-zinc-100">shared-types</span>, <span class="text-zinc-100">ui-kit</span>, <span class="text-zinc-100">api-client</span>]
+
+  <span class="text-zinc-400">mobile-app:</span>
+    <span class="text-zinc-400">ts_alias:</span> <span class="text-zinc-100">"@"</span>
+    <span class="text-zinc-400">packages:</span> [<span class="text-zinc-100">shared-types</span>, <span class="text-zinc-100">mobile-components</span>, <span class="text-zinc-100">api-client</span>]
+
+  <span class="text-zinc-400">backend-api:</span>
+    <span class="text-zinc-400">ts_alias:</span> <span class="text-zinc-100">"@"</span>
+    <span class="text-zinc-400">packages:</span> [<span class="text-zinc-100">shared-types</span>, <span class="text-zinc-100">database-models</span>, <span class="text-zinc-100">validators</span>]
+
+<span class="text-zinc-600"># Same import pattern everywhere:</span>
+<span class="text-zinc-600"># import { User } from '@/shared-types';</span></code></pre>
+				</CodeBlock>
 			</div>
 
 			<!-- Refactoring Benefits -->
 			<div class="border rounded-lg p-6">
 				<h3 class="text-lg font-semibold mb-4 flex items-center">
-					<Icon icon="lucide:refresh-cw" class="w-5 h-5 mr-2 text-green-600" />
+					<Icon icon="lucide:refresh-cw" class="w-5 h-5 mr-2 text-foreground" />
 					Easy Refactoring
 				</h3>
 				<p class="text-muted-foreground mb-4">
 					Aliases make code refactoring and package reorganization much simpler.
 				</p>
-				
+
 				<div class="space-y-4">
-					<div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+					<div class="bg-muted border border-border rounded-lg p-4">
 						<div class="flex items-start space-x-3">
-							<Icon icon="lucide:lightbulb" class="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+							<Icon icon="lucide:lightbulb" class="w-5 h-5 text-foreground mt-0.5 flex-shrink-0" />
 							<div class="text-sm">
-								<h4 class="font-medium text-blue-900 mb-1">Package Renaming</h4>
-								<p class="text-blue-700">
-									When you rename a package from <code>user-helpers</code> to <code>user-utils</code>, 
-									imports using aliases like <code>@/user-helpers</code> automatically update when you 
-									run <code>spore link</code>, without changing any import statements.
+								<h4 class="font-medium text-foreground mb-1">Package Renaming</h4>
+								<p class="text-muted-foreground">
+									When you rename a package from <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">user-helpers</code> to <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">user-utils</code>,
+									imports using aliases like <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">@/user-helpers</code> automatically update when you
+									run <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">spore link</code>, without changing any import statements.
 								</p>
 							</div>
 						</div>
 					</div>
-					
-					<div class="bg-green-50 border border-green-200 rounded-lg p-4">
+
+					<div class="bg-muted border border-border rounded-lg p-4">
 						<div class="flex items-start space-x-3">
-							<Icon icon="lucide:move" class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+							<Icon icon="lucide:move" class="w-5 h-5 text-foreground mt-0.5 flex-shrink-0" />
 							<div class="text-sm">
-								<h4 class="font-medium text-green-900 mb-1">Package Migration</h4>
-								<p class="text-green-700">
-									Moving packages between local and remote registries becomes transparent to consumers 
+								<h4 class="font-medium text-foreground mb-1">Package Migration</h4>
+								<p class="text-muted-foreground">
+									Moving packages between local and remote registries becomes transparent to consumers
 									when using aliases, as the import paths remain consistent.
 								</p>
 							</div>
@@ -879,7 +840,7 @@
 	<!-- Advanced Configuration -->
 	<section class="mb-12">
 		<h2 class="text-2xl font-bold mb-6">Advanced Alias Configuration</h2>
-		
+
 		<div class="space-y-8">
 			<!-- Per-App Customization -->
 			<div class="border rounded-lg p-6">
@@ -887,25 +848,25 @@
 				<p class="text-muted-foreground mb-4">
 					Configure different alias prefixes for different types of applications to maintain clarity.
 				</p>
-				
-				<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-					<pre><code><span class="text-blue-400">apps:</span>
-  <span class="text-blue-400">frontend:</span>
-    <span class="text-blue-400">ts_alias:</span> <span class="text-green-400">"@"</span>        <span class="text-gray-400"># Frontend uses @ for UI packages</span>
-    <span class="text-blue-400">packages:</span> [<span class="text-yellow-400">ui-components</span>, <span class="text-yellow-400">frontend-utils</span>]
-    
-  <span class="text-blue-400">backend:</span>
-    <span class="text-blue-400">ts_alias:</span> <span class="text-green-400">"#"</span>        <span class="text-gray-400"># Backend uses # for server packages</span>
-    <span class="text-blue-400">packages:</span> [<span class="text-yellow-400">database-models</span>, <span class="text-yellow-400">api-utils</span>]
-    
-  <span class="text-blue-400">mobile:</span>
-    <span class="text-blue-400">ts_alias:</span> <span class="text-green-400">"~"</span>        <span class="text-gray-400"># Mobile uses ~ for platform packages</span>
-    <span class="text-blue-400">packages:</span> [<span class="text-yellow-400">mobile-components</span>, <span class="text-yellow-400">native-utils</span>]
-    
-  <span class="text-blue-400">cli:</span>
-    <span class="text-blue-400">ts_alias:</span> <span class="text-red-400">false</span>     <span class="text-gray-400"># CLI app disables aliases</span>
-    <span class="text-blue-400">packages:</span> [<span class="text-yellow-400">shared-types</span>]</code></pre>
-				</div>
+
+				<CodeBlock label="spore.yml">
+					<pre><code><span class="text-zinc-400">apps:</span>
+  <span class="text-zinc-400">frontend:</span>
+    <span class="text-zinc-400">ts_alias:</span> <span class="text-zinc-100">"@"</span>        <span class="text-zinc-600"># Frontend uses @ for UI packages</span>
+    <span class="text-zinc-400">packages:</span> [<span class="text-zinc-100">ui-components</span>, <span class="text-zinc-100">frontend-utils</span>]
+
+  <span class="text-zinc-400">backend:</span>
+    <span class="text-zinc-400">ts_alias:</span> <span class="text-zinc-100">"#"</span>        <span class="text-zinc-600"># Backend uses # for server packages</span>
+    <span class="text-zinc-400">packages:</span> [<span class="text-zinc-100">database-models</span>, <span class="text-zinc-100">api-utils</span>]
+
+  <span class="text-zinc-400">mobile:</span>
+    <span class="text-zinc-400">ts_alias:</span> <span class="text-zinc-100">"~"</span>        <span class="text-zinc-600"># Mobile uses ~ for platform packages</span>
+    <span class="text-zinc-400">packages:</span> [<span class="text-zinc-100">mobile-components</span>, <span class="text-zinc-100">native-utils</span>]
+
+  <span class="text-zinc-400">cli:</span>
+    <span class="text-zinc-400">ts_alias:</span> <span class="text-zinc-100">false</span>     <span class="text-zinc-600"># CLI app disables aliases</span>
+    <span class="text-zinc-400">packages:</span> [<span class="text-zinc-100">shared-types</span>]</code></pre>
+				</CodeBlock>
 			</div>
 
 			<!-- Global vs Local Configuration -->
@@ -914,34 +875,34 @@
 				<p class="text-muted-foreground mb-4">
 					Set default aliases globally and override them per application as needed.
 				</p>
-				
+
 				<div class="space-y-4">
 					<div>
 						<h4 class="font-medium mb-2">spore.yml (Global Default)</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-blue-400">name:</span> my-project
-<span class="text-blue-400">ts_alias:</span> <span class="text-green-400">"@"</span>  <span class="text-gray-400"># Default alias for all apps</span>
+						<CodeBlock label="spore.yml">
+							<pre><code><span class="text-zinc-400">name:</span> my-project
+<span class="text-zinc-400">ts_alias:</span> <span class="text-zinc-100">"@"</span>  <span class="text-zinc-600"># Default alias for all apps</span>
 
-<span class="text-blue-400">apps:</span>
-  <span class="text-blue-400">web:</span>
-    <span class="text-gray-400"># Inherits @ from global setting</span>
-    <span class="text-blue-400">packages:</span> [<span class="text-yellow-400">ui-components</span>]
-    
-  <span class="text-blue-400">api:</span>
-    <span class="text-blue-400">ts_alias:</span> <span class="text-green-400">"#"</span>  <span class="text-gray-400"># Override global default</span>
-    <span class="text-blue-400">packages:</span> [<span class="text-yellow-400">api-utils</span>]</code></pre>
-						</div>
+<span class="text-zinc-400">apps:</span>
+  <span class="text-zinc-400">web:</span>
+    <span class="text-zinc-600"># Inherits @ from global setting</span>
+    <span class="text-zinc-400">packages:</span> [<span class="text-zinc-100">ui-components</span>]
+
+  <span class="text-zinc-400">api:</span>
+    <span class="text-zinc-400">ts_alias:</span> <span class="text-zinc-100">"#"</span>  <span class="text-zinc-600"># Override global default</span>
+    <span class="text-zinc-400">packages:</span> [<span class="text-zinc-100">api-utils</span>]</code></pre>
+						</CodeBlock>
 					</div>
-					
+
 					<div>
 						<h4 class="font-medium mb-2">apps/special/app.yml (App Override)</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-blue-400">name:</span> special-app
-<span class="text-blue-400">ts_alias:</span> <span class="text-green-400">"$"</span>  <span class="text-gray-400"># App-specific alias prefix</span>
-<span class="text-blue-400">packages:</span>
-  - <span class="text-yellow-400">special-utils</span>
-  - <span class="text-yellow-400">custom-types</span></code></pre>
-						</div>
+						<CodeBlock label="app.yml">
+							<pre><code><span class="text-zinc-400">name:</span> special-app
+<span class="text-zinc-400">ts_alias:</span> <span class="text-zinc-100">"$"</span>  <span class="text-zinc-600"># App-specific alias prefix</span>
+<span class="text-zinc-400">packages:</span>
+  - <span class="text-zinc-100">special-utils</span>
+  - <span class="text-zinc-100">custom-types</span></code></pre>
+						</CodeBlock>
 					</div>
 				</div>
 			</div>
@@ -959,7 +920,7 @@
 			<!-- E-commerce App -->
 			<div class="border rounded-lg p-6">
 				<h3 class="text-lg font-semibold mb-4 flex items-center">
-					<Icon icon="lucide:shopping-cart" class="w-5 h-5 mr-2 text-blue-600" />
+					<Icon icon="lucide:shopping-cart" class="w-5 h-5 mr-2 text-foreground" />
 					E-commerce Application
 				</h3>
 				<p class="text-muted-foreground mb-4">
@@ -969,34 +930,34 @@
 				<div class="space-y-4">
 					<div>
 						<h4 class="font-medium mb-2">Configuration</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-blue-400">apps:</span>
-  <span class="text-blue-400">storefront:</span>
-    <span class="text-blue-400">ts_alias:</span> <span class="text-green-400">"@"</span>
-    <span class="text-blue-400">packages:</span>
-      - <span class="text-blue-400">name:</span> <span class="text-green-400">user-management-service</span>
-        <span class="text-blue-400">as:</span> <span class="text-yellow-400">users</span>
-      - <span class="text-blue-400">name:</span> <span class="text-green-400">product-catalog-engine</span>
-        <span class="text-blue-400">as:</span> <span class="text-yellow-400">products</span>
-      - <span class="text-blue-400">name:</span> <span class="text-green-400">shopping-cart-logic</span>
-        <span class="text-blue-400">as:</span> <span class="text-yellow-400">cart</span>
-      - <span class="text-blue-400">name:</span> <span class="text-green-400">payment-processing</span>
-        <span class="text-blue-400">as:</span> <span class="text-yellow-400">payments</span>
-      - <span class="text-blue-400">name:</span> <span class="text-green-400">"@company/design-system@^3.0.0"</span>
-        <span class="text-blue-400">as:</span> <span class="text-yellow-400">ui</span></code></pre>
-						</div>
+						<CodeBlock label="spore.yml">
+							<pre><code><span class="text-zinc-400">apps:</span>
+  <span class="text-zinc-400">storefront:</span>
+    <span class="text-zinc-400">ts_alias:</span> <span class="text-zinc-100">"@"</span>
+    <span class="text-zinc-400">packages:</span>
+      - <span class="text-zinc-400">name:</span> <span class="text-zinc-100">user-management-service</span>
+        <span class="text-zinc-400">as:</span> <span class="text-zinc-100">users</span>
+      - <span class="text-zinc-400">name:</span> <span class="text-zinc-100">product-catalog-engine</span>
+        <span class="text-zinc-400">as:</span> <span class="text-zinc-100">products</span>
+      - <span class="text-zinc-400">name:</span> <span class="text-zinc-100">shopping-cart-logic</span>
+        <span class="text-zinc-400">as:</span> <span class="text-zinc-100">cart</span>
+      - <span class="text-zinc-400">name:</span> <span class="text-zinc-100">payment-processing</span>
+        <span class="text-zinc-400">as:</span> <span class="text-zinc-100">payments</span>
+      - <span class="text-zinc-400">name:</span> <span class="text-zinc-100">"@company/design-system@^3.0.0"</span>
+        <span class="text-zinc-400">as:</span> <span class="text-zinc-100">ui</span></code></pre>
+						</CodeBlock>
 					</div>
 
 					<div>
 						<h4 class="font-medium mb-2">Usage in Components</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-gray-400">// ProductPage.tsx</span>
-<span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">User</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'@users/types'</span>;
-<span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">Product, searchProducts</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'@products'</span>;
-<span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">addToCart</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'@cart/actions'</span>;
-<span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">processPayment</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'@payments/stripe'</span>;
-<span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">Button, Card</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">'@ui/components'</span>;</code></pre>
-						</div>
+						<CodeBlock label="typescript">
+							<pre><code><span class="text-zinc-600">// ProductPage.tsx</span>
+<span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">User</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'@users/types'</span>;
+<span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">Product, searchProducts</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'@products'</span>;
+<span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">addToCart</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'@cart/actions'</span>;
+<span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">processPayment</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'@payments/stripe'</span>;
+<span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">Button, Card</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">'@ui/components'</span>;</code></pre>
+						</CodeBlock>
 					</div>
 				</div>
 			</div>
@@ -1004,7 +965,7 @@
 			<!-- Development Tools -->
 			<div class="border rounded-lg p-6">
 				<h3 class="text-lg font-semibold mb-4 flex items-center">
-					<Icon icon="lucide:wrench" class="w-5 h-5 mr-2 text-purple-600" />
+					<Icon icon="lucide:wrench" class="w-5 h-5 mr-2 text-foreground" />
 					Development Tools Monorepo
 				</h3>
 				<p class="text-muted-foreground mb-4">
@@ -1014,55 +975,55 @@
 				<div class="space-y-4">
 					<div>
 						<h4 class="font-medium mb-2">Multi-App Configuration</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-blue-400">apps:</span>
-  <span class="text-blue-400">cli-tool:</span>
-    <span class="text-blue-400">ts_alias:</span> <span class="text-green-400">"$"</span>  <span class="text-gray-400"># CLI tools use $ prefix</span>
-    <span class="text-blue-400">packages:</span>
-      - <span class="text-blue-400">name:</span> <span class="text-green-400">command-line-parser</span>
-        <span class="text-blue-400">as:</span> <span class="text-yellow-400">cli</span>
-      - <span class="text-blue-400">name:</span> <span class="text-green-400">file-system-utils</span>
-        <span class="text-blue-400">as:</span> <span class="text-yellow-400">fs</span>
+						<CodeBlock label="spore.yml">
+							<pre><code><span class="text-zinc-400">apps:</span>
+  <span class="text-zinc-400">cli-tool:</span>
+    <span class="text-zinc-400">ts_alias:</span> <span class="text-zinc-100">"$"</span>  <span class="text-zinc-600"># CLI tools use $ prefix</span>
+    <span class="text-zinc-400">packages:</span>
+      - <span class="text-zinc-400">name:</span> <span class="text-zinc-100">command-line-parser</span>
+        <span class="text-zinc-400">as:</span> <span class="text-zinc-100">cli</span>
+      - <span class="text-zinc-400">name:</span> <span class="text-zinc-100">file-system-utils</span>
+        <span class="text-zinc-400">as:</span> <span class="text-zinc-100">fs</span>
 
-  <span class="text-blue-400">web-dashboard:</span>
-    <span class="text-blue-400">ts_alias:</span> <span class="text-green-400">"@"</span>  <span class="text-gray-400"># Web apps use @ prefix</span>
-    <span class="text-blue-400">packages:</span>
-      - <span class="text-blue-400">name:</span> <span class="text-green-400">dashboard-components</span>
-        <span class="text-blue-400">as:</span> <span class="text-yellow-400">components</span>
-      - <span class="text-blue-400">name:</span> <span class="text-green-400">analytics-engine</span>
-        <span class="text-blue-400">as:</span> <span class="text-yellow-400">analytics</span>
+  <span class="text-zinc-400">web-dashboard:</span>
+    <span class="text-zinc-400">ts_alias:</span> <span class="text-zinc-100">"@"</span>  <span class="text-zinc-600"># Web apps use @ prefix</span>
+    <span class="text-zinc-400">packages:</span>
+      - <span class="text-zinc-400">name:</span> <span class="text-zinc-100">dashboard-components</span>
+        <span class="text-zinc-400">as:</span> <span class="text-zinc-100">components</span>
+      - <span class="text-zinc-400">name:</span> <span class="text-zinc-100">analytics-engine</span>
+        <span class="text-zinc-400">as:</span> <span class="text-zinc-100">analytics</span>
 
-  <span class="text-blue-400">api-server:</span>
-    <span class="text-blue-400">ts_alias:</span> <span class="text-green-400">"#"</span>  <span class="text-gray-400"># Server apps use # prefix</span>
-    <span class="text-blue-400">packages:</span>
-      - <span class="text-blue-400">name:</span> <span class="text-green-400">database-models</span>
-        <span class="text-blue-400">as:</span> <span class="text-yellow-400">db</span>
-      - <span class="text-blue-400">name:</span> <span class="text-green-400">authentication-middleware</span>
-        <span class="text-blue-400">as:</span> <span class="text-yellow-400">auth</span></code></pre>
-						</div>
+  <span class="text-zinc-400">api-server:</span>
+    <span class="text-zinc-400">ts_alias:</span> <span class="text-zinc-100">"#"</span>  <span class="text-zinc-600"># Server apps use # prefix</span>
+    <span class="text-zinc-400">packages:</span>
+      - <span class="text-zinc-400">name:</span> <span class="text-zinc-100">database-models</span>
+        <span class="text-zinc-400">as:</span> <span class="text-zinc-100">db</span>
+      - <span class="text-zinc-400">name:</span> <span class="text-zinc-100">authentication-middleware</span>
+        <span class="text-zinc-400">as:</span> <span class="text-zinc-100">auth</span></code></pre>
+						</CodeBlock>
 					</div>
 
 					<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 						<div>
 							<h5 class="font-medium mb-2">CLI Tool Imports</h5>
-							<div class="bg-black/90 text-white font-mono text-sm p-3 rounded">
-								<pre><code><span class="text-purple-400">import</span> <span class="text-green-400">'$cli/commander'</span>
-<span class="text-purple-400">import</span> <span class="text-green-400">'$fs/operations'</span></code></pre>
-							</div>
+							<CodeBlock label="typescript">
+								<pre><code><span class="text-zinc-300">import</span> <span class="text-zinc-100">'$cli/commander'</span>
+<span class="text-zinc-300">import</span> <span class="text-zinc-100">'$fs/operations'</span></code></pre>
+							</CodeBlock>
 						</div>
 						<div>
 							<h5 class="font-medium mb-2">Web App Imports</h5>
-							<div class="bg-black/90 text-white font-mono text-sm p-3 rounded">
-								<pre><code><span class="text-purple-400">import</span> <span class="text-green-400">'@components/Chart'</span>
-<span class="text-purple-400">import</span> <span class="text-green-400">'@analytics/reports'</span></code></pre>
-							</div>
+							<CodeBlock label="typescript">
+								<pre><code><span class="text-zinc-300">import</span> <span class="text-zinc-100">'@components/Chart'</span>
+<span class="text-zinc-300">import</span> <span class="text-zinc-100">'@analytics/reports'</span></code></pre>
+							</CodeBlock>
 						</div>
 						<div>
 							<h5 class="font-medium mb-2">Server Imports</h5>
-							<div class="bg-black/90 text-white font-mono text-sm p-3 rounded">
-								<pre><code><span class="text-purple-400">import</span> <span class="text-green-400">'#db/User'</span>
-<span class="text-purple-400">import</span> <span class="text-green-400">'#auth/middleware'</span></code></pre>
-							</div>
+							<CodeBlock label="typescript">
+								<pre><code><span class="text-zinc-300">import</span> <span class="text-zinc-100">'#db/User'</span>
+<span class="text-zinc-300">import</span> <span class="text-zinc-100">'#auth/middleware'</span></code></pre>
+							</CodeBlock>
 						</div>
 					</div>
 				</div>
@@ -1071,7 +1032,7 @@
 			<!-- Team Workflow -->
 			<div class="border rounded-lg p-6">
 				<h3 class="text-lg font-semibold mb-4 flex items-center">
-					<Icon icon="lucide:users" class="w-5 h-5 mr-2 text-green-600" />
+					<Icon icon="lucide:users" class="w-5 h-5 mr-2 text-foreground" />
 					Team Collaboration Workflow
 				</h3>
 				<p class="text-muted-foreground mb-4">
@@ -1081,29 +1042,29 @@
 				<div class="space-y-4">
 					<div>
 						<h4 class="font-medium mb-2">Semantic Aliases for New Team Members</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-gray-400"># Clear, self-documenting aliases</span>
-<span class="text-blue-400">apps:</span>
-  <span class="text-blue-400">main-app:</span>
-    <span class="text-blue-400">packages:</span>
-      - <span class="text-blue-400">name:</span> <span class="text-green-400">customer-relationship-management</span>
-        <span class="text-blue-400">as:</span> <span class="text-yellow-400">crm</span>
-      - <span class="text-blue-400">name:</span> <span class="text-green-400">inventory-management-system</span>
-        <span class="text-blue-400">as:</span> <span class="text-yellow-400">inventory</span>
-      - <span class="text-blue-400">name:</span> <span class="text-green-400">financial-reporting-engine</span>
-        <span class="text-blue-400">as:</span> <span class="text-yellow-400">finance</span>
-      - <span class="text-blue-400">name:</span> <span class="text-green-400">human-resources-portal</span>
-        <span class="text-blue-400">as:</span> <span class="text-yellow-400">hr</span></code></pre>
-						</div>
+						<CodeBlock label="spore.yml">
+							<pre><code><span class="text-zinc-600"># Clear, self-documenting aliases</span>
+<span class="text-zinc-400">apps:</span>
+  <span class="text-zinc-400">main-app:</span>
+    <span class="text-zinc-400">packages:</span>
+      - <span class="text-zinc-400">name:</span> <span class="text-zinc-100">customer-relationship-management</span>
+        <span class="text-zinc-400">as:</span> <span class="text-zinc-100">crm</span>
+      - <span class="text-zinc-400">name:</span> <span class="text-zinc-100">inventory-management-system</span>
+        <span class="text-zinc-400">as:</span> <span class="text-zinc-100">inventory</span>
+      - <span class="text-zinc-400">name:</span> <span class="text-zinc-100">financial-reporting-engine</span>
+        <span class="text-zinc-400">as:</span> <span class="text-zinc-100">finance</span>
+      - <span class="text-zinc-400">name:</span> <span class="text-zinc-100">human-resources-portal</span>
+        <span class="text-zinc-400">as:</span> <span class="text-zinc-100">hr</span></code></pre>
+						</CodeBlock>
 					</div>
 
-					<div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+					<div class="bg-muted border border-border rounded-lg p-4">
 						<div class="flex items-start space-x-3">
-							<Icon icon="lucide:lightbulb" class="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+							<Icon icon="lucide:lightbulb" class="w-5 h-5 text-foreground mt-0.5 flex-shrink-0" />
 							<div class="text-sm">
-								<h4 class="font-medium text-blue-900 mb-1">Team Benefits</h4>
-								<ul class="text-blue-700 space-y-1">
-									<li>• New developers immediately understand what <code>@crm</code> and <code>@finance</code> contain</li>
+								<h4 class="font-medium text-foreground mb-1">Team Benefits</h4>
+								<ul class="text-muted-foreground space-y-1">
+									<li>• New developers immediately understand what <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">@crm</code> and <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">@finance</code> contain</li>
 									<li>• Code reviews become faster with semantic import names</li>
 									<li>• Domain experts can easily find relevant code sections</li>
 									<li>• Package refactoring doesn't break import semantics</li>
@@ -1119,12 +1080,12 @@
 	<!-- Best Practices -->
 	<section class="mb-12">
 		<h2 class="text-2xl font-bold mb-6">Alias Best Practices</h2>
-		
+
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 			<div class="space-y-6">
 				<div class="border rounded-lg p-6">
 					<h3 class="font-semibold mb-3 flex items-center">
-						<Icon icon="lucide:check-circle" class="w-5 h-5 mr-2 text-green-600" />
+						<Icon icon="lucide:check-circle" class="w-5 h-5 mr-2 text-muted-foreground" />
 						Naming Conventions
 					</h3>
 					<ul class="text-sm text-muted-foreground space-y-2">
@@ -1138,7 +1099,7 @@
 
 				<div class="border rounded-lg p-6">
 					<h3 class="font-semibold mb-3 flex items-center">
-						<Icon icon="lucide:target" class="w-5 h-5 mr-2 text-blue-600" />
+						<Icon icon="lucide:target" class="w-5 h-5 mr-2 text-foreground" />
 						Organization
 					</h3>
 					<ul class="text-sm text-muted-foreground space-y-2">
@@ -1154,7 +1115,7 @@
 			<div class="space-y-6">
 				<div class="border rounded-lg p-6">
 					<h3 class="font-semibold mb-3 flex items-center">
-						<Icon icon="lucide:users" class="w-5 h-5 mr-2 text-purple-600" />
+						<Icon icon="lucide:users" class="w-5 h-5 mr-2 text-foreground" />
 						Team Collaboration
 					</h3>
 					<ul class="text-sm text-muted-foreground space-y-2">
@@ -1168,14 +1129,14 @@
 
 				<div class="border rounded-lg p-6">
 					<h3 class="font-semibold mb-3 flex items-center">
-						<Icon icon="lucide:shield-alert" class="w-5 h-5 mr-2 text-yellow-600" />
+						<Icon icon="lucide:shield-alert" class="w-5 h-5 mr-2 text-foreground" />
 						Common Pitfalls
 					</h3>
 					<ul class="text-sm text-muted-foreground space-y-2">
 						<li>• Don't use conflicting alias prefixes in same app</li>
 						<li>• Avoid aliases that conflict with node_modules</li>
 						<li>• Don't change alias prefixes frequently</li>
-						<li>• Remember to run <code>spore link</code> after changes</li>
+						<li>• Remember to run <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">spore link</code> after changes</li>
 						<li>• Test aliases work in all build environments</li>
 					</ul>
 				</div>
@@ -1190,7 +1151,7 @@
 		<div class="space-y-6">
 			<div class="border rounded-lg p-6">
 				<h3 class="font-semibold mb-3 flex items-center">
-					<Icon icon="lucide:alert-triangle" class="w-5 h-5 mr-2 text-red-500" />
+					<Icon icon="lucide:alert-triangle" class="w-5 h-5 mr-2 text-foreground" />
 					Aliases Not Working
 				</h3>
 				<div class="space-y-3">
@@ -1205,8 +1166,8 @@
 					<div class="text-sm">
 						<div class="font-medium mb-1">Solutions:</div>
 						<ul class="text-muted-foreground space-y-1">
-							<li>• Run <code>spore link --force</code> to regenerate TypeScript paths</li>
-							<li>• Check that <code>tsconfig.json</code> exists in your app directory</li>
+							<li>• Run <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">spore link --force</code> to regenerate TypeScript paths</li>
+							<li>• Check that <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">tsconfig.json</code> exists in your app directory</li>
 							<li>• Restart your TypeScript service in your IDE (Ctrl+Shift+P → "TypeScript: Restart TS Server")</li>
 							<li>• Verify the alias prefix in your spore.yml or app.yml configuration</li>
 							<li>• Ensure package names match exactly (case-sensitive)</li>
@@ -1217,7 +1178,7 @@
 
 			<div class="border rounded-lg p-6">
 				<h3 class="font-semibold mb-3 flex items-center">
-					<Icon icon="lucide:settings" class="w-5 h-5 mr-2 text-blue-500" />
+					<Icon icon="lucide:settings" class="w-5 h-5 mr-2 text-foreground" />
 					Build Tool Issues
 				</h3>
 				<div class="space-y-3">
@@ -1229,8 +1190,8 @@
 								<div class="text-muted-foreground text-xs">
 									Add alias configuration to vite.config.js or svelte.config.js
 								</div>
-								<div class="bg-black/90 text-white font-mono text-xs p-2 rounded mt-2">
-									<code>alias: {"{"} '@': path.resolve('./spore_packages') {"}"}</code>
+								<div class="mt-2">
+									<CodeBlock label="vite.config.js"><code>alias: {"{"} '@': path.resolve('./spore_packages') {"}"}</code></CodeBlock>
 								</div>
 							</div>
 							<div class="border rounded p-3">
@@ -1238,8 +1199,8 @@
 								<div class="text-muted-foreground text-xs">
 									Configure webpack alias in next.config.js or webpack.config.js
 								</div>
-								<div class="bg-black/90 text-white font-mono text-xs p-2 rounded mt-2">
-									<code>resolve: {"{"} alias: {"{"} '@': path.resolve('./spore_packages') {"}"} {"}"}</code>
+								<div class="mt-2">
+									<CodeBlock label="next.config.js"><code>resolve: {"{"} alias: {"{"} '@': path.resolve('./spore_packages') {"}"} {"}"}</code></CodeBlock>
 								</div>
 							</div>
 						</div>
@@ -1249,33 +1210,27 @@
 
 			<div class="border rounded-lg p-6">
 				<h3 class="font-semibold mb-3 flex items-center">
-					<Icon icon="lucide:bug" class="w-5 h-5 mr-2 text-orange-500" />
+					<Icon icon="lucide:bug" class="w-5 h-5 mr-2 text-foreground" />
 					Debug Commands
 				</h3>
 				<div class="space-y-3">
 					<div>
 						<div class="font-medium mb-2">Check project status</div>
-						<div class="bg-black/90 text-green-400 font-mono text-sm p-3 rounded">
-							<code>spore status</code>
-						</div>
+						<CodeBlock label="bash" copy="spore status">spore status</CodeBlock>
 						<div class="text-xs text-muted-foreground mt-1">
 							Shows which packages are linked and their current alias configuration
 						</div>
 					</div>
 					<div>
 						<div class="font-medium mb-2">Verbose linking output</div>
-						<div class="bg-black/90 text-green-400 font-mono text-sm p-3 rounded">
-							<code>spore link --verbose</code>
-						</div>
+						<CodeBlock label="bash" copy="spore link --verbose">spore link --verbose</CodeBlock>
 						<div class="text-xs text-muted-foreground mt-1">
 							Provides detailed output about the linking process and alias setup
 						</div>
 					</div>
 					<div>
 						<div class="font-medium mb-2">Preview changes without applying</div>
-						<div class="bg-black/90 text-green-400 font-mono text-sm p-3 rounded">
-							<code>spore link --dry-run</code>
-						</div>
+						<CodeBlock label="bash" copy="spore link --dry-run">spore link --dry-run</CodeBlock>
 						<div class="text-xs text-muted-foreground mt-1">
 							Shows what changes would be made without actually modifying files
 						</div>
@@ -1291,7 +1246,7 @@
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 			<a href="/docs/typescript" class="block border rounded-lg p-6 hover:bg-accent transition-colors">
 				<div class="flex items-center space-x-3 mb-3">
-					<Icon icon="lucide:code" class="w-6 h-6 text-blue-600" />
+					<Icon icon="lucide:code" class="w-6 h-6 text-foreground" />
 					<h3 class="font-semibold">TypeScript Integration</h3>
 				</div>
 				<p class="text-sm text-muted-foreground">
@@ -1301,7 +1256,7 @@
 
 			<a href="/docs/package-development" class="block border rounded-lg p-6 hover:bg-accent transition-colors">
 				<div class="flex items-center space-x-3 mb-3">
-					<Icon icon="lucide:package" class="w-6 h-6 text-purple-600" />
+					<Icon icon="lucide:package" class="w-6 h-6 text-foreground" />
 					<h3 class="font-semibold">Package Development</h3>
 				</div>
 				<p class="text-sm text-muted-foreground">
@@ -1311,7 +1266,7 @@
 
 			<a href="/docs/project-management" class="block border rounded-lg p-6 hover:bg-accent transition-colors">
 				<div class="flex items-center space-x-3 mb-3">
-					<Icon icon="lucide:folder" class="w-6 h-6 text-green-600" />
+					<Icon icon="lucide:folder" class="w-6 h-6 text-foreground" />
 					<h3 class="font-semibold">Project Structure</h3>
 				</div>
 				<p class="text-sm text-muted-foreground">
@@ -1321,7 +1276,7 @@
 
 			<a href="/docs/workflows" class="block border rounded-lg p-6 hover:bg-accent transition-colors">
 				<div class="flex items-center space-x-3 mb-3">
-					<Icon icon="lucide:workflow" class="w-6 h-6 text-orange-600" />
+					<Icon icon="lucide:workflow" class="w-6 h-6 text-foreground" />
 					<h3 class="font-semibold">Development Workflows</h3>
 				</div>
 				<p class="text-sm text-muted-foreground">

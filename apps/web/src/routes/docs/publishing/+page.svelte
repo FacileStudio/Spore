@@ -24,11 +24,11 @@
 	<meta property="og:title" content="Publishing Packages - Spore CLI" />
 	<meta property="og:description" content="Learn how to publish packages to Spore registry, including version management, authentication, CI/CD workflows, and automated GitHub Actions." />
 	<meta property="og:image" content="/images/og/publishing.png" />
-	<meta property="og:url" content="https://spore.klysium.com/docs/publishing" />
+	<meta property="og:url" content="https://spore.facile.studio/docs/publishing" />
 	<meta name="twitter:title" content="Publishing Packages - Spore CLI" />
 	<meta name="twitter:description" content="Learn how to publish packages to Spore registry, including version management, authentication, CI/CD workflows, and automated GitHub Actions." />
 	<meta name="twitter:image" content="/images/og/publishing.png" />
-	<link rel="canonical" href="https://spore.klysium.com/docs/publishing" />
+	<link rel="canonical" href="https://spore.facile.studio/docs/publishing" />
 </svelte:head>
 
 <div class="max-w-4xl mx-auto py-8 px-4 sm:px-6">
@@ -52,8 +52,8 @@
 		
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 			<div class="border rounded-lg p-6">
-				<div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-					<Icon icon="lucide:upload-bold" class="w-6 h-6 text-green-600" />
+				<div class="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mb-4">
+					<Icon icon="lucide:upload-bold" class="w-6 h-6 text-foreground" />
 				</div>
 				<h3 class="font-semibold mb-2">Easy Publishing</h3>
 				<p class="text-sm text-muted-foreground">
@@ -61,8 +61,8 @@
 				</p>
 			</div>
 			<div class="border rounded-lg p-6">
-				<div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-					<Icon icon="lucide:users-group-two-rounded-bold" class="w-6 h-6 text-blue-600" />
+				<div class="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mb-4">
+					<Icon icon="lucide:users-group-two-rounded-bold" class="w-6 h-6 text-foreground" />
 				</div>
 				<h3 class="font-semibold mb-2">Team Collaboration</h3>
 				<p class="text-sm text-muted-foreground">
@@ -70,8 +70,8 @@
 				</p>
 			</div>
 			<div class="border rounded-lg p-6">
-				<div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-					<Icon icon="lucide:shield-check-bold" class="w-6 h-6 text-purple-600" />
+				<div class="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mb-4">
+					<Icon icon="lucide:shield-check-bold" class="w-6 h-6 text-foreground" />
 				</div>
 				<h3 class="font-semibold mb-2">Version Management</h3>
 				<p class="text-sm text-muted-foreground">
@@ -95,14 +95,14 @@
 				<div class="space-y-4">
 					<div>
 						<h4 class="font-medium mb-2">Login to Spore</h4>
-						<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
+						<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg relative group">
 							<code>spore auth</code>
 							<button 
 								class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
 								on:click={() => copyToClipboard('spore auth')}
 							>
 								{#if showCopied && copyText === 'spore auth'}
-									<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
+									<Icon icon="lucide:check-circle" class="w-4 h-4 text-zinc-100" />
 								{:else}
 									<Icon icon="lucide:copy" class="w-4 h-4" />
 								{/if}
@@ -115,14 +115,14 @@
 
 					<div>
 						<h4 class="font-medium mb-2">Verify Authentication</h4>
-						<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
+						<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg relative group">
 							<code>spore auth</code>
 							<button 
 								class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
 								on:click={() => copyToClipboard('spore auth')}
 							>
 								{#if showCopied && copyText === 'spore auth'}
-									<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
+									<Icon icon="lucide:check-circle" class="w-4 h-4 text-zinc-100" />
 								{:else}
 									<Icon icon="lucide:copy" class="w-4 h-4" />
 								{/if}
@@ -144,14 +144,14 @@
 				<div class="space-y-4">
 					<div>
 						<h4 class="font-medium mb-2">Set Registry URL</h4>
-						<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
+						<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg relative group">
 							<code>spore config set registry https://spore.mycompany.com</code>
 							<button 
 								class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
 								on:click={() => copyToClipboard('spore config set registry https://spore.mycompany.com')}
 							>
 								{#if showCopied && copyText.includes('mycompany')}
-									<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
+									<Icon icon="lucide:check-circle" class="w-4 h-4 text-zinc-100" />
 								{:else}
 									<Icon icon="lucide:copy" class="w-4 h-4" />
 								{/if}
@@ -161,10 +161,10 @@
 
 					<div>
 						<h4 class="font-medium mb-2">Environment Variables</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
+						<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg">
 							<pre><code><span class="text-gray-400"># Set in your environment or CI/CD</span>
-<span class="text-blue-400">export</span> <span class="text-yellow-400">SPORE_TOKEN</span>=<span class="text-green-400">"your-auth-token"</span>
-<span class="text-blue-400">export</span> <span class="text-yellow-400">SPORE_SPACE_URL</span>=<span class="text-green-400">"https://spore.mycompany.com"</span></code></pre>
+<span class="text-zinc-400">export</span> <span class="text-zinc-100">SPORE_TOKEN</span>=<span class="text-zinc-100">"your-auth-token"</span>
+<span class="text-zinc-400">export</span> <span class="text-zinc-100">SPORE_SPACE_URL</span>=<span class="text-zinc-100">"https://spore.mycompany.com"</span></code></pre>
 						</div>
 					</div>
 				</div>
@@ -186,14 +186,14 @@
 				<div class="space-y-4">
 					<div>
 						<h4 class="font-medium mb-2">Publish Current Package</h4>
-						<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
+						<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg relative group">
 							<code>cd packages/utils && spore publish</code>
 							<button 
 								class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
 								on:click={() => copyToClipboard('cd packages/utils && spore publish')}
 							>
 								{#if showCopied && copyText.includes('packages/utils')}
-									<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
+									<Icon icon="lucide:check-circle" class="w-4 h-4 text-zinc-100" />
 								{:else}
 									<Icon icon="lucide:copy" class="w-4 h-4" />
 								{/if}
@@ -206,9 +206,9 @@
 
 					<div>
 						<h4 class="font-medium mb-2">Pre-publication Checklist</h4>
-						<div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
-							<h5 class="font-semibold text-blue-900 mb-3">Spore automatically verifies:</h5>
-							<ul class="text-sm text-blue-700 space-y-1">
+						<div class="bg-muted border border-border rounded-lg p-6">
+							<h5 class="font-semibold text-foreground mb-3">Spore automatically verifies:</h5>
+							<ul class="text-sm text-foreground space-y-1">
 								<li>✓ Package configuration is valid</li>
 								<li>✓ Version follows semantic versioning</li>
 								<li>✓ Build completes successfully</li>
@@ -221,22 +221,22 @@
 
 					<div>
 						<h4 class="font-medium mb-2">Example Publishing Flow</h4>
-						<div class="bg-black/90 text-white font-mono text-xs p-4 rounded-lg">
-							<pre><code><span class="text-green-400">$ cd packages/utils && spore publish</span>
+						<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-xs p-4 rounded-lg">
+							<pre><code><span class="text-zinc-100">$ cd packages/utils && spore publish</span>
 
-<span class="text-blue-400">🔍 Validating package configuration...</span>
-<span class="text-green-400">✓ package.yml is valid</span>
-<span class="text-green-400">✓ Version 1.2.0 follows semver</span>
+<span class="text-zinc-400">🔍 Validating package configuration...</span>
+<span class="text-zinc-100">✓ package.yml is valid</span>
+<span class="text-zinc-100">✓ Version 1.2.0 follows semver</span>
 
-<span class="text-blue-400">🏗️ Building package...</span>
-<span class="text-green-400">✓ TypeScript compilation successful</span>
-<span class="text-green-400">✓ All tests pass</span>
+<span class="text-zinc-400">🏗️ Building package...</span>
+<span class="text-zinc-100">✓ TypeScript compilation successful</span>
+<span class="text-zinc-100">✓ All tests pass</span>
 
-<span class="text-blue-400">📦 Publishing to Spore...</span>
-<span class="text-green-400">✓ Package uploaded successfully</span>
-<span class="text-green-400">✓ Registry updated</span>
+<span class="text-zinc-400">📦 Publishing to Spore...</span>
+<span class="text-zinc-100">✓ Package uploaded successfully</span>
+<span class="text-zinc-100">✓ Registry updated</span>
 
-<span class="text-yellow-400">🎉 Successfully published utils@1.2.0</span>
+<span class="text-zinc-100">🎉 Successfully published utils@1.2.0</span>
 <span class="text-gray-400">   View at: https://spore.space/packages/utils</span></code></pre>
 						</div>
 					</div>
@@ -248,14 +248,14 @@
 				<div class="space-y-4">
 					<div>
 						<h4 class="font-medium mb-2">Dry Run</h4>
-						<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
+						<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg relative group">
 							<code>spore publish --dry-run</code>
 							<button 
 								class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
 								on:click={() => copyToClipboard('spore publish --dry-run')}
 							>
 								{#if showCopied && copyText === 'spore publish --dry-run'}
-									<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
+									<Icon icon="lucide:check-circle" class="w-4 h-4 text-zinc-100" />
 								{:else}
 									<Icon icon="lucide:copy" class="w-4 h-4" />
 								{/if}
@@ -268,14 +268,14 @@
 
 					<div>
 						<h4 class="font-medium mb-2">Force Publish</h4>
-						<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
+						<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg relative group">
 							<code>spore publish --force</code>
 							<button 
 								class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
 								on:click={() => copyToClipboard('spore publish --force')}
 							>
 								{#if showCopied && copyText === 'spore publish --force'}
-									<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
+									<Icon icon="lucide:check-circle" class="w-4 h-4 text-zinc-100" />
 								{:else}
 									<Icon icon="lucide:copy" class="w-4 h-4" />
 								{/if}
@@ -288,14 +288,14 @@
 
 					<div>
 						<h4 class="font-medium mb-2">Tag Releases</h4>
-						<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
+						<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg relative group">
 							<code>spore publish --tag beta</code>
 							<button 
 								class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
 								on:click={() => copyToClipboard('spore publish --tag beta')}
 							>
 								{#if showCopied && copyText.includes('--tag beta')}
-									<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
+									<Icon icon="lucide:check-circle" class="w-4 h-4 text-zinc-100" />
 								{:else}
 									<Icon icon="lucide:copy" class="w-4 h-4" />
 								{/if}
@@ -324,11 +324,11 @@
 				<div class="space-y-4">
 					<div>
 						<h4 class="font-medium mb-2">Configure Team Namespace</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg relative group">
+						<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg relative group">
 							<pre><code><span class="text-gray-400"># packages/shared-lib/package.yml</span>
-<span class="text-blue-400">name:</span> <span class="text-green-400">shared-lib</span>
-<span class="text-blue-400">team:</span> <span class="text-green-400">myteam</span>           <span class="text-gray-400"># Published as @myteam/shared-lib</span>
-<span class="text-blue-400">version:</span> <span class="text-green-400">1.0.0</span></code></pre>
+<span class="text-zinc-400">name:</span> <span class="text-zinc-100">shared-lib</span>
+<span class="text-zinc-400">team:</span> <span class="text-zinc-100">myteam</span>           <span class="text-gray-400"># Published as @myteam/shared-lib</span>
+<span class="text-zinc-400">version:</span> <span class="text-zinc-100">1.0.0</span></code></pre>
 							<button 
 								class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
 								on:click={() => copyToClipboard(`# packages/shared-lib/package.yml
@@ -337,7 +337,7 @@ team: myteam           # Published as @myteam/shared-lib
 version: 1.0.0`)}
 							>
 								{#if showCopied && copyText.includes('shared-lib')}
-									<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
+									<Icon icon="lucide:check-circle" class="w-4 h-4 text-zinc-100" />
 								{:else}
 									<Icon icon="lucide:copy" class="w-4 h-4" />
 								{/if}
@@ -347,14 +347,14 @@ version: 1.0.0`)}
 
 					<div>
 						<h4 class="font-medium mb-2">Publishing Team Package</h4>
-						<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
+						<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg relative group">
 							<code>cd packages/shared-lib && spore publish</code>
 							<button 
 								class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
 								on:click={() => copyToClipboard('cd packages/shared-lib && spore publish')}
 							>
 								{#if showCopied && copyText.includes('shared-lib')}
-									<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
+									<Icon icon="lucide:check-circle" class="w-4 h-4 text-zinc-100" />
 								{:else}
 									<Icon icon="lucide:copy" class="w-4 h-4" />
 								{/if}
@@ -367,11 +367,11 @@ version: 1.0.0`)}
 
 					<div>
 						<h4 class="font-medium mb-2">Using Team Packages</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
+						<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg">
 							<pre><code><span class="text-gray-400"># In your app configuration</span>
-<span class="text-blue-400">packages:</span>
-  - <span class="text-yellow-400">types</span>                    <span class="text-gray-400"># Local package</span>
-  - <span class="text-yellow-400">"@myteam/shared-lib"</span>     <span class="text-gray-400"># Team package from registry</span></code></pre>
+<span class="text-zinc-400">packages:</span>
+  - <span class="text-zinc-100">types</span>                    <span class="text-gray-400"># Local package</span>
+  - <span class="text-zinc-100">"@myteam/shared-lib"</span>     <span class="text-gray-400"># Team package from registry</span></code></pre>
 						</div>
 					</div>
 				</div>
@@ -385,7 +385,7 @@ version: 1.0.0`)}
 
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 					<div class="border rounded-lg p-6">
-						<h4 class="font-semibold mb-3 text-green-600">Team Members</h4>
+						<h4 class="font-semibold mb-3 text-foreground">Team Members</h4>
 						<ul class="text-sm text-muted-foreground space-y-1">
 							<li>• View team packages</li>
 							<li>• Install team packages</li>
@@ -395,7 +395,7 @@ version: 1.0.0`)}
 					</div>
 
 					<div class="border rounded-lg p-6">
-						<h4 class="font-semibold mb-3 text-blue-600">Team Admins</h4>
+						<h4 class="font-semibold mb-3 text-foreground">Team Admins</h4>
 						<ul class="text-sm text-muted-foreground space-y-1">
 							<li>• All member permissions</li>
 							<li>• Publish new versions</li>
@@ -405,7 +405,7 @@ version: 1.0.0`)}
 					</div>
 
 					<div class="border rounded-lg p-6">
-						<h4 class="font-semibold mb-3 text-purple-600">Team Owners</h4>
+						<h4 class="font-semibold mb-3 text-foreground">Team Owners</h4>
 						<ul class="text-sm text-muted-foreground space-y-1">
 							<li>• All admin permissions</li>
 							<li>• Delete packages</li>
@@ -435,21 +435,21 @@ version: 1.0.0`)}
 						<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
 							<div class="border rounded-lg p-4">
 								<h5 class="font-medium mb-2">Patch Release</h5>
-								<div class="bg-black/90 text-green-400 font-mono text-sm p-3 rounded mb-2">
+								<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-3 rounded mb-2">
 									<code>spore version patch</code>
 								</div>
 								<p class="text-xs text-muted-foreground">Bug fixes, no breaking changes</p>
 							</div>
 							<div class="border rounded-lg p-4">
 								<h5 class="font-medium mb-2">Minor Release</h5>
-								<div class="bg-black/90 text-green-400 font-mono text-sm p-3 rounded mb-2">
+								<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-3 rounded mb-2">
 									<code>spore version minor</code>
 								</div>
 								<p class="text-xs text-muted-foreground">New features, backward compatible</p>
 							</div>
 							<div class="border rounded-lg p-4">
 								<h5 class="font-medium mb-2">Major Release</h5>
-								<div class="bg-black/90 text-green-400 font-mono text-sm p-3 rounded mb-2">
+								<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-3 rounded mb-2">
 									<code>spore version major</code>
 								</div>
 								<p class="text-xs text-muted-foreground">Breaking changes</p>
@@ -460,10 +460,10 @@ version: 1.0.0`)}
 					<div>
 						<h4 class="font-medium mb-2">Pre-release Versions</h4>
 						<div class="space-y-3">
-							<div class="bg-black/90 text-green-400 font-mono text-sm p-3 rounded">
+							<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-3 rounded">
 								<code>spore version 2.0.0-beta.1</code>
 							</div>
-							<div class="bg-black/90 text-green-400 font-mono text-sm p-3 rounded">
+							<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-3 rounded">
 								<code>spore version prerelease --preid alpha</code>
 							</div>
 						</div>
@@ -476,7 +476,7 @@ version: 1.0.0`)}
 				<div class="space-y-4">
 					<div>
 						<h4 class="font-medium mb-2">Complete Release Workflow</h4>
-						<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
+						<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg relative group">
 							<div class="space-y-1">
 								<div><code># 1. Update version</code></div>
 								<div><code>spore version minor</code></div>
@@ -499,7 +499,7 @@ spore publish
 git tag v1.3.0 && git push --tags`)}
 							>
 								{#if showCopied && copyText.includes('Update version')}
-									<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
+									<Icon icon="lucide:check-circle" class="w-4 h-4 text-zinc-100" />
 								{:else}
 									<Icon icon="lucide:copy" class="w-4 h-4" />
 								{/if}
@@ -512,19 +512,19 @@ git tag v1.3.0 && git push --tags`)}
 						<p class="text-sm text-muted-foreground mb-2">
 							Set up automated releases with CI/CD:
 						</p>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
+						<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg">
 							<pre><code>{@html `<span class="text-gray-400"># .github/workflows/release.yml</span>
-<span class="text-blue-400">name:</span> <span class="text-green-400">Release</span>
-<span class="text-blue-400">on:</span>
-  <span class="text-blue-400">push:</span>
-    <span class="text-blue-400">tags:</span> [<span class="text-green-400">'v*'</span>]
+<span class="text-zinc-400">name:</span> <span class="text-zinc-100">Release</span>
+<span class="text-zinc-400">on:</span>
+  <span class="text-zinc-400">push:</span>
+    <span class="text-zinc-400">tags:</span> [<span class="text-zinc-100">'v*'</span>]
 
-<span class="text-blue-400">jobs:</span>
-  <span class="text-blue-400">publish:</span>
-    <span class="text-blue-400">runs-on:</span> <span class="text-green-400">ubuntu-latest</span>
-    <span class="text-blue-400">steps:</span>
-      - <span class="text-blue-400">run:</span> <span class="text-green-400">spore login --token \${{ secrets.SPORE_TOKEN }}</span>
-      - <span class="text-blue-400">run:</span> <span class="text-green-400">spore publish</span>`}</code></pre>
+<span class="text-zinc-400">jobs:</span>
+  <span class="text-zinc-400">publish:</span>
+    <span class="text-zinc-400">runs-on:</span> <span class="text-zinc-100">ubuntu-latest</span>
+    <span class="text-zinc-400">steps:</span>
+      - <span class="text-zinc-400">run:</span> <span class="text-zinc-100">spore login --token \${{ secrets.SPORE_TOKEN }}</span>
+      - <span class="text-zinc-400">run:</span> <span class="text-zinc-100">spore publish</span>`}</code></pre>
 						</div>
 					</div>
 				</div>
@@ -546,14 +546,14 @@ git tag v1.3.0 && git push --tags`)}
 				<div class="space-y-4">
 					<div>
 						<h4 class="font-medium mb-2">Package Tags</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
+						<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg">
 							<pre><code><span class="text-gray-400"># package.yml</span>
-<span class="text-blue-400">tags:</span>
-  - <span class="text-yellow-400">utilities</span>
-  - <span class="text-yellow-400">typescript</span>
-  - <span class="text-yellow-400">react</span>
-  - <span class="text-yellow-400">ui-components</span>
-  - <span class="text-yellow-400">design-system</span></code></pre>
+<span class="text-zinc-400">tags:</span>
+  - <span class="text-zinc-100">utilities</span>
+  - <span class="text-zinc-100">typescript</span>
+  - <span class="text-zinc-100">react</span>
+  - <span class="text-zinc-100">ui-components</span>
+  - <span class="text-zinc-100">design-system</span></code></pre>
 						</div>
 						<p class="text-sm text-muted-foreground mt-2">
 							Tags help users discover your package in the Spore web interface.
@@ -562,19 +562,19 @@ git tag v1.3.0 && git push --tags`)}
 
 					<div>
 						<h4 class="font-medium mb-2">Rich Description</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-blue-400">description:</span> <span class="text-green-400">"React UI components following Material Design principles. Includes buttons, forms, navigation, and data display components with full TypeScript support and customizable themes."</span></code></pre>
+						<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg">
+							<pre><code><span class="text-zinc-400">description:</span> <span class="text-zinc-100">"React UI components following Material Design principles. Includes buttons, forms, navigation, and data display components with full TypeScript support and customizable themes."</span></code></pre>
 						</div>
 					</div>
 
 					<div>
 						<h4 class="font-medium mb-2">Documentation</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
+						<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg">
 							<pre><code><span class="text-gray-400"># package.yml</span>
-<span class="text-blue-400">documentation:</span>
-  <span class="text-blue-400">homepage:</span> <span class="text-green-400">"https://ui.mycompany.com"</span>
-  <span class="text-blue-400">repository:</span> <span class="text-green-400">"https://github.com/mycompany/ui-components"</span>
-  <span class="text-blue-400">issues:</span> <span class="text-green-400">"https://github.com/mycompany/ui-components/issues"</span></code></pre>
+<span class="text-zinc-400">documentation:</span>
+  <span class="text-zinc-400">homepage:</span> <span class="text-zinc-100">"https://ui.mycompany.com"</span>
+  <span class="text-zinc-400">repository:</span> <span class="text-zinc-100">"https://github.com/mycompany/ui-components"</span>
+  <span class="text-zinc-400">issues:</span> <span class="text-zinc-100">"https://github.com/mycompany/ui-components/issues"</span></code></pre>
 						</div>
 					</div>
 				</div>
@@ -618,7 +618,7 @@ git tag v1.3.0 && git push --tags`)}
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 			<a href="/docs/teams" class="block border rounded-lg p-6 hover:bg-accent transition-colors">
 				<div class="flex items-center space-x-3 mb-3">
-					<Icon icon="lucide:users-group-two-rounded-bold" class="w-6 h-6 text-blue-600" />
+					<Icon icon="lucide:users-group-two-rounded-bold" class="w-6 h-6 text-foreground" />
 					<h3 class="font-semibold">Team Management</h3>
 				</div>
 				<p class="text-sm text-muted-foreground">
@@ -628,7 +628,7 @@ git tag v1.3.0 && git push --tags`)}
 
 			<a href="/docs/permissions" class="block border rounded-lg p-6 hover:bg-accent transition-colors">
 				<div class="flex items-center space-x-3 mb-3">
-					<Icon icon="lucide:shield-check-bold" class="w-6 h-6 text-green-600" />
+					<Icon icon="lucide:shield-check-bold" class="w-6 h-6 text-foreground" />
 					<h3 class="font-semibold">Permissions</h3>
 				</div>
 				<p class="text-sm text-muted-foreground">
@@ -638,7 +638,7 @@ git tag v1.3.0 && git push --tags`)}
 
 			<a href="/docs/package-development" class="block border rounded-lg p-6 hover:bg-accent transition-colors">
 				<div class="flex items-center space-x-3 mb-3">
-					<Icon icon="lucide:box-bold" class="w-6 h-6 text-purple-600" />
+					<Icon icon="lucide:box-bold" class="w-6 h-6 text-foreground" />
 					<h3 class="font-semibold">Package Development</h3>
 				</div>
 				<p class="text-sm text-muted-foreground">
@@ -648,7 +648,7 @@ git tag v1.3.0 && git push --tags`)}
 
 			<a href="/docs/self-hosting" class="block border rounded-lg p-6 hover:bg-accent transition-colors">
 				<div class="flex items-center space-x-3 mb-3">
-					<Icon icon="lucide:server-bold" class="w-6 h-6 text-red-600" />
+					<Icon icon="lucide:server-bold" class="w-6 h-6 text-foreground" />
 					<h3 class="font-semibold">Self-Hosting</h3>
 				</div>
 				<p class="text-sm text-muted-foreground">

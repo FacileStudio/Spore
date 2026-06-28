@@ -110,7 +110,7 @@
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
 	<meta property="og:image:alt" content="Spore CLI Documentation - Modern Monorepo Package Manager" />
-	<meta property="og:url" content="https://spore.klysium.com/docs" />
+	<meta property="og:url" content="https://spore.facile.studio/docs" />
 	<meta property="og:site_name" content="Spore" />
 	<meta property="og:locale" content="en_US" />
 
@@ -124,7 +124,7 @@
 	<meta name="twitter:image:alt" content="Spore CLI Documentation" />
 
 	<!-- Additional SEO Meta Tags -->
-	<link rel="canonical" href="https://spore.klysium.com/docs" />
+	<link rel="canonical" href="https://spore.facile.studio/docs" />
 	<meta name="format-detection" content="telephone=no" />
 	<meta name="HandheldFriendly" content="true" />
 
@@ -144,16 +144,16 @@
 			"name": "Spore",
 			"logo": {
 				"@type": "ImageObject",
-				"url": "https://spore.klysium.com/images/logo.png"
+				"url": "https://spore.facile.studio/images/logo.png"
 			}
 		},
 		"datePublished": "2025-01-01",
 		"dateModified": "2025-01-15",
 		"mainEntityOfPage": {
 			"@type": "WebPage",
-			"@id": "https://spore.klysium.com/docs"
+			"@id": "https://spore.facile.studio/docs"
 		},
-		"image": "https://spore.klysium.com/images/og/docs-main.png",
+		"image": "https://spore.facile.studio/images/og/docs-main.png",
 		"articleSection": "Documentation",
 		"keywords": ["monorepo", "package manager", "typescript", "cli tools", "build tools"]
 	}
@@ -181,21 +181,17 @@
 	<div class="fixed inset-y-0 left-0 z-50 w-80 bg-card border-r border-border transform {sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-200 ease-out lg:translate-x-0">
 		<div class="flex h-full flex-col">
 			<!-- Header -->
-			<div class="flex h-20 items-center justify-between px-8 border-b border-border">
-				<div class="flex items-center space-x-4">
-					<a href="/docs" class="flex items-center space-x-3 group">
-						<div class="w-8 h-8 bg-muted rounded-lg flex items-center justify-center group-hover:bg-gray-200 transition-colors duration-200">
-							<Icon icon="lucide:book-open" class="w-4 h-4 text-muted-foreground" />
-						</div>
-						<h1 class="text-xl font-semibold text-foreground group-hover:text-foreground transition-colors duration-200" style="font-family: 'Goga', 'Satoshi', sans-serif;">
-							Spore Docs
-						</h1>
-					</a>
-				</div>
-				<div class="flex items-center space-x-3">
-					<a href="/" class="flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 px-3 py-1.5 rounded-md hover:bg-muted">
-						<Icon icon="lucide:arrow-left" class="w-3 h-3 mr-1.5" />
-						Back to Spore
+			<div class="flex h-20 items-center justify-between px-5 border-b border-border">
+				<a href="/docs" class="flex items-center gap-2 group min-w-0">
+					<Icon icon="solar:box-bold-duotone" class="h-7 w-7 shrink-0 text-foreground" />
+					<h1 class="text-base font-semibold text-foreground whitespace-nowrap" style="font-family: 'Goga', sans-serif;">
+						Spore Docs
+					</h1>
+				</a>
+				<div class="flex items-center gap-1 shrink-0">
+					<a href="/" class="flex items-center gap-1 text-xs whitespace-nowrap text-muted-foreground hover:text-foreground transition-colors duration-200 px-2 py-1.5 rounded-md hover:bg-muted">
+						<Icon icon="lucide:arrow-left" class="w-3.5 h-3.5" />
+						Back
 					</a>
 					<button
 						on:click={() => sidebarOpen = false}
@@ -223,12 +219,12 @@
 										<a
 											href={item.href}
 											class="block px-3 py-2 text-sm rounded-md transition-colors {isActive(item.href, item.exact)
-												? 'bg-blue-50 text-blue-700 font-medium'
+												? 'bg-muted text-foreground font-medium'
 												: 'text-muted-foreground hover:text-foreground hover:bg-muted'}"
 											on:click={() => sidebarOpen = false}
 										>
 											<div class="flex items-center">
-												<div class="w-1.5 h-1.5 {isActive(item.href, item.exact) ? 'bg-blue-600' : 'bg-gray-400'} rounded-full mr-3"></div>
+												<div class="w-1.5 h-1.5 {isActive(item.href, item.exact) ? 'bg-foreground' : 'bg-zinc-300'} rounded-full mr-3"></div>
 												{item.title}
 											</div>
 										</a>
@@ -244,10 +240,10 @@
 			<div class="border-t border-border p-6 bg-muted">
 				<div class="flex items-center justify-between text-xs">
 					<div class="flex items-center space-x-2">
-						<div class="w-2 h-2 bg-green-500 rounded-full"></div>
+						<div class="w-2 h-2 bg-foreground rounded-full"></div>
 						<span class="text-muted-foreground font-medium">Spore v1.0.0</span>
 					</div>
-					<a href="https://github.com/saravenpi/spore" class="flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors duration-200 px-3 py-1.5 rounded-md hover:bg-muted group">
+					<a href="https://github.com/FacileStudio/Spore" class="flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors duration-200 px-3 py-1.5 rounded-md hover:bg-muted group">
 						<Icon icon="lucide:github" class="w-4 h-4" />
 						<span class="font-medium">GitHub</span>
 					</a>
@@ -268,12 +264,10 @@
 				>
 					<Icon icon="lucide:menu" class="w-5 h-5 text-muted-foreground" />
 				</button>
-				<div class="flex items-center space-x-2">
-					<div class="w-6 h-6 bg-muted rounded-md flex items-center justify-center">
-						<Icon icon="lucide:book-open" class="w-3 h-3 text-muted-foreground" />
-					</div>
+				<div class="flex items-center gap-2">
+					<Icon icon="solar:box-bold-duotone" class="h-6 w-6 shrink-0 text-foreground" />
 					<div class="flex flex-col items-center">
-						<h1 class="text-lg font-semibold text-foreground" style="font-family: 'Goga', 'Satoshi', sans-serif;">
+						<h1 class="text-lg font-semibold text-foreground whitespace-nowrap" style="font-family: 'Goga', sans-serif;">
 							Spore Docs
 						</h1>
 						{#if currentPageInfo.section && $page.url.pathname !== '/docs'}
@@ -290,7 +284,7 @@
 				<div class="px-4 pb-3 border-t border-border">
 					<div class="flex items-center space-x-1 text-sm mt-2">
 						<a href="/docs" class="text-muted-foreground hover:text-foreground transition-colors font-medium">Docs</a>
-						<Icon icon="lucide:chevron-right" class="w-3 h-3 text-gray-400" />
+						<Icon icon="lucide:chevron-right" class="w-3 h-3 text-muted-foreground" />
 						<span class="text-foreground font-semibold">{currentPageInfo.page}</span>
 					</div>
 				</div>

@@ -1,21 +1,6 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	
-	let copyText = '';
-	let showCopied = false;
-
-	async function copyToClipboard(text: string) {
-		try {
-			await navigator.clipboard.writeText(text);
-			copyText = text;
-			showCopied = true;
-			setTimeout(() => {
-				showCopied = false;
-			}, 2000);
-		} catch (err) {
-			console.error('Failed to copy text: ', err);
-		}
-	}
+	import CodeBlock from '$lib/components/CodeBlock.svelte';
 </script>
 
 <svelte:head>
@@ -24,11 +9,11 @@
 	<meta property="og:title" content="Team Management - Spore CLI" />
 	<meta property="og:description" content="Learn how to create and manage teams for collaborative package development with Spore CLI." />
 	<meta property="og:image" content="/images/og/teams.png" />
-	<meta property="og:url" content="https://spore.klysium.com/docs/teams" />
+	<meta property="og:url" content="https://spore.facile.studio/docs/teams" />
 	<meta name="twitter:title" content="Team Management - Spore CLI" />
 	<meta name="twitter:description" content="Learn how to create and manage teams for collaborative package development with Spore CLI." />
 	<meta name="twitter:image" content="/images/og/teams.png" />
-	<link rel="canonical" href="https://spore.klysium.com/docs/teams" />
+	<link rel="canonical" href="https://spore.facile.studio/docs/teams" />
 </svelte:head>
 
 <div class="max-w-4xl mx-auto py-8 px-4 sm:px-6">
@@ -44,25 +29,25 @@
 	<!-- Overview -->
 	<section class="mb-12">
 		<h2 class="text-2xl font-bold mb-6">Overview</h2>
-		<div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+		<div class="bg-muted border border-border rounded-lg p-6">
 			<div class="flex items-start space-x-3">
-				<Icon icon="lucide:users-group-two-rounded-bold" class="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
+				<Icon icon="lucide:users-group-two-rounded-bold" class="w-6 h-6 text-foreground mt-1 flex-shrink-0" />
 				<div>
-					<h3 class="font-semibold text-blue-900 mb-2">What are Teams?</h3>
-					<p class="text-sm text-blue-700 mb-4">
-						Teams in Spore enable collaborative package development and private package sharing. When you create a package with a team, it becomes namespaced under that team (e.g., <code>@myteam/package-name</code>) and is only accessible to team members.
+					<h3 class="font-semibold text-foreground mb-2">What are Teams?</h3>
+					<p class="text-sm text-muted-foreground mb-4">
+						Teams in Spore enable collaborative package development and private package sharing. When you create a package with a team, it becomes namespaced under that team (e.g., <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">@myteam/package-name</code>) and is only accessible to team members.
 					</p>
-					<div class="space-y-2 text-sm text-blue-700">
+					<div class="space-y-2 text-sm text-muted-foreground">
 						<div class="flex items-center space-x-2">
-							<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-600" />
+							<Icon icon="lucide:check-circle" class="w-4 h-4 text-foreground" />
 							<span>Private package sharing within your organization</span>
 						</div>
 						<div class="flex items-center space-x-2">
-							<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-600" />
+							<Icon icon="lucide:check-circle" class="w-4 h-4 text-foreground" />
 							<span>Role-based access control (Owner, Admin, Member)</span>
 						</div>
 						<div class="flex items-center space-x-2">
-							<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-600" />
+							<Icon icon="lucide:check-circle" class="w-4 h-4 text-foreground" />
 							<span>Namespace protection for package names</span>
 						</div>
 					</div>
@@ -85,44 +70,20 @@
 				<div class="space-y-4">
 					<div>
 						<h4 class="font-medium mb-2">Basic Usage</h4>
-						<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
-							<code>spore team create myteam</code>
-							<button
-								class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
-								on:click={() => copyToClipboard('spore team create myteam')}
-							>
-								{#if showCopied && copyText === 'spore team create myteam'}
-									<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
-								{:else}
-									<Icon icon="lucide:copy" class="w-4 h-4" />
-								{/if}
-							</button>
-						</div>
+						<CodeBlock label="bash" copy="spore team create myteam"><span class="text-zinc-100">spore team create myteam</span></CodeBlock>
 					</div>
 
 					<div>
 						<h4 class="font-medium mb-2">With Description</h4>
-						<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
-							<code>spore team create myteam --description "My awesome development team"</code>
-							<button
-								class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
-								on:click={() => copyToClipboard('spore team create myteam --description "My awesome development team"')}
-							>
-								{#if showCopied && copyText.includes('awesome development')}
-									<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
-								{:else}
-									<Icon icon="lucide:copy" class="w-4 h-4" />
-								{/if}
-							</button>
-						</div>
+						<CodeBlock label="bash" copy={'spore team create myteam --description "My awesome development team"'}><span class="text-zinc-100">spore team create myteam --description "My awesome development team"</span></CodeBlock>
 					</div>
 
-					<div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+					<div class="bg-muted border border-border rounded-lg p-4">
 						<div class="flex items-start space-x-3">
-							<Icon icon="lucide:info" class="w-5 h-5 text-yellow-600 mt-0.5 flex-shrink-0" />
+							<Icon icon="lucide:info" class="w-5 h-5 text-foreground mt-0.5 flex-shrink-0" />
 							<div class="text-sm">
-								<p class="font-medium text-yellow-800 mb-1">Team Name Requirements</p>
-								<ul class="text-yellow-700 space-y-1">
+								<p class="font-medium text-foreground mb-1">Team Name Requirements</p>
+								<ul class="text-muted-foreground space-y-1">
 									<li>• Must be unique across all teams</li>
 									<li>• Only lowercase letters, numbers, and hyphens</li>
 									<li>• Between 3-50 characters</li>
@@ -147,19 +108,7 @@
 				<p class="text-muted-foreground mb-4">
 					View all teams you're a member of and their roles.
 				</p>
-				<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
-					<code>spore team list</code>
-					<button
-						class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
-						on:click={() => copyToClipboard('spore team list')}
-					>
-						{#if showCopied && copyText === 'spore team list'}
-							<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
-						{:else}
-							<Icon icon="lucide:copy" class="w-4 h-4" />
-						{/if}
-					</button>
-				</div>
+				<CodeBlock label="bash" copy="spore team list"><span class="text-zinc-100">spore team list</span></CodeBlock>
 			</div>
 
 			<!-- Team Info -->
@@ -168,19 +117,7 @@
 				<p class="text-muted-foreground mb-4">
 					View detailed information about a specific team.
 				</p>
-				<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
-					<code>spore team info myteam</code>
-					<button
-						class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
-						on:click={() => copyToClipboard('spore team info myteam')}
-					>
-						{#if showCopied && copyText === 'spore team info myteam'}
-							<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
-						{:else}
-							<Icon icon="lucide:copy" class="w-4 h-4" />
-						{/if}
-					</button>
-				</div>
+				<CodeBlock label="bash" copy="spore team info myteam"><span class="text-zinc-100">spore team info myteam</span></CodeBlock>
 			</div>
 		</div>
 	</section>
@@ -200,14 +137,14 @@
 				<div class="space-y-4">
 					<div>
 						<h4 class="font-medium mb-2">Add Member</h4>
-						<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
+						<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg relative group">
 							<code>spore team add-member myteam username --role member</code>
 							<button
 								class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
 								on:click={() => copyToClipboard('spore team add-member myteam username --role member')}
 							>
 								{#if showCopied && copyText.includes('add-member')}
-									<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
+									<Icon icon="lucide:check-circle" class="w-4 h-4 text-zinc-100" />
 								{:else}
 									<Icon icon="lucide:copy" class="w-4 h-4" />
 								{/if}
@@ -217,14 +154,14 @@
 
 					<div>
 						<h4 class="font-medium mb-2">Add Admin</h4>
-						<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
+						<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg relative group">
 							<code>spore team add-member myteam username --role admin</code>
 							<button
 								class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
 								on:click={() => copyToClipboard('spore team add-member myteam username --role admin')}
 							>
 								{#if showCopied && copyText.includes('role admin')}
-									<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
+									<Icon icon="lucide:check-circle" class="w-4 h-4 text-zinc-100" />
 								{:else}
 									<Icon icon="lucide:copy" class="w-4 h-4" />
 								{/if}
@@ -240,14 +177,14 @@
 				<p class="text-muted-foreground mb-4">
 					Remove users from your team. Only owners and admins can remove members.
 				</p>
-				<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
+				<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg relative group">
 					<code>spore team remove-member myteam username</code>
 					<button
 						class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
 						on:click={() => copyToClipboard('spore team remove-member myteam username')}
 					>
 						{#if showCopied && copyText.includes('remove-member')}
-							<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
+							<Icon icon="lucide:check-circle" class="w-4 h-4 text-zinc-100" />
 						{:else}
 							<Icon icon="lucide:copy" class="w-4 h-4" />
 						{/if}
@@ -263,8 +200,8 @@
 
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 			<div class="border rounded-lg p-6">
-				<div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-					<Icon icon="lucide:crown-bold" class="w-6 h-6 text-red-600" />
+				<div class="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mb-4">
+					<Icon icon="lucide:crown-bold" class="w-6 h-6 text-foreground" />
 				</div>
 				<h3 class="font-semibold mb-3">Owner</h3>
 				<ul class="text-sm text-muted-foreground space-y-2">
@@ -278,8 +215,8 @@
 			</div>
 
 			<div class="border rounded-lg p-6">
-				<div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
-					<Icon icon="lucide:shield-user-bold" class="w-6 h-6 text-orange-600" />
+				<div class="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mb-4">
+					<Icon icon="lucide:shield-user-bold" class="w-6 h-6 text-foreground" />
 				</div>
 				<h3 class="font-semibold mb-3">Admin</h3>
 				<ul class="text-sm text-muted-foreground space-y-2">
@@ -292,8 +229,8 @@
 			</div>
 
 			<div class="border rounded-lg p-6">
-				<div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-					<Icon icon="lucide:user-bold" class="w-6 h-6 text-green-600" />
+				<div class="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mb-4">
+					<Icon icon="lucide:user-bold" class="w-6 h-6 text-foreground" />
 				</div>
 				<h3 class="font-semibold mb-3">Member</h3>
 				<ul class="text-sm text-muted-foreground space-y-2">
@@ -317,14 +254,14 @@
 				<p class="text-muted-foreground mb-4">
 					Create packages that belong to your team namespace.
 				</p>
-				<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
+				<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg relative group">
 					<code>spore init:package shared-utils --team myteam</code>
 					<button
 						class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
 						on:click={() => copyToClipboard('spore init:package shared-utils --team myteam')}
 					>
 						{#if showCopied && copyText.includes('shared-utils')}
-							<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
+							<Icon icon="lucide:check-circle" class="w-4 h-4 text-zinc-100" />
 						{:else}
 							<Icon icon="lucide:copy" class="w-4 h-4" />
 						{/if}
@@ -341,14 +278,14 @@
 				<p class="text-muted-foreground mb-4">
 					Publish packages under your team namespace.
 				</p>
-				<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
+				<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg relative group">
 					<code>spore publish --team myteam</code>
 					<button
 						class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
 						on:click={() => copyToClipboard('spore publish --team myteam')}
 					>
 						{#if showCopied && copyText.includes('publish --team')}
-							<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
+							<Icon icon="lucide:check-circle" class="w-4 h-4 text-zinc-100" />
 						{:else}
 							<Icon icon="lucide:copy" class="w-4 h-4" />
 						{/if}
@@ -365,17 +302,17 @@
 				<div class="space-y-4">
 					<div>
 						<h4 class="font-medium mb-2">In spore.yml or app.yml</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-blue-400">packages:</span>
-  - <span class="text-green-400">types</span>            <span class="text-muted-foreground"># Local package</span>
-  - <span class="text-green-400">@myteam/shared-utils</span> <span class="text-muted-foreground"># Team package</span></code></pre>
+						<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg">
+							<pre><code><span class="text-zinc-400">packages:</span>
+  - <span class="text-zinc-100">types</span>            <span class="text-muted-foreground"># Local package</span>
+  - <span class="text-zinc-100">@myteam/shared-utils</span> <span class="text-muted-foreground"># Team package</span></code></pre>
 						</div>
 					</div>
 
 					<div>
 						<h4 class="font-medium mb-2">Example Usage</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-							<pre><code><span class="text-purple-400">import</span> {"{ "}<span class="text-yellow-400">helpers</span> {"} "}<span class="text-purple-400">from</span> <span class="text-green-400">&apos;@myteam/shared-utils&apos;</span>;</code></pre>
+						<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg">
+							<pre><code><span class="text-zinc-300">import</span> {"{ "}<span class="text-zinc-100">helpers</span> {"} "}<span class="text-zinc-300">from</span> <span class="text-zinc-100">&apos;@myteam/shared-utils&apos;</span>;</code></pre>
 						</div>
 					</div>
 				</div>
@@ -390,7 +327,7 @@
 		<div class="space-y-6">
 			<div class="border rounded-lg p-6">
 				<h3 class="font-semibold mb-3 flex items-center">
-					<Icon icon="lucide:lightbulb-bold" class="w-5 h-5 mr-2 text-yellow-500" />
+					<Icon icon="lucide:lightbulb-bold" class="w-5 h-5 mr-2 text-foreground" />
 					Team Organization
 				</h3>
 				<ul class="text-sm text-muted-foreground space-y-2">
@@ -403,7 +340,7 @@
 
 			<div class="border rounded-lg p-6">
 				<h3 class="font-semibold mb-3 flex items-center">
-					<Icon icon="lucide:shield-check-bold" class="w-5 h-5 mr-2 text-green-500" />
+					<Icon icon="lucide:shield-check-bold" class="w-5 h-5 mr-2 text-foreground" />
 					Security
 				</h3>
 				<ul class="text-sm text-muted-foreground space-y-2">
@@ -416,7 +353,7 @@
 
 			<div class="border rounded-lg p-6">
 				<h3 class="font-semibold mb-3 flex items-center">
-					<Icon icon="lucide:users-group-rounded-bold" class="w-5 h-5 mr-2 text-blue-500" />
+					<Icon icon="lucide:users-group-rounded-bold" class="w-5 h-5 mr-2 text-foreground" />
 					Collaboration
 				</h3>
 				<ul class="text-sm text-muted-foreground space-y-2">
@@ -435,7 +372,7 @@
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 			<a href="/docs/authentication" class="block border rounded-lg p-6 hover:bg-accent transition-colors">
 				<div class="flex items-center space-x-3 mb-3">
-					<Icon icon="lucide:key-bold" class="w-6 h-6 text-blue-600" />
+					<Icon icon="lucide:key-bold" class="w-6 h-6 text-foreground" />
 					<h3 class="font-semibold">Authentication</h3>
 				</div>
 				<p class="text-sm text-muted-foreground">
@@ -445,7 +382,7 @@
 
 			<a href="/docs/publishing" class="block border rounded-lg p-6 hover:bg-accent transition-colors">
 				<div class="flex items-center space-x-3 mb-3">
-					<Icon icon="lucide:upload-bold" class="w-6 h-6 text-red-600" />
+					<Icon icon="lucide:upload-bold" class="w-6 h-6 text-foreground" />
 					<h3 class="font-semibold">Publishing Packages</h3>
 				</div>
 				<p class="text-sm text-muted-foreground">
@@ -455,7 +392,7 @@
 
 			<a href="/docs/permissions" class="block border rounded-lg p-6 hover:bg-accent transition-colors">
 				<div class="flex items-center space-x-3 mb-3">
-					<Icon icon="lucide:shield-user-bold" class="w-6 h-6 text-green-600" />
+					<Icon icon="lucide:shield-user-bold" class="w-6 h-6 text-foreground" />
 					<h3 class="font-semibold">Permissions</h3>
 				</div>
 				<p class="text-sm text-muted-foreground">
@@ -465,7 +402,7 @@
 
 			<a href="/docs/troubleshooting" class="block border rounded-lg p-6 hover:bg-accent transition-colors">
 				<div class="flex items-center space-x-3 mb-3">
-					<Icon icon="lucide:help-bold" class="w-6 h-6 text-purple-600" />
+					<Icon icon="lucide:help-bold" class="w-6 h-6 text-foreground" />
 					<h3 class="font-semibold">Troubleshooting</h3>
 				</div>
 				<p class="text-sm text-muted-foreground">

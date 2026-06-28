@@ -36,8 +36,8 @@
 		
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 			<div class="border rounded-lg p-6">
-				<div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-					<Icon icon="lucide:folder" class="w-6 h-6 text-blue-600" />
+				<div class="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mb-4">
+					<Icon icon="lucide:folder" class="w-6 h-6 text-foreground" />
 				</div>
 				<h3 class="font-semibold mb-2">spore.yml</h3>
 				<p class="text-sm text-muted-foreground">
@@ -45,8 +45,8 @@
 				</p>
 			</div>
 			<div class="border rounded-lg p-6">
-				<div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-					<Icon icon="lucide:box-bold" class="w-6 h-6 text-green-600" />
+				<div class="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mb-4">
+					<Icon icon="lucide:box-bold" class="w-6 h-6 text-foreground" />
 				</div>
 				<h3 class="font-semibold mb-2">package.yml</h3>
 				<p class="text-sm text-muted-foreground">
@@ -54,8 +54,8 @@
 				</p>
 			</div>
 			<div class="border rounded-lg p-6">
-				<div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-					<Icon icon="lucide:programming-bold" class="w-6 h-6 text-purple-600" />
+				<div class="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mb-4">
+					<Icon icon="lucide:programming-bold" class="w-6 h-6 text-foreground" />
 				</div>
 				<h3 class="font-semibold mb-2">app.yml</h3>
 				<p class="text-sm text-muted-foreground">
@@ -76,41 +76,41 @@
 
 			<div>
 				<h3 class="text-lg font-semibold mb-3">Complete Example</h3>
-				<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg relative group">
+				<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg relative group">
 					<pre><code><span class="text-gray-400"># Project metadata</span>
-<span class="text-blue-400">name:</span> <span class="text-green-400">my-awesome-project</span>
-<span class="text-blue-400">description:</span> <span class="text-green-400">"A modern monorepo for TypeScript applications"</span>
-<span class="text-blue-400">version:</span> <span class="text-green-400">1.0.0</span>
-<span class="text-blue-400">author:</span> <span class="text-green-400">"Your Name &lt;email@example.com&gt;"</span>
-<span class="text-blue-400">license:</span> <span class="text-green-400">MIT</span>
+<span class="text-zinc-400">name:</span> <span class="text-zinc-100">my-awesome-project</span>
+<span class="text-zinc-400">description:</span> <span class="text-zinc-100">"A modern monorepo for TypeScript applications"</span>
+<span class="text-zinc-400">version:</span> <span class="text-zinc-100">1.0.0</span>
+<span class="text-zinc-400">author:</span> <span class="text-zinc-100">"Your Name &lt;email@example.com&gt;"</span>
+<span class="text-zinc-400">license:</span> <span class="text-zinc-100">MIT</span>
 
 <span class="text-gray-400"># Global scripts available to all apps</span>
-<span class="text-blue-400">scripts:</span>
-  <span class="text-blue-400">setup:</span> <span class="text-green-400">"npm install && spore link"</span>
-  <span class="text-blue-400">test-all:</span> <span class="text-green-400">"spore run test --all"</span>
-  <span class="text-blue-400">lint-all:</span> <span class="text-green-400">"spore run lint --all"</span>
-  <span class="text-blue-400">build-all:</span> <span class="text-green-400">"spore run build --all"</span>
-  <span class="text-blue-400">clean:</span> <span class="text-green-400">"rm -rf */dist */spore_packages"</span>
+<span class="text-zinc-400">scripts:</span>
+  <span class="text-zinc-400">setup:</span> <span class="text-zinc-100">"npm install && spore link"</span>
+  <span class="text-zinc-400">test-all:</span> <span class="text-zinc-100">"spore run test --all"</span>
+  <span class="text-zinc-400">lint-all:</span> <span class="text-zinc-100">"spore run lint --all"</span>
+  <span class="text-zinc-400">build-all:</span> <span class="text-zinc-100">"spore run build --all"</span>
+  <span class="text-zinc-400">clean:</span> <span class="text-zinc-100">"rm -rf */dist */spore_packages"</span>
 
 <span class="text-gray-400"># App-specific configurations</span>
-<span class="text-blue-400">apps:</span>
-  <span class="text-blue-400">frontend:</span>
-    <span class="text-blue-400">tsAlias:</span> <span class="text-green-400">"@"</span>                    <span class="text-gray-400"># TypeScript alias prefix</span>
-    <span class="text-blue-400">packages:</span>                        <span class="text-gray-400"># Package dependencies</span>
-      - <span class="text-yellow-400">types</span>
-      - <span class="text-yellow-400">utils</span>
-      - <span class="text-yellow-400">ui-components</span>
-      - <span class="text-yellow-400">"@myteam/shared-lib"</span>      <span class="text-gray-400"># Remote package</span>
-  <span class="text-blue-400">api:</span>
-    <span class="text-blue-400">tsAlias:</span> <span class="text-green-400">"#"</span>
-    <span class="text-blue-400">packages:</span>
-      - <span class="text-yellow-400">types</span>
-      - <span class="text-yellow-400">utils</span>
-  <span class="text-blue-400">admin:</span>
-    <span class="text-blue-400">tsAlias:</span> <span class="text-green-400">"~"</span>
-    <span class="text-blue-400">packages:</span>
-      - <span class="text-yellow-400">types</span>
-      - <span class="text-yellow-400">ui-components</span></code></pre>
+<span class="text-zinc-400">apps:</span>
+  <span class="text-zinc-400">frontend:</span>
+    <span class="text-zinc-400">tsAlias:</span> <span class="text-zinc-100">"@"</span>                    <span class="text-gray-400"># TypeScript alias prefix</span>
+    <span class="text-zinc-400">packages:</span>                        <span class="text-gray-400"># Package dependencies</span>
+      - <span class="text-zinc-100">types</span>
+      - <span class="text-zinc-100">utils</span>
+      - <span class="text-zinc-100">ui-components</span>
+      - <span class="text-zinc-100">"@myteam/shared-lib"</span>      <span class="text-gray-400"># Remote package</span>
+  <span class="text-zinc-400">api:</span>
+    <span class="text-zinc-400">tsAlias:</span> <span class="text-zinc-100">"#"</span>
+    <span class="text-zinc-400">packages:</span>
+      - <span class="text-zinc-100">types</span>
+      - <span class="text-zinc-100">utils</span>
+  <span class="text-zinc-400">admin:</span>
+    <span class="text-zinc-400">tsAlias:</span> <span class="text-zinc-100">"~"</span>
+    <span class="text-zinc-400">packages:</span>
+      - <span class="text-zinc-100">types</span>
+      - <span class="text-zinc-100">ui-components</span></code></pre>
 					<button 
 						class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
 						on:click={(event) => {
@@ -119,7 +119,7 @@
 					}}
 					>
 						{#if showCopied}
-							<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
+							<Icon icon="lucide:check-circle" class="w-4 h-4 text-zinc-100" />
 						{:else}
 							<Icon icon="lucide:copy" class="w-4 h-4" />
 						{/if}
@@ -179,36 +179,36 @@
 
 			<div>
 				<h3 class="text-lg font-semibold mb-3">Complete Example</h3>
-				<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg relative group">
+				<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg relative group">
 					<pre><code><span class="text-gray-400"># Package metadata</span>
-<span class="text-blue-400">name:</span> <span class="text-green-400">utils</span>
-<span class="text-blue-400">description:</span> <span class="text-green-400">"Utility functions and helpers"</span>
-<span class="text-blue-400">version:</span> <span class="text-green-400">1.2.0</span>
-<span class="text-blue-400">author:</span> <span class="text-green-400">"Your Name &lt;email@example.com&gt;"</span>
-<span class="text-blue-400">license:</span> <span class="text-green-400">MIT</span>
+<span class="text-zinc-400">name:</span> <span class="text-zinc-100">utils</span>
+<span class="text-zinc-400">description:</span> <span class="text-zinc-100">"Utility functions and helpers"</span>
+<span class="text-zinc-400">version:</span> <span class="text-zinc-100">1.2.0</span>
+<span class="text-zinc-400">author:</span> <span class="text-zinc-100">"Your Name &lt;email@example.com&gt;"</span>
+<span class="text-zinc-400">license:</span> <span class="text-zinc-100">MIT</span>
 
 <span class="text-gray-400"># Team namespace (for publishing)</span>
-<span class="text-blue-400">team:</span> <span class="text-green-400">myteam</span>
+<span class="text-zinc-400">team:</span> <span class="text-zinc-100">myteam</span>
 
 <span class="text-gray-400"># Package scripts</span>
-<span class="text-blue-400">scripts:</span>
-  <span class="text-blue-400">build:</span> <span class="text-green-400">"tsc && rollup -c"</span>
-  <span class="text-blue-400">test:</span> <span class="text-green-400">"vitest run"</span>
-  <span class="text-blue-400">test:watch:</span> <span class="text-green-400">"vitest"</span>
-  <span class="text-blue-400">lint:</span> <span class="text-green-400">"eslint src/ --ext .ts,.tsx"</span>
-  <span class="text-blue-400">lint:fix:</span> <span class="text-green-400">"eslint src/ --ext .ts,.tsx --fix"</span>
-  <span class="text-blue-400">typecheck:</span> <span class="text-green-400">"tsc --noEmit"</span>
+<span class="text-zinc-400">scripts:</span>
+  <span class="text-zinc-400">build:</span> <span class="text-zinc-100">"tsc && rollup -c"</span>
+  <span class="text-zinc-400">test:</span> <span class="text-zinc-100">"vitest run"</span>
+  <span class="text-zinc-400">test:watch:</span> <span class="text-zinc-100">"vitest"</span>
+  <span class="text-zinc-400">lint:</span> <span class="text-zinc-100">"eslint src/ --ext .ts,.tsx"</span>
+  <span class="text-zinc-400">lint:fix:</span> <span class="text-zinc-100">"eslint src/ --ext .ts,.tsx --fix"</span>
+  <span class="text-zinc-400">typecheck:</span> <span class="text-zinc-100">"tsc --noEmit"</span>
 
 <span class="text-gray-400"># Package tags for discoverability</span>
-<span class="text-blue-400">tags:</span>
-  - <span class="text-yellow-400">utilities</span>
-  - <span class="text-yellow-400">helpers</span>
-  - <span class="text-yellow-400">typescript</span>
-  - <span class="text-yellow-400">formatting</span>
+<span class="text-zinc-400">tags:</span>
+  - <span class="text-zinc-100">utilities</span>
+  - <span class="text-zinc-100">helpers</span>
+  - <span class="text-zinc-100">typescript</span>
+  - <span class="text-zinc-100">formatting</span>
 
 <span class="text-gray-400"># Package dependencies (other local packages)</span>
-<span class="text-blue-400">dependencies:</span>
-  - <span class="text-yellow-400">types</span>                     <span class="text-gray-400"># Local package dependency</span></code></pre>
+<span class="text-zinc-400">dependencies:</span>
+  - <span class="text-zinc-100">types</span>                     <span class="text-gray-400"># Local package dependency</span></code></pre>
 					<button 
 						class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
 						on:click={(event) => {
@@ -217,7 +217,7 @@
 					}}
 					>
 						{#if showCopied}
-							<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
+							<Icon icon="lucide:check-circle" class="w-4 h-4 text-zinc-100" />
 						{:else}
 							<Icon icon="lucide:copy" class="w-4 h-4" />
 						{/if}
@@ -280,38 +280,38 @@
 
 			<div>
 				<h3 class="text-lg font-semibold mb-3">Complete Example</h3>
-				<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg relative group">
+				<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg relative group">
 					<pre><code><span class="text-gray-400"># App metadata</span>
-<span class="text-blue-400">name:</span> <span class="text-green-400">frontend</span>
-<span class="text-blue-400">description:</span> <span class="text-green-400">"React frontend application with TypeScript"</span>
+<span class="text-zinc-400">name:</span> <span class="text-zinc-100">frontend</span>
+<span class="text-zinc-400">description:</span> <span class="text-zinc-100">"React frontend application with TypeScript"</span>
 
 <span class="text-gray-400"># Build configuration</span>
-<span class="text-blue-400">build:</span> <span class="text-green-400">"npm run build"</span>
+<span class="text-zinc-400">build:</span> <span class="text-zinc-100">"npm run build"</span>
 
 <span class="text-gray-400"># App-specific scripts (highest priority)</span>
-<span class="text-blue-400">scripts:</span>
-  <span class="text-blue-400">dev:</span> <span class="text-green-400">"vite dev --port 3000 --host"</span>
-  <span class="text-blue-400">test:</span> <span class="text-green-400">"vitest run"</span>
-  <span class="text-blue-400">test:ui:</span> <span class="text-green-400">"vitest --ui"</span>
-  <span class="text-blue-400">test:coverage:</span> <span class="text-green-400">"vitest run --coverage"</span>
-  <span class="text-blue-400">lint:</span> <span class="text-green-400">"eslint src/ --ext .ts,.tsx"</span>
-  <span class="text-blue-400">preview:</span> <span class="text-green-400">"vite preview"</span>
-  <span class="text-blue-400">analyze:</span> <span class="text-green-400">"npm run build && npx bundle-analyzer"</span>
+<span class="text-zinc-400">scripts:</span>
+  <span class="text-zinc-400">dev:</span> <span class="text-zinc-100">"vite dev --port 3000 --host"</span>
+  <span class="text-zinc-400">test:</span> <span class="text-zinc-100">"vitest run"</span>
+  <span class="text-zinc-400">test:ui:</span> <span class="text-zinc-100">"vitest --ui"</span>
+  <span class="text-zinc-400">test:coverage:</span> <span class="text-zinc-100">"vitest run --coverage"</span>
+  <span class="text-zinc-400">lint:</span> <span class="text-zinc-100">"eslint src/ --ext .ts,.tsx"</span>
+  <span class="text-zinc-400">preview:</span> <span class="text-zinc-100">"vite preview"</span>
+  <span class="text-zinc-400">analyze:</span> <span class="text-zinc-100">"npm run build && npx bundle-analyzer"</span>
 
 <span class="text-gray-400"># Package dependencies</span>
-<span class="text-blue-400">packages:</span>
-  - <span class="text-yellow-400">types</span>                        <span class="text-gray-400"># Local package</span>
-  - <span class="text-yellow-400">utils</span>                       <span class="text-gray-400"># Local package</span>
-  - <span class="text-yellow-400">ui-components</span>               <span class="text-gray-400"># Local package</span>
-  - <span class="text-yellow-400">"@myteam/shared-lib"</span>         <span class="text-gray-400"># Remote team package</span>
-  - <span class="text-yellow-400">"@external/package"</span>          <span class="text-gray-400"># External public package</span>
+<span class="text-zinc-400">packages:</span>
+  - <span class="text-zinc-100">types</span>                        <span class="text-gray-400"># Local package</span>
+  - <span class="text-zinc-100">utils</span>                       <span class="text-gray-400"># Local package</span>
+  - <span class="text-zinc-100">ui-components</span>               <span class="text-gray-400"># Local package</span>
+  - <span class="text-zinc-100">"@myteam/shared-lib"</span>         <span class="text-gray-400"># Remote team package</span>
+  - <span class="text-zinc-100">"@external/package"</span>          <span class="text-gray-400"># External public package</span>
 
 <span class="text-gray-400"># Environment-specific configurations</span>
-<span class="text-blue-400">env:</span>
-  <span class="text-blue-400">development:</span>
-    <span class="text-blue-400">api_url:</span> <span class="text-green-400">"http://localhost:8080"</span>
-  <span class="text-blue-400">production:</span>
-    <span class="text-blue-400">api_url:</span> <span class="text-green-400">"https://api.myapp.com"</span></code></pre>
+<span class="text-zinc-400">env:</span>
+  <span class="text-zinc-400">development:</span>
+    <span class="text-zinc-400">api_url:</span> <span class="text-zinc-100">"http://localhost:8080"</span>
+  <span class="text-zinc-400">production:</span>
+    <span class="text-zinc-400">api_url:</span> <span class="text-zinc-100">"https://api.myapp.com"</span></code></pre>
 					<button 
 						class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
 						on:click={(event) => {
@@ -320,7 +320,7 @@
 					}}
 					>
 						{#if showCopied}
-							<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
+							<Icon icon="lucide:check-circle" class="w-4 h-4 text-zinc-100" />
 						{:else}
 							<Icon icon="lucide:copy" class="w-4 h-4" />
 						{/if}
@@ -379,12 +379,12 @@
 				Spore uses a hierarchical script resolution system when you run <code>spore run &lt;script&gt;</code>.
 			</p>
 
-			<div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+			<div class="bg-muted border border-border rounded-lg p-6">
 				<h3 class="font-semibold mb-4">Priority Order (Highest to Lowest)</h3>
 				<div class="space-y-3">
 					<div class="flex items-center space-x-3">
-						<div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
-							<span class="text-red-600 font-bold text-sm">1</span>
+						<div class="w-8 h-8 bg-muted rounded-full flex items-center justify-center">
+							<span class="text-foreground font-bold text-sm">1</span>
 						</div>
 						<div>
 							<div class="font-medium">App Scripts (app.yml)</div>
@@ -392,8 +392,8 @@
 						</div>
 					</div>
 					<div class="flex items-center space-x-3">
-						<div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
-							<span class="text-yellow-600 font-bold text-sm">2</span>
+						<div class="w-8 h-8 bg-muted rounded-full flex items-center justify-center">
+							<span class="text-foreground font-bold text-sm">2</span>
 						</div>
 						<div>
 							<div class="font-medium">Package Scripts (package.yml)</div>
@@ -401,8 +401,8 @@
 						</div>
 					</div>
 					<div class="flex items-center space-x-3">
-						<div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-							<span class="text-blue-600 font-bold text-sm">3</span>
+						<div class="w-8 h-8 bg-muted rounded-full flex items-center justify-center">
+							<span class="text-foreground font-bold text-sm">3</span>
 						</div>
 						<div>
 							<div class="font-medium">Project Scripts (spore.yml)</div>
@@ -414,18 +414,18 @@
 
 			<div>
 				<h3 class="text-lg font-semibold mb-3">Example Scenario</h3>
-				<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
+				<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg">
 					<pre><code><span class="text-gray-400"># spore.yml (project)</span>
-<span class="text-blue-400">scripts:</span>
-  <span class="text-blue-400">test:</span> <span class="text-green-400">"echo 'Running project tests'"</span>
+<span class="text-zinc-400">scripts:</span>
+  <span class="text-zinc-400">test:</span> <span class="text-zinc-100">"echo 'Running project tests'"</span>
 
 <span class="text-gray-400"># packages/utils/package.yml</span>
-<span class="text-blue-400">scripts:</span>
-  <span class="text-blue-400">test:</span> <span class="text-green-400">"vitest run"</span>
+<span class="text-zinc-400">scripts:</span>
+  <span class="text-zinc-400">test:</span> <span class="text-zinc-100">"vitest run"</span>
 
 <span class="text-gray-400"># apps/frontend/app.yml</span>
-<span class="text-blue-400">scripts:</span>
-  <span class="text-blue-400">test:</span> <span class="text-green-400">"jest --coverage"</span></code></pre>
+<span class="text-zinc-400">scripts:</span>
+  <span class="text-zinc-400">test:</span> <span class="text-zinc-100">"jest --coverage"</span></code></pre>
 				</div>
 				<div class="mt-3 text-sm text-muted-foreground">
 					When you run <code>spore run test</code> from the <code>apps/frontend/</code> directory, 
@@ -454,15 +454,15 @@
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
 					<div class="border rounded-lg p-4">
 						<h4 class="font-semibold mb-2">Standard Syntax</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-3 rounded mb-2">
-							<code><span class="text-green-400">name:</span> <span class="text-yellow-400">"{{project_name}}-frontend"</span></code>
+						<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-3 rounded mb-2">
+							<code><span class="text-zinc-100">name:</span> <span class="text-zinc-100">"{{project_name}}-frontend"</span></code>
 						</div>
 						<div class="text-sm text-muted-foreground">Use <code class="bg-muted px-1 rounded">{{variable}}</code> for simple variable references</div>
 					</div>
 					<div class="border rounded-lg p-4">
 						<h4 class="font-semibold mb-2">Extended Syntax</h4>
-						<div class="bg-black/90 text-white font-mono text-sm p-3 rounded mb-2">
-							<code><span class="text-green-400">version:</span> <span class="text-yellow-400">"${project_name}-${version}"</span></code>
+						<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-3 rounded mb-2">
+							<code><span class="text-zinc-100">version:</span> <span class="text-zinc-100">"${project_name}-${version}"</span></code>
 						</div>
 						<div class="text-sm text-muted-foreground">Use <code class="bg-muted px-1 rounded">${variable}</code> for advanced features and environment fallback</div>
 					</div>
@@ -471,37 +471,37 @@
 
 			<div>
 				<h3 class="text-lg font-semibold mb-3">Complete Example</h3>
-				<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg relative group">
+				<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg relative group">
 					<pre><code><span class="text-gray-400"># spore.yml - Project configuration with variables</span>
-<span class="text-blue-400">name:</span> <span class="text-green-400">"{{project_name}}"</span>
-<span class="text-blue-400">description:</span> <span class="text-green-400">"{{project_name}} - Built on ${date}"</span>
-<span class="text-blue-400">version:</span> <span class="text-green-400">"1.0.0"</span>
+<span class="text-zinc-400">name:</span> <span class="text-zinc-100">"{{project_name}}"</span>
+<span class="text-zinc-400">description:</span> <span class="text-zinc-100">"{{project_name}} - Built on ${date}"</span>
+<span class="text-zinc-400">version:</span> <span class="text-zinc-100">"1.0.0"</span>
 
 <span class="text-gray-400"># Define custom variables</span>
-<span class="text-blue-400">variables:</span>
-  <span class="text-blue-400">project_prefix:</span> <span class="text-green-400">"mycompany"</span>
-  <span class="text-blue-400">build_target:</span> <span class="text-green-400">"production"</span>
+<span class="text-zinc-400">variables:</span>
+  <span class="text-zinc-400">project_prefix:</span> <span class="text-zinc-100">"mycompany"</span>
+  <span class="text-zinc-400">build_target:</span> <span class="text-zinc-100">"production"</span>
 
-<span class="text-blue-400">scripts:</span>
-  <span class="text-blue-400">deploy:</span> <span class="text-green-400">"deploy --name={{project_prefix}}-{{project_name}} --target=${build_target}"</span>
+<span class="text-zinc-400">scripts:</span>
+  <span class="text-zinc-400">deploy:</span> <span class="text-zinc-100">"deploy --name={{project_prefix}}-{{project_name}} --target=${build_target}"</span>
 
-<span class="text-blue-400">apps:</span>
-  <span class="text-blue-400">frontend:</span>
-    <span class="text-blue-400">variables:</span>
-      <span class="text-blue-400">app_title:</span> <span class="text-green-400">"{{project_name}} Dashboard"</span>
-    <span class="text-blue-400">packages:</span>
-      - <span class="text-yellow-400">types</span></code></pre>
+<span class="text-zinc-400">apps:</span>
+  <span class="text-zinc-400">frontend:</span>
+    <span class="text-zinc-400">variables:</span>
+      <span class="text-zinc-400">app_title:</span> <span class="text-zinc-100">"{{project_name}} Dashboard"</span>
+    <span class="text-zinc-400">packages:</span>
+      - <span class="text-zinc-100">types</span></code></pre>
 				</div>
 			</div>
 
 			<div>
 				<h3 class="text-lg font-semibold mb-3">Variable Precedence</h3>
-				<div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+				<div class="bg-muted border border-border rounded-lg p-6">
 					<h4 class="font-semibold mb-4">Resolution Order (Highest to Lowest)</h4>
 					<div class="space-y-3">
 						<div class="flex items-center space-x-3">
-							<div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
-								<span class="text-purple-600 font-bold text-sm">1</span>
+							<div class="w-8 h-8 bg-muted rounded-full flex items-center justify-center">
+								<span class="text-foreground font-bold text-sm">1</span>
 							</div>
 							<div>
 								<div class="font-medium">Built-in Variables</div>
@@ -509,8 +509,8 @@
 							</div>
 						</div>
 						<div class="flex items-center space-x-3">
-							<div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
-								<span class="text-green-600 font-bold text-sm">2</span>
+							<div class="w-8 h-8 bg-muted rounded-full flex items-center justify-center">
+								<span class="text-foreground font-bold text-sm">2</span>
 							</div>
 							<div>
 								<div class="font-medium">Package Variables</div>
@@ -518,8 +518,8 @@
 							</div>
 						</div>
 						<div class="flex items-center space-x-3">
-							<div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
-								<span class="text-yellow-600 font-bold text-sm">3</span>
+							<div class="w-8 h-8 bg-muted rounded-full flex items-center justify-center">
+								<span class="text-foreground font-bold text-sm">3</span>
 							</div>
 							<div>
 								<div class="font-medium">App Variables</div>
@@ -527,8 +527,8 @@
 							</div>
 						</div>
 						<div class="flex items-center space-x-3">
-							<div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-								<span class="text-blue-600 font-bold text-sm">4</span>
+							<div class="w-8 h-8 bg-muted rounded-full flex items-center justify-center">
+								<span class="text-foreground font-bold text-sm">4</span>
 							</div>
 							<div>
 								<div class="font-medium">Project Variables</div>
@@ -590,21 +590,21 @@
 					<div class="border rounded-lg p-4">
 						<h4 class="font-semibold mb-2">Nested Variable References</h4>
 						<p class="text-sm text-muted-foreground mb-3">Variables can reference other variables for complex compositions:</p>
-						<div class="bg-black/90 text-white font-mono text-sm p-3 rounded">
-							<pre><code><span class="text-blue-400">variables:</span>
-  <span class="text-blue-400">env:</span> <span class="text-green-400">"production"</span>
-  <span class="text-blue-400">app_name:</span> <span class="text-green-400">"{{project_name}}"</span>
-  <span class="text-blue-400">full_name:</span> <span class="text-green-400">"{{app_name}}-{{env}}"</span>         <span class="text-gray-400"># Results in: "myproject-production"</span></code></pre>
+						<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-3 rounded">
+							<pre><code><span class="text-zinc-400">variables:</span>
+  <span class="text-zinc-400">env:</span> <span class="text-zinc-100">"production"</span>
+  <span class="text-zinc-400">app_name:</span> <span class="text-zinc-100">"{{project_name}}"</span>
+  <span class="text-zinc-400">full_name:</span> <span class="text-zinc-100">"{{app_name}}-{{env}}"</span>         <span class="text-gray-400"># Results in: "myproject-production"</span></code></pre>
 						</div>
 					</div>
 
 					<div class="border rounded-lg p-4">
 						<h4 class="font-semibold mb-2">Environment Variable Fallback</h4>
 						<p class="text-sm text-muted-foreground mb-3">Use <code>{'${}'}</code> syntax for environment variable fallback:</p>
-						<div class="bg-black/90 text-white font-mono text-sm p-3 rounded">
-							<pre><code><span class="text-blue-400">variables:</span>
-  <span class="text-blue-400">api_url:</span> <span class="text-green-400">"${API_URL}"</span>           <span class="text-gray-400"># Falls back to $API_URL env var</span>
-  <span class="text-blue-400">version:</span> <span class="text-green-400">"${BUILD_VERSION}"</span>     <span class="text-gray-400"># Falls back to $BUILD_VERSION env var</span></code></pre>
+						<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-3 rounded">
+							<pre><code><span class="text-zinc-400">variables:</span>
+  <span class="text-zinc-400">api_url:</span> <span class="text-zinc-100">"${API_URL}"</span>           <span class="text-gray-400"># Falls back to $API_URL env var</span>
+  <span class="text-zinc-400">version:</span> <span class="text-zinc-100">"${BUILD_VERSION}"</span>     <span class="text-gray-400"># Falls back to $BUILD_VERSION env var</span></code></pre>
 						</div>
 					</div>
 
@@ -666,7 +666,7 @@
 			<div class="space-y-6">
 				<div class="border rounded-lg p-6">
 					<h3 class="font-semibold mb-3 flex items-center">
-						<Icon icon="lucide:check-circle" class="w-5 h-5 mr-2 text-green-600" />
+						<Icon icon="lucide:check-circle" class="w-5 h-5 mr-2 text-foreground" />
 						Configuration Tips
 					</h3>
 					<ul class="text-sm text-muted-foreground space-y-2">
@@ -680,7 +680,7 @@
 
 				<div class="border rounded-lg p-6">
 					<h3 class="font-semibold mb-3 flex items-center">
-						<Icon icon="lucide:settings-bold" class="w-5 h-5 mr-2 text-blue-600" />
+						<Icon icon="lucide:settings-bold" class="w-5 h-5 mr-2 text-foreground" />
 						Organization
 					</h3>
 					<ul class="text-sm text-muted-foreground space-y-2">
@@ -695,7 +695,7 @@
 			<div class="space-y-6">
 				<div class="border rounded-lg p-6">
 					<h3 class="font-semibold mb-3 flex items-center">
-						<Icon icon="lucide:shield-warning-bold" class="w-5 h-5 mr-2 text-yellow-600" />
+						<Icon icon="lucide:shield-warning-bold" class="w-5 h-5 mr-2 text-foreground" />
 						Common Pitfalls
 					</h3>
 					<ul class="text-sm text-muted-foreground space-y-2">
@@ -708,7 +708,7 @@
 
 				<div class="border rounded-lg p-6">
 					<h3 class="font-semibold mb-3 flex items-center">
-						<Icon icon="lucide:bookmark-bold" class="w-5 h-5 mr-2 text-purple-600" />
+						<Icon icon="lucide:bookmark-bold" class="w-5 h-5 mr-2 text-foreground" />
 						Validation
 					</h3>
 					<ul class="text-sm text-muted-foreground space-y-2">
@@ -728,7 +728,7 @@
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 			<a href="/docs/package-linking" class="block border rounded-lg p-6 hover:bg-accent transition-colors">
 				<div class="flex items-center space-x-3 mb-3">
-					<Icon icon="lucide:link" class="w-6 h-6 text-green-600" />
+					<Icon icon="lucide:link" class="w-6 h-6 text-foreground" />
 					<h3 class="font-semibold">Package Linking</h3>
 				</div>
 				<p class="text-sm text-muted-foreground">
@@ -738,7 +738,7 @@
 
 			<a href="/docs/project-management" class="block border rounded-lg p-6 hover:bg-accent transition-colors">
 				<div class="flex items-center space-x-3 mb-3">
-					<Icon icon="lucide:terminal" class="w-6 h-6 text-blue-600" />
+					<Icon icon="lucide:terminal" class="w-6 h-6 text-foreground" />
 					<h3 class="font-semibold">CLI Commands</h3>
 				</div>
 				<p class="text-sm text-muted-foreground">

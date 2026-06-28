@@ -1,21 +1,6 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-
-	let copyText = '';
-	let showCopied = false;
-
-	async function copyToClipboard(text: string) {
-		try {
-			await navigator.clipboard.writeText(text);
-			copyText = text;
-			showCopied = true;
-			setTimeout(() => {
-				showCopied = false;
-			}, 2000);
-		} catch (err) {
-			console.error('Failed to copy text: ', err);
-		}
-	}
+	import CodeBlock from '$lib/components/CodeBlock.svelte';
 </script>
 
 <div class="max-w-4xl mx-auto py-8 px-4 sm:px-6">
@@ -34,8 +19,8 @@
 		
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
 			<div class="border rounded-lg p-6">
-				<div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-					<Icon icon="lucide:box-bold" class="w-6 h-6 text-blue-600" />
+				<div class="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mb-4">
+					<Icon icon="lucide:box-bold" class="w-6 h-6 text-foreground" />
 				</div>
 				<h3 class="font-semibold mb-2">Consistent Environments</h3>
 				<p class="text-sm text-muted-foreground">
@@ -44,8 +29,8 @@
 			</div>
 			
 			<div class="border rounded-lg p-6">
-				<div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-					<Icon icon="lucide:copy" class="w-6 h-6 text-green-600" />
+				<div class="w-12 h-12 bg-muted rounded-lg flex items-center justify-center mb-4">
+					<Icon icon="lucide:copy" class="w-6 h-6 text-foreground" />
 				</div>
 				<h3 class="font-semibold mb-2">Copy-First Benefits</h3>
 				<p class="text-sm text-muted-foreground">
@@ -79,7 +64,7 @@
 					For containerizing a single application from your monorepo:
 				</p>
 				
-				<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
+				<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg relative group">
 					<button
 						class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
 						on:click={() => copyToClipboard(`# apps/frontend/Dockerfile
@@ -108,7 +93,7 @@ EXPOSE 3000
 CMD ["npm", "start"]`)}
 					>
 						{#if showCopied && copyText.includes('Single app')}
-							<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
+							<Icon icon="lucide:check-circle" class="w-4 h-4 text-zinc-100" />
 						{:else}
 							<Icon icon="lucide:copy" class="w-4 h-4" />
 						{/if}
@@ -146,7 +131,7 @@ CMD ["npm", "start"]</code></pre>
 					Optimized Dockerfile with multi-stage builds for smaller production images:
 				</p>
 				
-				<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
+				<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg relative group">
 					<button
 						class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
 						on:click={() => copyToClipboard(`# Multi-stage Dockerfile
@@ -187,7 +172,7 @@ EXPOSE 3000
 CMD ["npm", "start"]`)}
 					>
 						{#if showCopied && copyText.includes('Multi-stage')}
-							<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
+							<Icon icon="lucide:check-circle" class="w-4 h-4 text-zinc-100" />
 						{:else}
 							<Icon icon="lucide:copy" class="w-4 h-4" />
 						{/if}
@@ -241,7 +226,7 @@ CMD ["npm", "start"]</code></pre>
 			Use Docker Compose to orchestrate multiple applications and services from your monorepo:
 		</p>
 		
-		<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
+		<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg relative group">
 			<button
 				class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
 				on:click={() => copyToClipboard(`# docker-compose.yml
@@ -287,7 +272,7 @@ volumes:
   postgres_data:`)}
 			>
 				{#if showCopied && copyText.includes('docker-compose')}
-					<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
+					<Icon icon="lucide:check-circle" class="w-4 h-4 text-zinc-100" />
 				{:else}
 					<Icon icon="lucide:copy" class="w-4 h-4" />
 				{/if}
@@ -343,20 +328,20 @@ volumes:
 		<div class="space-y-6">
 			<div class="border rounded-lg p-6">
 				<h3 class="font-semibold mb-3 flex items-center">
-					<Icon icon="lucide:layers" class="w-5 h-5 mr-2 text-blue-600" />
+					<Icon icon="lucide:layers" class="w-5 h-5 mr-2 text-foreground" />
 					Layer Optimization
 				</h3>
 				<div class="space-y-3 text-sm">
 					<div class="flex items-start space-x-3">
-						<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+						<Icon icon="lucide:check-circle" class="w-4 h-4 text-foreground mt-0.5 flex-shrink-0" />
 						<span>Copy package.json files first to leverage Docker layer caching</span>
 					</div>
 					<div class="flex items-start space-x-3">
-						<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+						<Icon icon="lucide:check-circle" class="w-4 h-4 text-foreground mt-0.5 flex-shrink-0" />
 						<span>Run <code>npm install</code> before copying source code</span>
 					</div>
 					<div class="flex items-start space-x-3">
-						<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+						<Icon icon="lucide:check-circle" class="w-4 h-4 text-foreground mt-0.5 flex-shrink-0" />
 						<span>Use <code>.dockerignore</code> to exclude unnecessary files</span>
 					</div>
 				</div>
@@ -364,20 +349,20 @@ volumes:
 			
 			<div class="border rounded-lg p-6">
 				<h3 class="font-semibold mb-3 flex items-center">
-					<Icon icon="lucide:link" class="w-5 h-5 mr-2 text-purple-600" />
+					<Icon icon="lucide:link" class="w-5 h-5 mr-2 text-foreground" />
 					Package Linking
 				</h3>
 				<div class="space-y-3 text-sm">
 					<div class="flex items-start space-x-3">
-						<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+						<Icon icon="lucide:check-circle" class="w-4 h-4 text-foreground mt-0.5 flex-shrink-0" />
 						<span>Always use <code>spore link</code> (copy mode) in Docker builds</span>
 					</div>
 					<div class="flex items-start space-x-3">
-						<Icon icon="lucide:x-circle" class="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" />
+						<Icon icon="lucide:x-circle" class="w-4 h-4 text-foreground mt-0.5 flex-shrink-0" />
 						<span>Never use <code>spore link --symlink</code> in Docker containers</span>
 					</div>
 					<div class="flex items-start space-x-3">
-						<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+						<Icon icon="lucide:check-circle" class="w-4 h-4 text-foreground mt-0.5 flex-shrink-0" />
 						<span>Run linking after copying all packages and app source</span>
 					</div>
 				</div>
@@ -385,20 +370,20 @@ volumes:
 			
 			<div class="border rounded-lg p-6">
 				<h3 class="font-semibold mb-3 flex items-center">
-					<Icon icon="lucide:shield-check-bold" class="w-5 h-5 mr-2 text-green-600" />
+					<Icon icon="lucide:shield-check-bold" class="w-5 h-5 mr-2 text-foreground" />
 					Security
 				</h3>
 				<div class="space-y-3 text-sm">
 					<div class="flex items-start space-x-3">
-						<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+						<Icon icon="lucide:check-circle" class="w-4 h-4 text-foreground mt-0.5 flex-shrink-0" />
 						<span>Use non-root user in production containers</span>
 					</div>
 					<div class="flex items-start space-x-3">
-						<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+						<Icon icon="lucide:check-circle" class="w-4 h-4 text-foreground mt-0.5 flex-shrink-0" />
 						<span>Remove development dependencies in production stage</span>
 					</div>
 					<div class="flex items-start space-x-3">
-						<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+						<Icon icon="lucide:check-circle" class="w-4 h-4 text-foreground mt-0.5 flex-shrink-0" />
 						<span>Use specific base image tags instead of 'latest'</span>
 					</div>
 				</div>
@@ -414,7 +399,7 @@ volumes:
 			Create a <code>.dockerignore</code> file in your project root to exclude unnecessary files:
 		</p>
 		
-		<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
+		<div class="bg-zinc-950 text-zinc-200 border border-white/10 font-mono text-sm p-4 rounded-lg relative group">
 			<button
 				class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
 				on:click={() => copyToClipboard(`# .dockerignore
@@ -444,7 +429,7 @@ coverage
 */out`)}
 			>
 				{#if showCopied && copyText.includes('dockerignore')}
-					<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
+					<Icon icon="lucide:check-circle" class="w-4 h-4 text-zinc-100" />
 				{:else}
 					<Icon icon="lucide:copy" class="w-4 h-4" />
 				{/if}
@@ -517,14 +502,14 @@ coverage
 		<h2 class="text-2xl font-bold mb-6">Troubleshooting</h2>
 		
 		<div class="space-y-6">
-			<div class="border border-red-200 rounded-lg p-6">
-				<h3 class="font-semibold text-red-900 mb-3">Package linking fails in container</h3>
-				<p class="text-sm text-red-700 mb-3">
+			<div class="border border-border rounded-lg p-6">
+				<h3 class="font-semibold text-foreground mb-3">Package linking fails in container</h3>
+				<p class="text-sm text-foreground mb-3">
 					<strong>Problem:</strong> Spore can't find packages or linking fails during Docker build.
 				</p>
 				<div class="text-sm space-y-2">
 					<p><strong>Solution:</strong></p>
-					<ul class="list-disc list-inside space-y-1 text-red-700">
+					<ul class="list-disc list-inside space-y-1 text-foreground">
 						<li>Ensure you copy the project root <code>spore.yml</code> file</li>
 						<li>Copy all local packages before running <code>spore link</code></li>
 						<li>Use copy mode: <code>spore link</code> (not <code>--symlink</code>)</li>
@@ -557,7 +542,7 @@ coverage
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 			<a href="/docs/production" class="block border rounded-lg p-6 hover:bg-accent transition-colors">
 				<div class="flex items-center space-x-3 mb-3">
-					<Icon icon="lucide:rocket-bold" class="w-6 h-6 text-green-600" />
+					<Icon icon="lucide:rocket-bold" class="w-6 h-6 text-foreground" />
 					<h3 class="font-semibold">Production Deployment</h3>
 				</div>
 				<p class="text-sm text-muted-foreground">
@@ -567,7 +552,7 @@ coverage
 
 			<a href="/docs/troubleshooting" class="block border rounded-lg p-6 hover:bg-accent transition-colors">
 				<div class="flex items-center space-x-3 mb-3">
-					<Icon icon="lucide:help-bold" class="w-6 h-6 text-purple-600" />
+					<Icon icon="lucide:help-bold" class="w-6 h-6 text-foreground" />
 					<h3 class="font-semibold">Troubleshooting</h3>
 				</div>
 				<p class="text-sm text-muted-foreground">

@@ -7,10 +7,10 @@
 	<meta name="description" content="Spore is a modern package manager designed for TypeScript and JavaScript monorepos. Learn about smart package linking, TypeScript integration, and team collaboration." />
 	<meta property="og:title" content="Introduction to Spore - Modern Monorepo Package Manager" />
 	<meta property="og:description" content="Spore is a modern package manager designed for TypeScript and JavaScript monorepos. Learn about smart package linking, TypeScript integration, and team collaboration." />
-	<meta property="og:url" content="https://spore.klysium.com/docs" />
+	<meta property="og:url" content="https://spore.facile.studio/docs" />
 	<meta name="twitter:title" content="Introduction to Spore - Modern Monorepo Package Manager" />
 	<meta name="twitter:description" content="Spore is a modern package manager designed for TypeScript and JavaScript monorepos. Learn about smart package linking, TypeScript integration, and team collaboration." />
-	<link rel="canonical" href="https://spore.klysium.com/docs" />
+	<link rel="canonical" href="https://spore.facile.studio/docs" />
 </svelte:head>
 
 <div class="max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
@@ -42,8 +42,8 @@
 
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
 			<div class="bg-card rounded-2xl p-8 shadow-sm border border-border hover:shadow-md transition-all duration-300 h-full">
-				<div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
-					<Icon icon="lucide:zap" class="w-7 h-7 text-blue-600" />
+				<div class="w-14 h-14 bg-muted rounded-2xl flex items-center justify-center mb-6">
+					<Icon icon="lucide:zap" class="w-7 h-7 text-foreground" />
 				</div>
 				<h3 class="text-xl font-bold mb-3 text-foreground">Fast & Efficient</h3>
 				<p class="text-muted-foreground leading-relaxed">
@@ -51,8 +51,8 @@
 				</p>
 			</div>
 			<div class="bg-card rounded-2xl p-8 shadow-sm border border-border hover:shadow-md transition-all duration-300 h-full">
-				<div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
-					<Icon icon="lucide:link" class="w-7 h-7 text-green-600" />
+				<div class="w-14 h-14 bg-muted rounded-2xl flex items-center justify-center mb-6">
+					<Icon icon="lucide:link" class="w-7 h-7 text-foreground" />
 				</div>
 				<h3 class="text-xl font-bold mb-3 text-foreground">Smart Linking</h3>
 				<p class="text-muted-foreground leading-relaxed">
@@ -60,8 +60,8 @@
 				</p>
 			</div>
 			<div class="bg-card rounded-2xl p-8 shadow-sm border border-border hover:shadow-md transition-all duration-300 h-full">
-				<div class="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center mb-6">
-					<Icon icon="lucide:code" class="w-7 h-7 text-purple-600" />
+				<div class="w-14 h-14 bg-muted rounded-2xl flex items-center justify-center mb-6">
+					<Icon icon="lucide:code" class="w-7 h-7 text-foreground" />
 				</div>
 				<h3 class="text-xl font-bold mb-3 text-foreground">TypeScript Native</h3>
 				<p class="text-muted-foreground leading-relaxed">
@@ -81,18 +81,18 @@
 			<div class="group">
 				<div class="bg-card rounded-3xl p-8 shadow-sm border border-border hover:shadow-md transition-all duration-300">
 					<div class="flex items-center mb-6">
-						<div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4">
-							<Icon icon="lucide:folder" class="w-6 h-6 text-blue-600" />
+						<div class="w-12 h-12 bg-muted rounded-xl flex items-center justify-center mr-4">
+							<Icon icon="lucide:folder" class="w-6 h-6 text-foreground" />
 						</div>
 						<h3 class="text-xl font-bold text-foreground">Project Structure</h3>
 					</div>
 					<div class="relative">
 						<pre class="text-sm font-mono bg-slate-900 text-white p-6 rounded-2xl overflow-x-auto"><code>MyProject/
-├── <span class="text-blue-400">spore.yml</span>          # Project configuration
-├── <span class="text-yellow-400">packages/</span>        # Reusable packages
+├── <span class="text-zinc-400">spore.yml</span>          # Project configuration
+├── <span class="text-zinc-100">packages/</span>        # Reusable packages
 │   ├── types/
 │   └── utils/
-└── <span class="text-green-400">apps/</span>             # Applications
+└── <span class="text-zinc-100">apps/</span>             # Applications
     └── frontend/</code></pre>
 					</div>
 				</div>
@@ -101,13 +101,13 @@
 			<div class="group">
 				<div class="bg-card rounded-3xl p-8 shadow-sm border border-border hover:shadow-md transition-all duration-300">
 					<div class="flex items-center mb-6">
-						<div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mr-4">
-							<Icon icon="lucide:terminal" class="w-6 h-6 text-green-600" />
+						<div class="w-12 h-12 bg-muted rounded-xl flex items-center justify-center mr-4">
+							<Icon icon="lucide:terminal" class="w-6 h-6 text-foreground" />
 						</div>
 						<h3 class="text-xl font-bold text-foreground">Common Workflow</h3>
 					</div>
 					<div class="relative">
-						<div class="bg-slate-900 text-green-400 font-mono text-sm p-6 rounded-2xl overflow-x-auto">
+						<div class="bg-slate-900 text-zinc-100 font-mono text-sm p-6 rounded-2xl overflow-x-auto">
 							<pre><code># Initialize a new project
 spore init MyProject
 
@@ -139,33 +139,33 @@ spore publish</code></pre>
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
 			<div class="bg-card rounded-3xl p-8 shadow-sm border border-border hover:shadow-md transition-all duration-300 group">
 				<div class="flex items-center mb-6">
-					<div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mr-4">
-						<Icon icon="lucide:layers" class="w-6 h-6 text-orange-600" />
+					<div class="w-12 h-12 bg-muted rounded-xl flex items-center justify-center mr-4">
+						<Icon icon="lucide:layers" class="w-6 h-6 text-foreground" />
 					</div>
 					<h3 class="text-xl font-bold text-foreground">Package Management</h3>
 				</div>
 				<div class="space-y-4">
 					<div class="flex items-start group/item">
-						<div class="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5">
-							<Icon icon="lucide:check-circle" class="w-3.5 h-3.5 text-green-600" />
+						<div class="w-6 h-6 bg-muted rounded-lg flex items-center justify-center mr-3 mt-0.5">
+							<Icon icon="lucide:check-circle" class="w-3.5 h-3.5 text-foreground" />
 						</div>
 						<p class="text-muted-foreground leading-relaxed">Local package linking with copy or symlink modes</p>
 					</div>
 					<div class="flex items-start group/item">
-						<div class="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5">
-							<Icon icon="lucide:check-circle" class="w-3.5 h-3.5 text-green-600" />
+						<div class="w-6 h-6 bg-muted rounded-lg flex items-center justify-center mr-3 mt-0.5">
+							<Icon icon="lucide:check-circle" class="w-3.5 h-3.5 text-foreground" />
 						</div>
 						<p class="text-muted-foreground leading-relaxed">Remote package registry with team collaboration</p>
 					</div>
 					<div class="flex items-start group/item">
-						<div class="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5">
-							<Icon icon="lucide:check-circle" class="w-3.5 h-3.5 text-green-600" />
+						<div class="w-6 h-6 bg-muted rounded-lg flex items-center justify-center mr-3 mt-0.5">
+							<Icon icon="lucide:check-circle" class="w-3.5 h-3.5 text-foreground" />
 						</div>
 						<p class="text-muted-foreground leading-relaxed">Automatic dependency resolution and updates</p>
 					</div>
 					<div class="flex items-start group/item">
-						<div class="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5">
-							<Icon icon="lucide:check-circle" class="w-3.5 h-3.5 text-green-600" />
+						<div class="w-6 h-6 bg-muted rounded-lg flex items-center justify-center mr-3 mt-0.5">
+							<Icon icon="lucide:check-circle" class="w-3.5 h-3.5 text-foreground" />
 						</div>
 						<p class="text-muted-foreground leading-relaxed">Version management and publishing workflows</p>
 					</div>
@@ -174,33 +174,33 @@ spore publish</code></pre>
 
 			<div class="bg-card rounded-3xl p-8 shadow-sm border border-border hover:shadow-md transition-all duration-300 group">
 				<div class="flex items-center mb-6">
-					<div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mr-4">
-						<Icon icon="lucide:code-2" class="w-6 h-6 text-purple-600" />
+					<div class="w-12 h-12 bg-muted rounded-xl flex items-center justify-center mr-4">
+						<Icon icon="lucide:code-2" class="w-6 h-6 text-foreground" />
 					</div>
 					<h3 class="text-xl font-bold text-foreground">Developer Experience</h3>
 				</div>
 				<div class="space-y-4">
 					<div class="flex items-start group/item">
-						<div class="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5">
-							<Icon icon="lucide:check-circle" class="w-3.5 h-3.5 text-green-600" />
+						<div class="w-6 h-6 bg-muted rounded-lg flex items-center justify-center mr-3 mt-0.5">
+							<Icon icon="lucide:check-circle" class="w-3.5 h-3.5 text-foreground" />
 						</div>
 						<p class="text-muted-foreground leading-relaxed">Automatic TypeScript configuration and path mapping</p>
 					</div>
 					<div class="flex items-start group/item">
-						<div class="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5">
-							<Icon icon="lucide:check-circle" class="w-3.5 h-3.5 text-green-600" />
+						<div class="w-6 h-6 bg-muted rounded-lg flex items-center justify-center mr-3 mt-0.5">
+							<Icon icon="lucide:check-circle" class="w-3.5 h-3.5 text-foreground" />
 						</div>
 						<p class="text-muted-foreground leading-relaxed">Context-aware script execution with fallbacks</p>
 					</div>
 					<div class="flex items-start group/item">
-						<div class="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5">
-							<Icon icon="lucide:check-circle" class="w-3.5 h-3.5 text-green-600" />
+						<div class="w-6 h-6 bg-muted rounded-lg flex items-center justify-center mr-3 mt-0.5">
+							<Icon icon="lucide:check-circle" class="w-3.5 h-3.5 text-foreground" />
 						</div>
 						<p class="text-muted-foreground leading-relaxed">Parallel build execution and caching</p>
 					</div>
 					<div class="flex items-start group/item">
-						<div class="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5">
-							<Icon icon="lucide:check-circle" class="w-3.5 h-3.5 text-green-600" />
+						<div class="w-6 h-6 bg-muted rounded-lg flex items-center justify-center mr-3 mt-0.5">
+							<Icon icon="lucide:check-circle" class="w-3.5 h-3.5 text-foreground" />
 						</div>
 						<p class="text-muted-foreground leading-relaxed">Docker-friendly package copying for production</p>
 					</div>
@@ -214,8 +214,8 @@ spore publish</code></pre>
 		<div class="bg-card rounded-3xl p-8 lg:p-12 shadow-sm border border-border">
 			<div class="flex items-start space-x-6">
 				<div class="flex-shrink-0">
-					<div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center">
-						<Icon icon="lucide:rocket" class="w-8 h-8 text-blue-600" />
+					<div class="w-16 h-16 bg-muted rounded-2xl flex items-center justify-center">
+						<Icon icon="lucide:rocket" class="w-8 h-8 text-foreground" />
 					</div>
 				</div>
 				<div class="flex-1">

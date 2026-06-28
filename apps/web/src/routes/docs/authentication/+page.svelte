@@ -1,26 +1,18 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
+	import CodeBlock from '$lib/components/CodeBlock.svelte';
 
-	let copyText = '';
-	let showCopied = false;
+	const sporercConfig = `# ~/.sporerc
+SPORE_TOKEN=your-token-here
+SPORE_SPACE_URL=https://spore-space-production.up.railway.app`;
 
-	async function copyToClipboard(text: string) {
-		try {
-			await navigator.clipboard.writeText(text);
-			copyText = text;
-			showCopied = true;
-			setTimeout(() => {
-				showCopied = false;
-			}, 2000);
-		} catch (err) {
-			console.error('Failed to copy text: ', err);
-		}
-	}
+	const selfHostedConfig = `export SPORE_SPACE_URL=https://your-spore-instance.com
+export SPORE_TOKEN=your-auth-token`;
 </script>
 
 <div class="max-w-4xl mx-auto py-8 px-4 sm:px-6">
-	<div class="mb-8">
-		<h1 class="text-3xl font-bold tracking-tight mb-4" style="font-family: 'Goga', 'Satoshi', sans-serif;">
+	<div class="mb-12">
+		<h1 class="text-4xl font-bold tracking-tight mb-4" style="font-family: 'Goga', sans-serif;">
 			Authentication
 		</h1>
 		<p class="text-lg text-muted-foreground">
@@ -30,20 +22,20 @@
 
 	<!-- Overview -->
 	<section class="mb-12">
-		<h2 class="text-2xl font-bold mb-6">How Authentication Works</h2>
+		<h2 class="text-2xl font-bold mb-6" style="font-family: 'Goga', sans-serif;">How Authentication Works</h2>
 		<div class="space-y-6">
 			<p class="text-muted-foreground leading-relaxed">
-				Spore uses JWT (JSON Web Token) based authentication for secure package publishing and management. 
+				Spore uses JWT (JSON Web Token) based authentication for secure package publishing and management.
 				You'll need to authenticate with Spore to publish packages, manage teams, and access private packages.
 			</p>
-			
-			<div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+
+			<div class="bg-muted border border-border rounded-xl p-6">
 				<div class="flex items-start space-x-3">
-					<Icon icon="lucide:shield-check-bold" class="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
+					<Icon icon="lucide:shield-check-bold" class="w-6 h-6 text-foreground mt-1 flex-shrink-0" />
 					<div>
-						<h3 class="font-semibold text-blue-900 mb-2">Secure by Default</h3>
-						<p class="text-sm text-blue-700">
-							Authentication tokens are stored securely and expire automatically. 
+						<h3 class="font-semibold text-foreground mb-2">Secure by Default</h3>
+						<p class="text-sm text-muted-foreground">
+							Authentication tokens are stored securely and expire automatically.
 							You can revoke access at any time from your account settings.
 						</p>
 					</div>
@@ -54,14 +46,14 @@
 
 	<!-- Getting Your Token -->
 	<section class="mb-12">
-		<h2 class="text-2xl font-bold mb-6">Getting Your Authentication Token</h2>
-		
+		<h2 class="text-2xl font-bold mb-6" style="font-family: 'Goga', sans-serif;">Getting Your Authentication Token</h2>
+
 		<div class="space-y-8">
 			<!-- Step 1 -->
 			<div>
 				<div class="flex items-center space-x-3 mb-4">
-					<div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-						<span class="text-green-600 font-bold text-xs">1</span>
+					<div class="w-6 h-6 bg-foreground rounded-full flex items-center justify-center">
+						<span class="text-background font-bold text-xs">1</span>
 					</div>
 					<h3 class="text-lg font-semibold">Create or Sign In to Your Account</h3>
 				</div>
@@ -70,11 +62,11 @@
 						First, you'll need a Spore account. You can create one or sign in if you already have an account.
 					</p>
 					<div class="flex flex-wrap gap-3">
-						<a href="/register" class="inline-flex items-center px-4 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-md hover:bg-primary/90 transition-colors">
+						<a href="/register" class="inline-flex items-center px-4 py-2 bg-foreground text-background text-sm font-medium rounded-md hover:bg-foreground/90 transition-colors">
 							<Icon icon="lucide:user-plus-bold" class="w-4 h-4 mr-2" />
 							Create Account
 						</a>
-						<a href="/login" class="inline-flex items-center px-4 py-2 border border-input text-foreground text-sm font-medium rounded-md hover:bg-accent transition-colors">
+						<a href="/login" class="inline-flex items-center px-4 py-2 border border-border text-foreground text-sm font-medium rounded-md hover:bg-muted transition-colors">
 							<Icon icon="lucide:login-3-bold" class="w-4 h-4 mr-2" />
 							Sign In
 						</a>
@@ -85,8 +77,8 @@
 			<!-- Step 2 -->
 			<div>
 				<div class="flex items-center space-x-3 mb-4">
-					<div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
-						<span class="text-blue-600 font-bold text-xs">2</span>
+					<div class="w-6 h-6 bg-foreground rounded-full flex items-center justify-center">
+						<span class="text-background font-bold text-xs">2</span>
 					</div>
 					<h3 class="text-lg font-semibold">Navigate to Settings</h3>
 				</div>
@@ -94,19 +86,7 @@
 					<p class="text-muted-foreground">
 						Once logged in, go to your account settings to access your authentication token.
 					</p>
-					<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
-						<code>https://spore-space-production.up.railway.app/settings</code>
-						<button 
-							class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
-							on:click={() => copyToClipboard('https://spore-space-production.up.railway.app/settings')}
-						>
-							{#if showCopied && copyText.includes('settings')}
-								<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
-							{:else}
-								<Icon icon="lucide:copy" class="w-4 h-4" />
-							{/if}
-						</button>
-					</div>
+					<CodeBlock label="bash" copy="https://spore-space-production.up.railway.app/settings">https://spore-space-production.up.railway.app/settings</CodeBlock>
 					<p class="text-sm text-muted-foreground">
 						Or click the "Settings" link in your user menu after logging in.
 					</p>
@@ -116,23 +96,23 @@
 			<!-- Step 3 -->
 			<div>
 				<div class="flex items-center space-x-3 mb-4">
-					<div class="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center">
-						<span class="text-purple-600 font-bold text-xs">3</span>
+					<div class="w-6 h-6 bg-foreground rounded-full flex items-center justify-center">
+						<span class="text-background font-bold text-xs">3</span>
 					</div>
 					<h3 class="text-lg font-semibold">Copy Your Authentication Token</h3>
 				</div>
 				<div class="ml-9 space-y-3">
 					<p class="text-muted-foreground">
-						In the settings page, you'll find your personal authentication token. 
+						In the settings page, you'll find your personal authentication token.
 						Click the copy button to copy it to your clipboard.
 					</p>
-					<div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+					<div class="bg-muted border border-border rounded-lg p-4">
 						<div class="flex items-start space-x-2">
-							<Icon icon="lucide:shield-warning-bold" class="w-5 h-5 text-yellow-600 mt-0.5 flex-shrink-0" />
+							<Icon icon="lucide:shield-warning-bold" class="w-5 h-5 text-foreground mt-0.5 flex-shrink-0" />
 							<div>
-								<div class="text-sm font-medium text-yellow-900 mb-1">Keep Your Token Secure</div>
-								<div class="text-sm text-yellow-700">
-									Your authentication token is like a password. Don't share it publicly 
+								<div class="text-sm font-medium text-foreground mb-1">Keep Your Token Secure</div>
+								<div class="text-sm text-muted-foreground">
+									Your authentication token is like a password. Don't share it publicly
 									or commit it to version control. Store it securely in your environment.
 								</div>
 							</div>
@@ -145,8 +125,8 @@
 
 	<!-- Setting Up CLI -->
 	<section class="mb-12">
-		<h2 class="text-2xl font-bold mb-6">Configure Spore CLI</h2>
-		
+		<h2 class="text-2xl font-bold mb-6" style="font-family: 'Goga', sans-serif;">Configure Spore CLI</h2>
+
 		<div class="space-y-6">
 			<div>
 				<h3 class="text-lg font-semibold mb-3">Method 1: Environment Variable (Recommended)</h3>
@@ -154,47 +134,23 @@
 					<p class="text-muted-foreground">
 						Set your token as an environment variable. This keeps it secure and makes it available to the CLI.
 					</p>
-					
+
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 						<!-- macOS/Linux -->
 						<div>
 							<h4 class="font-medium mb-2">macOS / Linux</h4>
-							<div class="bg-black/90 text-green-400 font-mono text-sm p-3 rounded-lg relative group">
-								<code>export SPORE_TOKEN=your-token-here</code>
-								<button 
-									class="absolute top-1 right-1 p-1.5 rounded bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
-									on:click={() => copyToClipboard('export SPORE_TOKEN=your-token-here')}
-								>
-									{#if showCopied && copyText.includes('export')}
-										<Icon icon="lucide:check-circle" class="w-3 h-3 text-green-400" />
-									{:else}
-										<Icon icon="lucide:copy" class="w-3 h-3" />
-									{/if}
-								</button>
-							</div>
+							<CodeBlock label="bash" copy="export SPORE_TOKEN=your-token-here">export SPORE_TOKEN=your-token-here</CodeBlock>
 							<div class="text-xs text-muted-foreground mt-1">
-								Add to <code>~/.bashrc</code> or <code>~/.zshrc</code> for persistence
+								Add to <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">~/.bashrc</code> or <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">~/.zshrc</code> for persistence
 							</div>
 						</div>
 
 						<!-- Windows -->
 						<div>
 							<h4 class="font-medium mb-2">Windows</h4>
-							<div class="bg-blue-900 text-blue-100 font-mono text-sm p-3 rounded-lg relative group">
-								<code>set SPORE_TOKEN=your-token-here</code>
-								<button 
-									class="absolute top-1 right-1 p-1.5 rounded bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
-									on:click={() => copyToClipboard('set SPORE_TOKEN=your-token-here')}
-								>
-									{#if showCopied && copyText.includes('set SPORE_TOKEN')}
-										<Icon icon="lucide:check-circle" class="w-3 h-3 text-green-400" />
-									{:else}
-										<Icon icon="lucide:copy" class="w-3 h-3" />
-									{/if}
-								</button>
-							</div>
+							<CodeBlock label="cmd" copy="set SPORE_TOKEN=your-token-here">set SPORE_TOKEN=your-token-here</CodeBlock>
 							<div class="text-xs text-muted-foreground mt-1">
-								Or use <code>setx</code> for system-wide persistence
+								Or use <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">setx</code> for system-wide persistence
 							</div>
 						</div>
 					</div>
@@ -207,13 +163,11 @@
 					<p class="text-muted-foreground">
 						Alternatively, you can store your token in a configuration file.
 					</p>
-					<div class="bg-black/90 text-white font-mono text-sm p-4 rounded-lg">
-						<code><span class="text-gray-400"># ~/.sporerc</span>
-<span class="text-blue-400">SPORE_TOKEN</span>=<span class="text-green-400">your-token-here</span>
-<span class="text-blue-400">SPORE_SPACE_URL</span>=<span class="text-green-400">https://spore-space-production.up.railway.app</span></code>
-					</div>
+					<CodeBlock label="~/.sporerc" copy={sporercConfig}><span class="text-zinc-600"># ~/.sporerc</span>
+<span class="text-zinc-400">SPORE_TOKEN</span>=<span class="text-zinc-100">your-token-here</span>
+<span class="text-zinc-400">SPORE_SPACE_URL</span>=<span class="text-zinc-100">https://spore-space-production.up.railway.app</span></CodeBlock>
 					<div class="text-sm text-muted-foreground">
-						The CLI will automatically read from <code>~/.sporerc</code> if it exists.
+						The CLI will automatically read from <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">~/.sporerc</code> if it exists.
 					</div>
 				</div>
 			</div>
@@ -222,30 +176,18 @@
 
 	<!-- Verification -->
 	<section class="mb-12">
-		<h2 class="text-2xl font-bold mb-6">Verify Authentication</h2>
-		
+		<h2 class="text-2xl font-bold mb-6" style="font-family: 'Goga', sans-serif;">Verify Authentication</h2>
+
 		<div class="space-y-6">
 			<div>
 				<h3 class="text-lg font-semibold mb-3">Test your authentication</h3>
-				<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
-					<code>spore auth</code>
-					<button 
-						class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
-						on:click={() => copyToClipboard('spore auth')}
-					>
-						{#if showCopied && copyText === 'spore auth'}
-							<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
-						{:else}
-							<Icon icon="lucide:copy" class="w-4 h-4" />
-						{/if}
-					</button>
-				</div>
+				<CodeBlock label="bash" copy="spore auth">spore auth</CodeBlock>
 				<div class="mt-2 space-y-2">
 					<div class="text-sm text-muted-foreground">
 						<strong>Success:</strong> You should see your username and authentication status.
 					</div>
-					<div class="bg-green-50 border border-green-200 rounded p-3 text-sm">
-						<code class="text-green-800">✓ Authenticated as username</code>
+					<div class="bg-muted border border-border rounded p-3 text-sm">
+						<code class="text-foreground">✓ Authenticated as username</code>
 					</div>
 				</div>
 			</div>
@@ -253,9 +195,9 @@
 			<div>
 				<h3 class="text-lg font-semibold mb-3">Common issues</h3>
 				<div class="space-y-4">
-					<div class="border rounded-lg p-4">
+					<div class="border border-border rounded-lg p-4">
 						<h4 class="font-medium mb-2 flex items-center">
-							<Icon icon="lucide:danger-triangle-bold" class="w-4 h-4 mr-2 text-red-600" />
+							<Icon icon="lucide:danger-triangle-bold" class="w-4 h-4 mr-2 text-foreground" />
 							"Authentication failed"
 						</h4>
 						<ul class="text-sm text-muted-foreground space-y-1 ml-6">
@@ -265,9 +207,9 @@
 						</ul>
 					</div>
 
-					<div class="border rounded-lg p-4">
+					<div class="border border-border rounded-lg p-4">
 						<h4 class="font-medium mb-2 flex items-center">
-							<Icon icon="lucide:wifi-router-bold" class="w-4 h-4 mr-2 text-orange-600" />
+							<Icon icon="lucide:wifi-router-bold" class="w-4 h-4 mr-2 text-foreground" />
 							"Connection failed"
 						</h4>
 						<ul class="text-sm text-muted-foreground space-y-1 ml-6">
@@ -283,47 +225,23 @@
 
 	<!-- Self-Hosted -->
 	<section class="mb-12">
-		<h2 class="text-2xl font-bold mb-6">Self-Hosted Instances</h2>
-		
+		<h2 class="text-2xl font-bold mb-6" style="font-family: 'Goga', sans-serif;">Self-Hosted Instances</h2>
+
 		<div class="space-y-6">
 			<p class="text-muted-foreground">
-				If you're using a self-hosted Spore instance, you'll need to configure the CLI 
+				If you're using a self-hosted Spore instance, you'll need to configure the CLI
 				to point to your instance URL.
 			</p>
 
 			<div>
 				<h3 class="text-lg font-semibold mb-3">Configure custom URL</h3>
-				<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
-					<code>export SPORE_SPACE_URL=https://your-spore-instance.com
-export SPORE_TOKEN=your-auth-token</code>
-					<button 
-						class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
-						on:click={() => copyToClipboard('export SPORE_SPACE_URL=https://your-spore-instance.com\nexport SPORE_TOKEN=your-auth-token')}
-					>
-						{#if showCopied && copyText.includes('your-spore-instance')}
-							<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
-						{:else}
-							<Icon icon="lucide:copy" class="w-4 h-4" />
-						{/if}
-					</button>
-				</div>
+				<CodeBlock label="bash" copy={selfHostedConfig}>export SPORE_SPACE_URL=https://your-spore-instance.com
+export SPORE_TOKEN=your-auth-token</CodeBlock>
 			</div>
 
 			<div>
 				<h3 class="text-lg font-semibold mb-3">Verify connection</h3>
-				<div class="bg-black/90 text-green-400 font-mono text-sm p-4 rounded-lg relative group">
-					<code>spore auth</code>
-					<button 
-						class="absolute top-2 right-2 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors opacity-0 group-hover:opacity-100"
-						on:click={() => copyToClipboard('spore auth')}
-					>
-						{#if showCopied && copyText === 'spore auth'}
-							<Icon icon="lucide:check-circle" class="w-4 h-4 text-green-400" />
-						{:else}
-							<Icon icon="lucide:copy" class="w-4 h-4" />
-						{/if}
-					</button>
-				</div>
+				<CodeBlock label="bash" copy="spore auth">spore auth</CodeBlock>
 				<div class="mt-2 text-sm text-muted-foreground">
 					This should connect to your self-hosted instance and verify authentication.
 				</div>
@@ -333,12 +251,12 @@ export SPORE_TOKEN=your-auth-token</code>
 
 	<!-- Security -->
 	<section class="mb-12">
-		<h2 class="text-2xl font-bold mb-6">Security Best Practices</h2>
-		
+		<h2 class="text-2xl font-bold mb-6" style="font-family: 'Goga', sans-serif;">Security Best Practices</h2>
+
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-			<div class="border rounded-lg p-6">
+			<div class="border border-border rounded-xl p-6">
 				<div class="flex items-center space-x-3 mb-3">
-					<Icon icon="lucide:eye-closed-bold" class="w-6 h-6 text-purple-600" />
+					<Icon icon="lucide:eye-closed-bold" class="w-6 h-6 text-foreground" />
 					<h3 class="font-semibold">Keep Tokens Private</h3>
 				</div>
 				<ul class="text-sm text-muted-foreground space-y-1">
@@ -349,9 +267,9 @@ export SPORE_TOKEN=your-auth-token</code>
 				</ul>
 			</div>
 
-			<div class="border rounded-lg p-6">
+			<div class="border border-border rounded-xl p-6">
 				<div class="flex items-center space-x-3 mb-3">
-					<Icon icon="lucide:shield-network-bold" class="w-6 h-6 text-green-600" />
+					<Icon icon="lucide:shield-network-bold" class="w-6 h-6 text-foreground" />
 					<h3 class="font-semibold">Team Access</h3>
 				</div>
 				<ul class="text-sm text-muted-foreground space-y-1">
@@ -362,22 +280,22 @@ export SPORE_TOKEN=your-auth-token</code>
 				</ul>
 			</div>
 
-			<div class="border rounded-lg p-6">
+			<div class="border border-border rounded-xl p-6">
 				<div class="flex items-center space-x-3 mb-3">
-					<Icon icon="lucide:refresh-bold" class="w-6 h-6 text-blue-600" />
+					<Icon icon="lucide:refresh-bold" class="w-6 h-6 text-foreground" />
 					<h3 class="font-semibold">Token Management</h3>
 				</div>
 				<ul class="text-sm text-muted-foreground space-y-1">
 					<li>• Tokens automatically expire for security</li>
 					<li>• Generate new tokens from your settings</li>
 					<li>• Old tokens are invalidated when new ones are created</li>
-					<li>• Check token status with <code>spore auth</code></li>
+					<li>• Check token status with <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">spore auth</code></li>
 				</ul>
 			</div>
 
-			<div class="border rounded-lg p-6">
+			<div class="border border-border rounded-xl p-6">
 				<div class="flex items-center space-x-3 mb-3">
-					<Icon icon="lucide:server-path-bold" class="w-6 h-6 text-red-600" />
+					<Icon icon="lucide:server-path-bold" class="w-6 h-6 text-foreground" />
 					<h3 class="font-semibold">CI/CD Integration</h3>
 				</div>
 				<ul class="text-sm text-muted-foreground space-y-1">
@@ -392,21 +310,21 @@ export SPORE_TOKEN=your-auth-token</code>
 
 	<!-- Next Steps -->
 	<section class="mb-12">
-		<h2 class="text-2xl font-bold mb-6">Next Steps</h2>
-		<div class="bg-green-50 border border-green-200 rounded-lg p-6">
+		<h2 class="text-2xl font-bold mb-6" style="font-family: 'Goga', sans-serif;">Next Steps</h2>
+		<div class="bg-muted border border-border rounded-xl p-6">
 			<div class="flex items-start space-x-3">
-				<Icon icon="lucide:check-circle" class="w-6 h-6 text-green-600 mt-1 flex-shrink-0" />
+				<Icon icon="lucide:check-circle" class="w-6 h-6 text-foreground mt-1 flex-shrink-0" />
 				<div>
-					<h3 class="font-semibold text-green-900 mb-2">Authentication Complete!</h3>
-					<p class="text-sm text-green-700 mb-4">
+					<h3 class="font-semibold text-foreground mb-2">Authentication Complete!</h3>
+					<p class="text-sm text-muted-foreground mb-4">
 						Now that you're authenticated, you can start publishing packages and collaborating with teams.
 					</p>
 					<div class="flex flex-wrap gap-3">
-						<a href="/docs/quick-start" class="inline-flex items-center px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-md hover:bg-green-700 transition-colors">
+						<a href="/docs/quick-start" class="inline-flex items-center px-4 py-2 bg-foreground text-background text-sm font-medium rounded-md hover:bg-foreground/90 transition-colors">
 							<Icon icon="lucide:play" class="w-4 h-4 mr-2" />
 							Quick Start Guide
 						</a>
-						<a href="/docs/publishing" class="inline-flex items-center px-4 py-2 border border-green-600 text-green-600 text-sm font-medium rounded-md hover:bg-green-50 transition-colors">
+						<a href="/docs/publishing" class="inline-flex items-center px-4 py-2 border border-border text-foreground text-sm font-medium rounded-md hover:bg-muted transition-colors">
 							<Icon icon="lucide:upload-bold" class="w-4 h-4 mr-2" />
 							Publishing Packages
 						</a>

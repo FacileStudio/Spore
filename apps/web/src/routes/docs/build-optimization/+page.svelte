@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
+	import CodeBlock from '$lib/components/CodeBlock.svelte';
 </script>
 
 <svelte:head>
@@ -19,70 +20,91 @@
 
 	<div class="prose prose-slate max-w-none">
 		<h2 class="text-2xl font-bold mb-4">Build Performance</h2>
-		
+
 		<div class="bg-muted rounded-lg p-4 mb-6">
 			<h3 class="font-semibold mb-2">Parallel Building</h3>
 			<p class="text-sm text-muted-foreground mb-3">Leverage multiple CPU cores for faster builds</p>
-			<pre class="bg-background rounded p-3 overflow-x-auto"><code class="text-sm">{`# Build with parallel processing
+			<CodeBlock label="bash" copy={`# Build with parallel processing
 spore build --parallel
 
 # Specify number of workers
 spore build --parallel 4
 
 # Build specific packages in parallel
-spore build @org/package-* --parallel`}</code></pre>
+spore build @org/package-* --parallel`}>{`# Build with parallel processing
+spore build --parallel
+
+# Specify number of workers
+spore build --parallel 4
+
+# Build specific packages in parallel
+spore build @org/package-* --parallel`}</CodeBlock>
 		</div>
 
 		<h2 class="text-2xl font-bold mb-4 mt-8">Caching Strategies</h2>
-		
+
 		<div class="space-y-4">
-			<div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
-				<h3 class="font-semibold text-blue-900 mb-2">Build Cache</h3>
-				<p class="text-sm text-blue-700 mb-3">Spore automatically caches build outputs to speed up subsequent builds</p>
-				<pre class="bg-card rounded p-3"><code class="text-sm">{`# View cache status
+			<div class="bg-muted border border-border rounded-lg p-4">
+				<h3 class="font-semibold text-foreground mb-2">Build Cache</h3>
+				<p class="text-sm text-muted-foreground mb-3">Spore automatically caches build outputs to speed up subsequent builds</p>
+				<CodeBlock label="bash" copy={`# View cache status
 spore cache status
 
 # Clear cache
 spore cache clean
 
 # Build with cache disabled
-spore build --no-cache`}</code></pre>
+spore build --no-cache`}>{`# View cache status
+spore cache status
+
+# Clear cache
+spore cache clean
+
+# Build with cache disabled
+spore build --no-cache`}</CodeBlock>
 			</div>
 
-			<div class="bg-green-50 border border-green-200 rounded-lg p-4">
-				<h3 class="font-semibold text-green-900 mb-2">Dependency Cache</h3>
-				<p class="text-sm text-green-700 mb-3">Cache dependencies for faster installs</p>
-				<pre class="bg-card rounded p-3"><code class="text-sm">{`# Cache location
+			<div class="bg-muted border border-border rounded-lg p-4">
+				<h3 class="font-semibold text-foreground mb-2">Dependency Cache</h3>
+				<p class="text-sm text-muted-foreground mb-3">Cache dependencies for faster installs</p>
+				<CodeBlock label="bash" copy={`# Cache location
 ~/.spore/cache/
 
 # Prune unused cached packages
 spore cache prune
 
 # Verify cache integrity
-spore cache verify`}</code></pre>
+spore cache verify`}>{`# Cache location
+~/.spore/cache/
+
+# Prune unused cached packages
+spore cache prune
+
+# Verify cache integrity
+spore cache verify`}</CodeBlock>
 			</div>
 		</div>
 
 		<h2 class="text-2xl font-bold mb-4 mt-8">Bundle Optimization</h2>
-		
+
 		<div class="space-y-4">
 			<div class="bg-muted rounded-lg p-4">
 				<h3 class="font-semibold mb-2">Tree Shaking</h3>
 				<p class="text-sm text-muted-foreground mb-3">Remove unused code from bundles</p>
-				<pre class="bg-background rounded p-3 overflow-x-auto"><code class="text-sm">{`// spore.config.js
+				<CodeBlock label="spore.config.js">{`// spore.config.js
 export default {
   build: {
     treeShake: true,
     sideEffects: false,
     pure: ['console.log', 'console.debug']
   }
-}`}</code></pre>
+}`}</CodeBlock>
 			</div>
 
 			<div class="bg-muted rounded-lg p-4">
 				<h3 class="font-semibold mb-2">Code Splitting</h3>
 				<p class="text-sm text-muted-foreground mb-3">Split code into smaller chunks</p>
-				<pre class="bg-background rounded p-3 overflow-x-auto"><code class="text-sm">{`// Dynamic imports for code splitting
+				<CodeBlock label="javascript">{`// Dynamic imports for code splitting
 const MyComponent = () => import('./MyComponent');
 
 // spore.config.js
@@ -91,88 +113,113 @@ export default {
     splitting: true,
     chunkSizeLimit: 500 // KB
   }
-}`}</code></pre>
+}`}</CodeBlock>
 			</div>
 
 			<div class="bg-muted rounded-lg p-4">
 				<h3 class="font-semibold mb-2">Minification</h3>
 				<p class="text-sm text-muted-foreground mb-3">Reduce bundle size with minification</p>
-				<pre class="bg-background rounded p-3 overflow-x-auto"><code class="text-sm">{`# Build with minification
+				<CodeBlock label="bash" copy={`# Build with minification
 spore build --minify
 
 # Advanced minification options
-spore build --minify --mangle --compress`}</code></pre>
+spore build --minify --mangle --compress`}>{`# Build with minification
+spore build --minify
+
+# Advanced minification options
+spore build --minify --mangle --compress`}</CodeBlock>
 			</div>
 		</div>
 
 		<h2 class="text-2xl font-bold mb-4 mt-8">Incremental Builds</h2>
-		
-		<div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
-			<h3 class="font-semibold text-yellow-900 mb-2">Smart Rebuilds</h3>
-			<p class="text-sm text-yellow-700 mb-3">Only rebuild what has changed</p>
-			<pre class="bg-yellow-100 rounded p-3 overflow-x-auto"><code class="text-sm">{`# Enable incremental builds
+
+		<div class="bg-muted border border-border rounded-lg p-4 mb-6">
+			<h3 class="font-semibold text-foreground mb-2">Smart Rebuilds</h3>
+			<p class="text-sm text-muted-foreground mb-3">Only rebuild what has changed</p>
+			<CodeBlock label="bash" copy={`# Enable incremental builds
 spore build --incremental
 
 # Watch mode with incremental builds
 spore dev --incremental
 
 # Force full rebuild
-spore build --force`}</code></pre>
+spore build --force`}>{`# Enable incremental builds
+spore build --incremental
+
+# Watch mode with incremental builds
+spore dev --incremental
+
+# Force full rebuild
+spore build --force`}</CodeBlock>
 		</div>
 
 		<h2 class="text-2xl font-bold mb-4 mt-8">Build Analysis</h2>
-		
+
 		<div class="space-y-4">
 			<div class="bg-muted rounded-lg p-4">
 				<h3 class="font-semibold mb-2">Bundle Analysis</h3>
 				<p class="text-sm text-muted-foreground mb-3">Analyze bundle size and composition</p>
-				<pre class="bg-background rounded p-3 overflow-x-auto"><code class="text-sm">{`# Generate bundle analysis
+				<CodeBlock label="bash" copy={`# Generate bundle analysis
 spore build --analyze
 
 # Output detailed stats
 spore build --stats detailed
 
 # Save stats to file
-spore build --stats-json stats.json`}</code></pre>
+spore build --stats-json stats.json`}>{`# Generate bundle analysis
+spore build --analyze
+
+# Output detailed stats
+spore build --stats detailed
+
+# Save stats to file
+spore build --stats-json stats.json`}</CodeBlock>
 			</div>
 
 			<div class="bg-muted rounded-lg p-4">
 				<h3 class="font-semibold mb-2">Performance Metrics</h3>
 				<p class="text-sm text-muted-foreground mb-3">Measure build performance</p>
-				<pre class="bg-background rounded p-3 overflow-x-auto"><code class="text-sm">{`# Show build timings
+				<CodeBlock label="bash" copy={`# Show build timings
 spore build --timings
 
 # Profile build process
 spore build --profile
 
 # Generate performance report
-spore build --perf-report`}</code></pre>
+spore build --perf-report`}>{`# Show build timings
+spore build --timings
+
+# Profile build process
+spore build --profile
+
+# Generate performance report
+spore build --perf-report`}</CodeBlock>
 			</div>
 		</div>
 
 		<h2 class="text-2xl font-bold mb-4 mt-8">Configuration</h2>
-		
+
 		<div class="bg-muted rounded-lg p-4 mb-6">
 			<h3 class="font-semibold mb-2">spore.config.js</h3>
 			<p class="text-sm text-muted-foreground mb-3">Complete build optimization configuration</p>
-			<pre class="bg-background rounded p-3 overflow-x-auto"><code class="text-sm">{`export default {
+			<CodeBlock label="spore.config.js">{`export default {
   build: {
     // Output configuration
     outDir: 'dist',
     sourcemap: true,
     minify: 'terser',
-    
+
     // Optimization
     target: 'es2020',
     treeShake: true,
     splitting: true,
-    
+
     // Performance
     parallel: true,
     workers: 4,
     incremental: true,
     cache: true,
-    
+
     // Advanced
     rollupOptions: {
       output: {
@@ -183,16 +230,16 @@ spore build --perf-report`}</code></pre>
       }
     }
   }
-}`}</code></pre>
+}`}</CodeBlock>
 		</div>
 
 		<h2 class="text-2xl font-bold mb-4 mt-8">CI/CD Optimization</h2>
-		
+
 		<div class="space-y-4">
 			<div class="bg-muted rounded-lg p-4">
 				<h3 class="font-semibold mb-2">GitHub Actions</h3>
 				<p class="text-sm text-muted-foreground mb-3">Optimize builds in CI</p>
-				<pre class="bg-background rounded p-3 overflow-x-auto"><code class="text-sm">{`name: Build
+				<CodeBlock label="yaml">{`name: Build
 on: [push]
 
 jobs:
@@ -200,34 +247,34 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Cache Spore
         uses: actions/cache@v2
         with:
           path: ~/.spore/cache
           key: spore-\${{ runner.os }}-\${{ hashFiles('**/package-lock.json') }}
-          
+
       - name: Install Spore
         run: curl -fsSL https://spore.space/install.sh | bash
-        
+
       - name: Build
-        run: spore build --parallel --cache`}</code></pre>
+        run: spore build --parallel --cache`}</CodeBlock>
 			</div>
 		</div>
 
 		<h2 class="text-2xl font-bold mb-4 mt-8">Best Practices</h2>
-		
+
 		<div class="space-y-3">
 			<div class="flex items-start space-x-3">
-				<Icon icon="lucide:check-circle" class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+				<Icon icon="lucide:check-circle" class="w-5 h-5 text-muted-foreground mt-0.5 flex-shrink-0" />
 				<div>
 					<p class="font-medium">Use production builds for deployment</p>
-					<p class="text-sm text-muted-foreground">Always use <code>spore build --production</code> for production</p>
+					<p class="text-sm text-muted-foreground">Always use <code class="rounded bg-muted px-1.5 py-0.5 font-mono text-sm">spore build --production</code> for production</p>
 				</div>
 			</div>
 
 			<div class="flex items-start space-x-3">
-				<Icon icon="lucide:check-circle" class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+				<Icon icon="lucide:check-circle" class="w-5 h-5 text-muted-foreground mt-0.5 flex-shrink-0" />
 				<div>
 					<p class="font-medium">Enable caching in CI/CD</p>
 					<p class="text-sm text-muted-foreground">Cache dependencies and build outputs</p>
@@ -235,7 +282,7 @@ jobs:
 			</div>
 
 			<div class="flex items-start space-x-3">
-				<Icon icon="lucide:check-circle" class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+				<Icon icon="lucide:check-circle" class="w-5 h-5 text-muted-foreground mt-0.5 flex-shrink-0" />
 				<div>
 					<p class="font-medium">Monitor bundle sizes</p>
 					<p class="text-sm text-muted-foreground">Set up size limits and track changes</p>
@@ -243,7 +290,7 @@ jobs:
 			</div>
 
 			<div class="flex items-start space-x-3">
-				<Icon icon="lucide:check-circle" class="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+				<Icon icon="lucide:check-circle" class="w-5 h-5 text-muted-foreground mt-0.5 flex-shrink-0" />
 				<div>
 					<p class="font-medium">Use incremental builds in development</p>
 					<p class="text-sm text-muted-foreground">Speed up development with smart rebuilds</p>
@@ -252,7 +299,7 @@ jobs:
 		</div>
 
 		<h2 class="text-2xl font-bold mb-4 mt-8">Next Steps</h2>
-		
+
 		<div class="grid gap-4 mt-6">
 			<a href="/docs/configuration" class="group border rounded-lg p-4 hover:bg-muted transition-colors">
 				<div class="flex items-center justify-between">
